@@ -81,7 +81,7 @@
 
 3. Mokito
 
-4. JUnit5
+4. JUnit4
 
 ## DMS Task
 
