@@ -1,4 +1,4 @@
-package com.dsm.dms
+package com.dsm.dms.presentation
 
 import androidx.test.InstrumentationRegistry
 import androidx.test.runner.AndroidJUnit4
