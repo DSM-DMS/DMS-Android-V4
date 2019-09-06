@@ -1,4 +1,4 @@
-# DMS-Android-V4
+# DMS-Android-V4 [![CircleCI](https://circleci.com/gh/DSM-DMS/DMS-Android-V4.svg?style=svg)](https://circleci.com/gh/DSM-DMS/DMS-Android-V4)
 
 ## People
 
