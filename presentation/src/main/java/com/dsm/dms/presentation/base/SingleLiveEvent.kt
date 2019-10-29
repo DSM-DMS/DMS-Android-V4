@@ -18,9 +18,9 @@ package com.dsm.dms.presentation.base
 
 import android.util.Log
 import androidx.annotation.MainThread
+import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
-import androidx.lifecycle.LifecycleOwner
 import java.util.concurrent.atomic.AtomicBoolean
 
 

@@ -1,4 +1,4 @@
-package dsm.android.v3.presentation.di.scope
+package com.dsm.dms.presentation.di.scope
 
 import javax.inject.Scope
 

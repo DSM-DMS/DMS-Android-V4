@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/main_graph"
+        app:startDestination="@id/meal_fragment">
+
+    <fragment
+            android:id="@+id/meal_fragment"
+            android:name="com.dsm.dms.presentation.ui.fragment.meal.MealFragment"
+            android:label="MealFragment"
+            tools:layout="@layout/fragment_meal">
+    </fragment>
+
+    <fragment
+            android:id="@+id/apply_fragment"
+            android:name="com.dsm.dms.presentation.ui.fragment.apply.ApplyFragment"
+            android:label="ApplyFragment"
+            tools:layout="@layout/fragment_apply">
+    </fragment>
+
+    <fragment
+            android:id="@+id/chatting_fragment"
+            android:name="com.dsm.dms.presentation.ui.fragment.chatting.ChattingFragment"
+            android:label="ChattingFragment"
+            tools:layout="@layout/fragment_chatting">
+    </fragment>
+
+    <fragment
+            android:id="@+id/mypage_fragment"
+            android:name="com.dsm.dms.presentation.ui.fragment.mypage.MyPageFragment"
+            android:label="MyPageFragment"
+            tools:layout="@layout/fragment_mypage">
+    </fragment>
+
+</navigation>

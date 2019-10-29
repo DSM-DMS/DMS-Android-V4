@@ -4,7 +4,14 @@
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
 
-    <color name="primary">#1976D2</color>
-    <color name="secondary">#F57C00</color>
-    <color name="error">#E53935</color>
+    <color name="colorWhite">#FFFFFF</color>
+    <color name="colorGray">#dfdfdf</color>
+    <color name="colorBlack">#000000</color>
+    <color name="colorDefault">#808080</color>
+
+    <color name="colorMain">#19c49b</color>
+
+    <color name="colorNightWhite">#FFFFFF</color>
+    <color name="colorNightGray">#F5F5F5</color>
+    <color name="colorNightBlack">#000000</color>
 </resources>

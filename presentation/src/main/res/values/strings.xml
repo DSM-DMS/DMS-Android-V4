@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">DMS</string>
+    <string name="navigation_meal">급식</string>
+    <string name="navigation_apply">신청</string>
+    <string name="navigation_chatting">채팅</string>
+    <string name="navigation_mypage">마이페이지</string>
 </resources>

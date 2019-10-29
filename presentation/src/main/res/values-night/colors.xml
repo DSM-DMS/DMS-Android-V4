@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="primary">#64B5F6</color>
-    <color name="secondary">#FFCC80</color>
-    <color name="error">#Ef9A9A</color>
+    <color name="colorNightWhite">#000000</color>
+    <color name="colorNightGray">#121212</color>
+    <color name="colorNightBlack">#F0F0F0</color>
 </resources>

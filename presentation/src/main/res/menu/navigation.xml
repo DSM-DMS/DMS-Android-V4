@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+            android:id="@+id/meal_fragment"
+            android:icon="@drawable/ic_meal"
+            android:title="@string/navigation_meal"/>
+
+    <item
+            android:id="@+id/apply_fragment"
+            android:icon="@drawable/ic_apply"
+            android:title="@string/navigation_apply"/>
+
+    <item
+            android:id="@+id/chatting_fragment"
+            android:icon="@drawable/ic_chat"
+            android:title="@string/navigation_chatting"/>
+
+
+    <item
+            android:id="@+id/mypage_fragment"
+            android:icon="@drawable/ic_mypage"
+            android:title="@string/navigation_mypage"/>
+
+</menu>

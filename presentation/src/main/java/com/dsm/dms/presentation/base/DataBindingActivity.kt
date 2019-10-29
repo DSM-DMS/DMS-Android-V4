@@ -1,14 +1,23 @@
 package com.dsm.dms.presentation.base
 
 
+import android.app.Activity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.Lifecycle
-import dagger.android.support.DaggerAppCompatActivity
+import dagger.android.AndroidInjection
+import dagger.android.AndroidInjector
+import dagger.android.DispatchingAndroidInjector
+import dagger.android.HasActivityInjector
+import javax.inject.Inject
 
 
-abstract class DataBindingActivity<T : ViewDataBinding> : DaggerAppCompatActivity() {
+abstract class DataBindingActivity<T : ViewDataBinding> : AppCompatActivity(), HasActivityInjector {
+
+    @Inject
+    lateinit var activityInjector: DispatchingAndroidInjector<Activity>
 
     lateinit var binding: T
 
@@ -18,6 +27,7 @@ abstract class DataBindingActivity<T : ViewDataBinding> : DaggerAppCompatActivit
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        AndroidInjection.inject(this)
         binding = DataBindingUtil.setContentView(this, layoutId)
         binding.lifecycleOwner = this
     }
@@ -59,4 +69,6 @@ abstract class DataBindingActivity<T : ViewDataBinding> : DaggerAppCompatActivit
         lifecycleOwner.notifyEvent(event)
     }
 
+    override fun activityInjector(): AndroidInjector<Activity>
+            = activityInjector
 }
