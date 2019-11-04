@@ -1,4 +1,4 @@
-package com.dsm.dms.presentation.ui.fragment.chatting
+package com.dsm.dms.presentation.ui.fragment.main.chatting
 
 import android.os.Bundle
 import android.view.View

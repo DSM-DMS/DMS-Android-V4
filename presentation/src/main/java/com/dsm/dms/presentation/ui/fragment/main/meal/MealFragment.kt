@@ -1,4 +1,4 @@
-package com.dsm.dms.presentation.ui.fragment.meal
+package com.dsm.dms.presentation.ui.fragment.main.meal
 
 import android.os.Bundle
 import android.view.View
@@ -7,7 +7,7 @@ import com.dsm.dms.presentation.R
 import com.dsm.dms.presentation.base.DataBindingFragment
 import com.dsm.dms.presentation.databinding.FragmentMealBinding
 import com.dsm.dms.presentation.viewmodel.main.MealViewModel
-import com.dsm.dms.presentation.viewmodel.main.MealViewModelFactory
+import com.dsm.dms.presentation.viewmodel.main.meal.MealViewModelFactory
 import javax.inject.Inject
 
 class MealFragment: DataBindingFragment<FragmentMealBinding>() {
@@ -23,6 +23,5 @@ class MealFragment: DataBindingFragment<FragmentMealBinding>() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.vm = viewModel
-
     }
 }
