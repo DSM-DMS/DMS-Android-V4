@@ -12,8 +12,8 @@
         tools:layout="@layout/fragment_apply_main">
         <action
             app:popUpTo="@id/applyMainFragment"
-            app:enterAnim="@transition/slide"
-            app:exitAnim="@transition/fade"
+            app:enterAnim="@anim/slide_from_right"
+            app:exitAnim="@anim/fadeout"
             android:id="@+id/action_applyMainFragment_to_applyStayingFragment"
             app:destination="@id/applyStayingFragment" />
     </fragment>
@@ -24,8 +24,8 @@
         tools:layout="@layout/fragment_apply_staying">
         <action
             app:popUpTo="@id/applyStayingFragment"
-            app:enterAnim="@transition/slide"
-            app:exitAnim="@transition/fade"
+            app:enterAnim="@anim/fadein"
+            app:exitAnim="@anim/slide_to_right"
             android:id="@+id/action_applyStayingFragment_to_applyMainFragment"
             app:destination="@id/applyMainFragment" />
     </fragment>
