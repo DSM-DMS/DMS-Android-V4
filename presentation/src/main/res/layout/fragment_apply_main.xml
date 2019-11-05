@@ -26,6 +26,7 @@
             android:layout_height="wrap_content"/>
         
         <androidx.cardview.widget.CardView
+            android:foreground="?android:attr/selectableItemBackground"
             android:onClick="@{() -> vm.stayingClick()}"
             app:cardCornerRadius="14dp"
             app:cardElevation="4dp"
@@ -84,6 +85,7 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
+            android:foreground="?android:attr/selectableItemBackground"
             android:onClick="@{() -> vm.studyingClick()}"
             app:cardCornerRadius="14dp"
             app:cardElevation="4dp"
@@ -143,6 +145,7 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
+            android:foreground="?android:attr/selectableItemBackground"
             android:onClick="@{() -> vm.goingOutClick()}"
             app:cardCornerRadius="14dp"
             app:cardElevation="4dp"
@@ -202,6 +205,7 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
+            android:foreground="?android:attr/selectableItemBackground"
             android:onClick="@{() -> vm.musicClick()}"
             app:cardCornerRadius="14dp"
             app:cardElevation="4dp"
@@ -261,6 +265,7 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
+            android:foreground="?android:attr/selectableItemBackground"
             android:onClick="@{() -> vm.restClick()}"
             app:cardCornerRadius="14dp"
             app:cardElevation="4dp"
