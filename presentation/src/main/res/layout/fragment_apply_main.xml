@@ -15,11 +15,309 @@
             android:id="@+id/apply_main_title_tv"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/apply_main_staying_card"
             android:layout_marginTop="32dp"
+            android:layout_marginBottom="32dp"
             android:layout_marginStart="24dp"
-            android:text=""
+            android:textSize="30sp"
+            android:textColor="@color/colorMain"
+            android:text="@string/apply_main_title_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
+        
+        <androidx.cardview.widget.CardView
+            android:onClick="@{() -> vm.stayingClick()}"
+            app:cardCornerRadius="14dp"
+            app:cardElevation="4dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginBottom="16dp"
+            android:id="@+id/apply_main_staying_card"
+            app:layout_constraintTop_toBottomOf="@id/apply_main_title_tv"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/apply_main_studying_card"
+            android:layout_width="0dp"
+            android:layout_height="0dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginStart="20dp"
+                    android:id="@+id/apply_main_staying_imv"
+                    android:background="@drawable/ic_staying"
+                    android:backgroundTint="@color/colorMain"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    app:layout_constraintVertical_chainStyle="packed"
+                    android:id="@+id/apply_main_staying_title_tv"
+                    android:layout_marginStart="20dp"
+                    app:layout_constraintStart_toEndOf="@id/apply_main_staying_imv"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toTopOf="@id/apply_main_staying_content_tv"
+                    android:text="@string/apply_main_staying_title_tv"
+                    android:textColor="@color/colorNightBlack"
+                    android:textSize="14sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_marginTop="8dp"
+                    android:id="@+id/apply_main_staying_content_tv"
+                    android:layout_marginStart="20dp"
+                    app:layout_constraintStart_toEndOf="@id/apply_main_staying_imv"
+                    app:layout_constraintTop_toBottomOf="@id/apply_main_staying_title_tv"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:text="@string/apply_main_staying_content_tv"
+                    android:textSize="12sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:onClick="@{() -> vm.studyingClick()}"
+            app:cardCornerRadius="14dp"
+            app:cardElevation="4dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginBottom="16dp"
+            android:id="@+id/apply_main_studying_card"
+            app:layout_constraintTop_toBottomOf="@id/apply_main_staying_card"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/apply_main_going_out_card"
+            android:layout_width="0dp"
+            android:layout_height="0dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginStart="20dp"
+                    android:id="@+id/apply_main_studying_imv"
+                    android:background="@drawable/ic_studying"
+                    android:backgroundTint="@color/colorMain"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    app:layout_constraintVertical_chainStyle="packed"
+                    android:id="@+id/apply_main_studying_title_tv"
+                    android:layout_marginStart="20dp"
+                    app:layout_constraintStart_toEndOf="@id/apply_main_studying_imv"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toTopOf="@id/apply_main_studying_content_tv"
+                    android:text="@string/apply_main_studying_title_tv"
+                    android:textColor="@color/colorNightBlack"
+                    android:textSize="14sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_marginTop="8dp"
+                    android:id="@+id/apply_main_studying_content_tv"
+                    android:layout_marginStart="20dp"
+                    app:layout_constraintStart_toEndOf="@id/apply_main_studying_imv"
+                    app:layout_constraintTop_toBottomOf="@id/apply_main_studying_title_tv"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:text="@string/apply_main_studying_content_tv"
+                    android:textSize="12sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:onClick="@{() -> vm.goingOutClick()}"
+            app:cardCornerRadius="14dp"
+            app:cardElevation="4dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginBottom="16dp"
+            android:id="@+id/apply_main_going_out_card"
+            app:layout_constraintTop_toBottomOf="@id/apply_main_studying_card"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/apply_main_music_card"
+            android:layout_width="0dp"
+            android:layout_height="0dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginStart="20dp"
+                    android:id="@+id/apply_main_going_out_imv"
+                    android:background="@drawable/ic_going_out"
+                    android:backgroundTint="@color/colorMain"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    app:layout_constraintVertical_chainStyle="packed"
+                    android:id="@+id/apply_main_going_out_title_tv"
+                    android:layout_marginStart="20dp"
+                    app:layout_constraintStart_toEndOf="@id/apply_main_going_out_imv"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toTopOf="@id/apply_main_going_out_content_tv"
+                    android:text="@string/apply_main_going_out_title_tv"
+                    android:textColor="@color/colorNightBlack"
+                    android:textSize="14sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_marginTop="8dp"
+                    android:id="@+id/apply_main_going_out_content_tv"
+                    android:layout_marginStart="20dp"
+                    app:layout_constraintStart_toEndOf="@id/apply_main_going_out_imv"
+                    app:layout_constraintTop_toBottomOf="@id/apply_main_going_out_title_tv"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:text="@string/apply_main_going_out_content_tv"
+                    android:textSize="12sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:onClick="@{() -> vm.musicClick()}"
+            app:cardCornerRadius="14dp"
+            app:cardElevation="4dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginBottom="16dp"
+            android:id="@+id/apply_main_music_card"
+            app:layout_constraintTop_toBottomOf="@id/apply_main_going_out_card"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/apply_main_rest_card"
+            android:layout_width="0dp"
+            android:layout_height="0dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginStart="20dp"
+                    android:id="@+id/apply_main_music_imv"
+                    android:background="@drawable/ic_going_out"
+                    android:backgroundTint="@color/colorMain"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    app:layout_constraintVertical_chainStyle="packed"
+                    android:id="@+id/apply_main_music_title_tv"
+                    android:layout_marginStart="20dp"
+                    app:layout_constraintStart_toEndOf="@id/apply_main_music_imv"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toTopOf="@id/apply_main_music_content_tv"
+                    android:text="@string/apply_main_music_title_tv"
+                    android:textColor="@color/colorNightBlack"
+                    android:textSize="14sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_marginTop="8dp"
+                    android:id="@+id/apply_main_music_content_tv"
+                    android:layout_marginStart="20dp"
+                    app:layout_constraintStart_toEndOf="@id/apply_main_music_imv"
+                    app:layout_constraintTop_toBottomOf="@id/apply_main_music_title_tv"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:text="@string/apply_main_music_content_tv"
+                    android:textSize="12sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:onClick="@{() -> vm.restClick()}"
+            app:cardCornerRadius="14dp"
+            app:cardElevation="4dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginBottom="16dp"
+            android:id="@+id/apply_main_rest_card"
+            app:layout_constraintTop_toBottomOf="@id/apply_main_music_card"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_width="0dp"
+            android:layout_height="0dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginStart="20dp"
+                    android:id="@+id/apply_main_rest_imv"
+                    android:background="@drawable/ic_rest"
+                    android:backgroundTint="@color/colorMain"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    app:layout_constraintVertical_chainStyle="packed"
+                    android:id="@+id/apply_main_rest_title_tv"
+                    android:layout_marginStart="20dp"
+                    app:layout_constraintStart_toEndOf="@id/apply_main_rest_imv"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toTopOf="@id/apply_main_rest_content_tv"
+                    android:text="@string/apply_main_rest_title_tv"
+                    android:textColor="@color/colorNightBlack"
+                    android:textSize="14sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_marginTop="8dp"
+                    android:id="@+id/apply_main_rest_content_tv"
+                    android:layout_marginStart="20dp"
+                    app:layout_constraintStart_toEndOf="@id/apply_main_rest_imv"
+                    app:layout_constraintTop_toBottomOf="@id/apply_main_rest_title_tv"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:text="@string/apply_main_rest_content_tv"
+                    android:textSize="12sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.cardview.widget.CardView>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
