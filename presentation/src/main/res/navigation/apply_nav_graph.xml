@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/apply_nav_graph"
+    app:startDestination="@id/applyMainFragment">
+
+    <fragment
+        android:id="@+id/applyMainFragment"
+        android:name="com.dsm.dms.presentation.ui.fragment.apply.main.ApplyMainFragment"
+        android:label="ApplyMainFragment"
+        tools:layout="@layout/fragment_apply_main">
+        <action
+            app:popUpTo="@id/applyMainFragment"
+            app:enterAnim="@anim/slide_from_right"
+            app:exitAnim="@anim/fadeout"
+            android:id="@+id/action_applyMainFragment_to_applyStayingFragment"
+            app:destination="@id/applyStayingFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/applyStayingFragment"
+        android:name="com.dsm.dms.presentation.ui.fragment.apply.staying.ApplyStayingFragment"
+        android:label="ApplyStayingFragment"
+        tools:layout="@layout/fragment_apply_staying">
+        <action
+            app:popUpTo="@id/applyStayingFragment"
+            app:enterAnim="@anim/fadein"
+            app:exitAnim="@anim/slide_to_right"
+            android:id="@+id/action_applyStayingFragment_to_applyMainFragment"
+            app:destination="@id/applyMainFragment" />
+    </fragment>
+</navigation>
