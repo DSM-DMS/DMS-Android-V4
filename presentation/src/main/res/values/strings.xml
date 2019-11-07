@@ -4,4 +4,8 @@
     <string name="navigation_apply">신청</string>
     <string name="navigation_chatting">채팅</string>
     <string name="navigation_mypage">마이페이지</string>
+
+    <string name="meal_item_breakfast_tv">아침</string>
+    <string name="meal_item_lunch_tv">점심</string>
+    <string name="meal_item_dinner_tv">저녁</string>
 </resources>

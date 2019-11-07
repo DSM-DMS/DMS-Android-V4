@@ -1,7 +1,7 @@
 package com.dsm.dms.presentation.di.module.main.meal
 
 import com.dsm.dms.presentation.di.scope.MainFragmentScope
-import com.dsm.dms.presentation.viewmodel.main.MealViewModelFactory
+import com.dsm.dms.presentation.viewmodel.main.meal.MealViewModelFactory
 import dagger.Module
 import dagger.Provides
 
