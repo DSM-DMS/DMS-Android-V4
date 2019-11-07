@@ -1,4 +1,4 @@
-package com.dsm.dms.presentation.viewmodel.main
+package com.dsm.dms.presentation.viewmodel.main.meal
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider

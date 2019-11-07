@@ -25,4 +25,7 @@
     <string name="apply_staying_saturday_back_content_tv">금요귀가 후 토요일 취침 점호 전까지 귀사합니다</string>
     <string name="apply_staying_staying_title_tv">잔류</string>
     <string name="apply_staying_staying_content_tv">기숙사에 잔류합니다</string>
+    <string name="meal_item_breakfast_tv">아침</string>
+    <string name="meal_item_lunch_tv">점심</string>
+    <string name="meal_item_dinner_tv">저녁</string>
 </resources>
