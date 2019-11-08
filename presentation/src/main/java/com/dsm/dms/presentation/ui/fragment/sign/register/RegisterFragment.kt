@@ -1,20 +1,15 @@
 package com.dsm.dms.presentation.ui.fragment.sign.register
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
-import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProviders
-import androidx.navigation.NavController
+import androidx.activity.OnBackPressedCallback
+import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.dsm.dms.presentation.R
 import com.dsm.dms.presentation.base.DataBindingFragment
 import com.dsm.dms.presentation.databinding.FragmentRegisterBinding
 import com.dsm.dms.presentation.viewmodel.sign.register.RegisterViewModel
-import com.dsm.dms.presentation.viewmodel.sign.register.RegisterViewModelFactory
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.disposables.CompositeDisposable
-import io.reactivex.disposables.Disposable
+import kotlinx.android.synthetic.main.fragment_register.*
 import javax.inject.Inject
 
 class RegisterFragment : DataBindingFragment<FragmentRegisterBinding>() {
@@ -22,37 +17,55 @@ class RegisterFragment : DataBindingFragment<FragmentRegisterBinding>() {
         get() = R.layout.fragment_register
 
     @Inject
-    lateinit var factory: RegisterViewModelFactory
-
-    override val viewModel
-            by lazy { ViewModelProviders.of(this, factory).get(RegisterViewModel::class.java) }
-
-    private val disposable = CompositeDisposable()
-
-    private lateinit var backSubject: Disposable
-    private lateinit var navController: NavController
-
-    lateinit var navHost: Fragment
+    override lateinit var viewModel: RegisterViewModel
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        navController = findNavController()
+        val navHost = fragmentManager?.findFragmentById(R.id.sign_container)!!
 
-        navHost = fragmentManager?.findFragmentById(R.id.sign_container)!!
+        viewModel.backSingleLiveEvent
+            .observe(this, Observer {
+                requireActivity().onBackPressed()
+            })
 
-        backSubject =
-            viewModel.backSubject
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe { requireActivity().onBackPressed() }
+        viewModel.nextSingleLiveEvent
+            .observe(this, Observer {
+                navHost.childFragmentManager.primaryNavigationFragment.let {
+                    val navController = it?.findNavController()
 
-        disposable.add(backSubject)
+                    when (navController?.currentDestination?.label) {
+                        "CreateAccountFragment" -> {
+                            navController.navigate(R.id.action_createAccountFragment_to_certifyAccountFragment)
+                        }
+                        "CertifyAccountFragment" -> {
+                            navController.navigate(R.id.action_certifyAccountFragment_to_registerCompleteFragment)
+
+                            register_back_img.visibility = View.GONE
+                            register_next_btn.visibility = View.GONE
+
+                            register_complete_btn.visibility = View.VISIBLE
+
+                            backPressedGoToMain()
+                        }
+                    }
+                }
+            })
+
+        viewModel.completeSingleLiveEvent
+            .observe(this, Observer {
+                findNavController().navigate(R.id.action_registerFragment_to_mainFragment)
+            })
 
         binding.vm = viewModel
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        disposable.clear()
+    private fun backPressedGoToMain() {
+        requireActivity().onBackPressedDispatcher.addCallback(
+            this, object : OnBackPressedCallback(true) {
+                override fun handleOnBackPressed() {
+                    findNavController().navigate(R.id.action_registerFragment_to_mainFragment)
+                }
+            })
     }
 }

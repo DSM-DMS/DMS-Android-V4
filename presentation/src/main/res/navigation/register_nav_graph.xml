@@ -23,5 +23,17 @@
         android:name="com.dsm.dms.presentation.ui.fragment.sign.register.account.certify.CertifyAccountFragment"
         android:label="CertifyAccountFragment"
         tools:layout="@layout/fragment_certify_account" >
+        <action
+            android:id="@+id/action_certifyAccountFragment_to_registerCompleteFragment"
+            app:destination="@id/registerCompleteFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
     </fragment>
+    <fragment
+        android:id="@+id/registerCompleteFragment"
+        android:name="com.dsm.dms.presentation.ui.fragment.sign.register.account.complete.RegisterCompleteFragment"
+        android:label="RegisterCompleteFragment"
+        tools:layout="@layout/fragment_register_complete"/>
 </navigation>

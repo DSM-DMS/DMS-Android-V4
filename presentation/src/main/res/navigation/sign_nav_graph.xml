@@ -31,8 +31,8 @@
         android:label="RegisterFragment"
         tools:layout="@layout/fragment_register" >
         <action
-            android:id="@+id/action_registerFragment_to_registerCompleteFragment"
-            app:destination="@id/registerCompleteFragment"
+            android:id="@+id/action_registerFragment_to_mainFragment"
+            app:destination="@id/mainFragment"
             app:enterAnim="@anim/nav_default_enter_anim"
             app:exitAnim="@anim/nav_default_exit_anim"
             app:popEnterAnim="@anim/nav_default_pop_enter_anim"
@@ -43,17 +43,4 @@
         android:name="com.dsm.dms.presentation.ui.fragment.main.MainFragment"
         android:label="MainFragment"
         tools:layout="@layout/fragment_main"/>
-    <fragment
-        android:id="@+id/registerCompleteFragment"
-        android:name="com.dsm.dms.presentation.ui.fragment.sign.register.RegisterCompleteFragment"
-        android:label="RegisterCompleteFragment"
-        tools:layout="@layout/fragment_register_complete">
-        <action
-            android:id="@+id/action_registerCompleteFragment_to_mainFragment"
-            app:destination="@id/mainFragment"
-            app:enterAnim="@anim/nav_default_enter_anim"
-            app:exitAnim="@anim/nav_default_exit_anim"
-            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
-            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
-    </fragment>
 </navigation>

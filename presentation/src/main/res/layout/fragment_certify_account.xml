@@ -35,7 +35,7 @@
             android:orientation="vertical"
             app:layout_constraintGuide_percent="0.82" />
 
-        <TextView
+        <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/certify_account_title_tv"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -48,7 +48,7 @@
             app:layout_constraintStart_toStartOf="@+id/certify_account_gl_start"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <EditText
+        <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/certify_account_check_code_edit"
             style="@style/SignEditTextStyle"
             android:layout_width="0dp"
@@ -91,7 +91,7 @@
             app:layout_constraintTop_toTopOf="@+id/certify_account_check_code_edit"
             tools:ignore="SmallSp" />
 
-        <TextView
+        <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/certify_account_result_tv"
             android:layout_width="0dp"
             android:layout_height="wrap_content"

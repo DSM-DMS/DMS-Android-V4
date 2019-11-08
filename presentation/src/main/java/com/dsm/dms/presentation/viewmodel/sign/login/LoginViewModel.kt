@@ -2,19 +2,20 @@ package com.dsm.dms.presentation.viewmodel.sign.login
 
 import androidx.lifecycle.MutableLiveData
 import com.dsm.dms.presentation.base.BaseViewModel
+import com.dsm.dms.presentation.base.SingleLiveEvent
 import io.reactivex.subjects.PublishSubject
 
 class LoginViewModel : BaseViewModel() {
-    val loginSubject = PublishSubject.create<Unit>()
-    val registerSubject = PublishSubject.create<Unit>()
+    val loginSingleLiveEvent = SingleLiveEvent<Unit>()
+    val registerSingleLiveEvent = SingleLiveEvent<Unit>()
     val idLiveData = MutableLiveData<String>()
     val passwordLiveData = MutableLiveData<String>()
 
     fun loginClick() {
-        loginSubject.onNext(Unit)
+        loginSingleLiveEvent.call()
     }
 
     fun registerClick() {
-        registerSubject.onNext(Unit)
+        registerSingleLiveEvent.call()
     }
 }

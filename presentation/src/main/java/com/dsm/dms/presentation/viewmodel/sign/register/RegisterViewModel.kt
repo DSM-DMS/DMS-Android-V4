@@ -2,21 +2,26 @@ package com.dsm.dms.presentation.viewmodel.sign.register
 
 import androidx.lifecycle.MutableLiveData
 import com.dsm.dms.presentation.base.BaseViewModel
-import io.reactivex.subjects.PublishSubject
+import com.dsm.dms.presentation.base.SingleLiveEvent
 
 class RegisterViewModel : BaseViewModel() {
-    val backSubject = PublishSubject.create<Unit>()
-    val nextSubject = PublishSubject.create<Unit>()
+    val backSingleLiveEvent = SingleLiveEvent<Unit>()
+    val nextSingleLiveEvent = SingleLiveEvent<Unit>()
+    val completeSingleLiveEvent = SingleLiveEvent<Unit>()
     val idLiveData = MutableLiveData<String>()
     val passwordLiveData = MutableLiveData<String>()
     val retryPasswordLiveData = MutableLiveData<String>()
     val certifyCodeLiveData = MutableLiveData<String>()
 
     fun backClick() {
-        backSubject.onNext(Unit)
+        backSingleLiveEvent.call()
     }
 
     fun nextClick() {
-        nextSubject.onNext(Unit)
+        nextSingleLiveEvent.call()
+    }
+
+    fun completeClick() {
+        completeSingleLiveEvent.call()
     }
 }

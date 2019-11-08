@@ -42,7 +42,7 @@
             android:orientation="horizontal"
             app:layout_constraintGuide_percent="0.94" />
 
-        <TextView
+        <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/login_title_tv"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -54,7 +54,7 @@
             app:layout_constraintStart_toStartOf="@+id/login_gl_start"
             app:layout_constraintTop_toTopOf="@+id/login_gl_top" />
 
-        <EditText
+        <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/login_id_edit"
             style="@style/SignEditTextStyle"
             android:layout_width="0dp"
@@ -76,7 +76,7 @@
             app:layout_constraintStart_toStartOf="@+id/login_gl_start"
             app:layout_constraintTop_toBottomOf="@+id/login_title_tv" />
 
-        <EditText
+        <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/login_pw_edit"
             style="@style/SignEditTextStyle"
             android:layout_width="0dp"
@@ -140,7 +140,7 @@
             app:layout_constraintEnd_toStartOf="@+id/login_gl_end"
             app:layout_constraintStart_toStartOf="@+id/login_gl_start">
 
-            <TextView
+            <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/login_is_not_dms_user_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -148,7 +148,7 @@
                 android:textColor="@color/colorLowBlack"
                 android:textSize="12sp" />
 
-            <TextView
+            <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/login_register_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
