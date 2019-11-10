@@ -40,7 +40,7 @@
     </fragment>
     <fragment
         android:id="@+id/mainFragment"
-        android:name="com.dsm.dms.presentation.ui.fragment.main.MainFragment"
+        android:name="com.dsm.dms.presentation.ui.fragment.MainFragment"
         android:label="MainFragment"
         tools:layout="@layout/fragment_main"/>
 </navigation>

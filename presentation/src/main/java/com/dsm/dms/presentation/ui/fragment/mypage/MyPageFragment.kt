@@ -1,4 +1,4 @@
-package com.dsm.dms.presentation.ui.fragment.main.mypage
+package com.dsm.dms.presentation.ui.fragment.mypage
 
 import android.os.Bundle
 import android.view.View

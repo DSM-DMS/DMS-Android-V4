@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="vm"
+            type="com.dsm.dms.presentation.viewmodel.main.meal.MealViewModel" />
+        
+        <variable
+            name="meal"
+            type="com.dsm.dms.presentation.model.MealModel" />
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+        <androidx.cardview.widget.CardView
+            android:layout_marginTop="36dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp"
+            app:cardElevation="8dp"
+            app:cardCornerRadius="14dp"
+            android:id="@+id/meal_item_breakfast_card"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/meal_item_lunch_card"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="0dp"
+            android:layout_height="0dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:paddingTop="24dp"
+                android:paddingBottom="24dp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/meal_item_breakfast_tv"
+                    android:text="@string/meal_item_breakfast_tv"
+                    android:textColor="@color/colorNightBlack"
+                    android:textSize="16sp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/meal_item_breakfast_content_tv"
+                    android:text="@{meal.breakfast}"
+                    android:textSize="12sp"
+                    android:textColor="@color/colorNightBlack"
+                    android:layout_marginTop="16dp"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:gravity="top"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/meal_item_breakfast_tv"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_marginTop="18dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginBottom="18dp"
+            app:cardElevation="8dp"
+            app:cardCornerRadius="14dp"
+            android:id="@+id/meal_item_lunch_card"
+            app:layout_constraintTop_toBottomOf="@id/meal_item_breakfast_card"
+            app:layout_constraintBottom_toTopOf="@id/meal_item_dinner_card"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="0dp"
+            android:layout_height="0dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:paddingTop="24dp"
+                android:paddingBottom="24dp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/meal_item_lunch_tv"
+                    android:text="@string/meal_item_lunch_tv"
+                    android:textColor="@color/colorNightBlack"
+                    android:textSize="16sp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/meal_item_lunch_content_tv"
+                    android:layout_marginTop="16dp"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:text="@{meal.lunch}"
+                    android:textSize="12sp"
+                    android:textColor="@color/colorNightBlack"
+                    android:gravity="top"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/meal_item_lunch_tv"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginBottom="36dp"
+            app:cardElevation="8dp"
+            app:cardCornerRadius="14dp"
+            android:id="@+id/meal_item_dinner_card"
+            app:layout_constraintTop_toBottomOf="@id/meal_item_lunch_card"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="0dp"
+            android:layout_height="0dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:paddingTop="24dp"
+                android:paddingBottom="24dp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/meal_item_dinner_tv"
+                    android:text="@string/meal_item_dinner_tv"
+                    android:textColor="@color/colorNightBlack"
+                    android:textSize="16sp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/meal_item_dinner_content_tv"
+                    android:layout_marginTop="16dp"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:text="@{meal.dinner}"
+                    android:textSize="12sp"
+                    android:textColor="@color/colorNightBlack"
+                    android:gravity="top"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/meal_item_dinner_tv"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

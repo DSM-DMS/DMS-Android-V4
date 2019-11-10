@@ -5,7 +5,7 @@ import com.dsm.dms.presentation.di.module.main.MainStaticModule
 import com.dsm.dms.presentation.di.module.sign.SignModule
 import com.dsm.dms.presentation.di.module.sign.SignStaticModule
 import com.dsm.dms.presentation.di.scope.FragmentScope
-import com.dsm.dms.presentation.ui.fragment.main.MainFragment
+import com.dsm.dms.presentation.ui.fragment.MainFragment
 import com.dsm.dms.presentation.ui.fragment.sign.SignFragment
 import dagger.Module
 import dagger.android.ContributesAndroidInjector

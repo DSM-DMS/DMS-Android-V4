@@ -58,6 +58,7 @@
             android:focusable="true"
             android:onClick="@{()->vm.backClick()}"
             android:src="@drawable/ic_back"
+            android:tint="@color/colorBlack"
             app:layout_constraintStart_toStartOf="@+id/register_gl_start"
             app:layout_constraintTop_toTopOf="@+id/register_gl_top" />
 

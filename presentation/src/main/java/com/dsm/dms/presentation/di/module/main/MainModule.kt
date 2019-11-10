@@ -9,10 +9,10 @@ import com.dsm.dms.presentation.di.module.main.meal.MealStaticModule
 import com.dsm.dms.presentation.di.module.main.mypage.MyPageModule
 import com.dsm.dms.presentation.di.module.main.mypage.MyPageStaticModule
 import com.dsm.dms.presentation.di.scope.MainFragmentScope
-import com.dsm.dms.presentation.ui.fragment.main.apply.ApplyFragment
-import com.dsm.dms.presentation.ui.fragment.main.chatting.ChattingFragment
-import com.dsm.dms.presentation.ui.fragment.main.meal.MealFragment
-import com.dsm.dms.presentation.ui.fragment.main.mypage.MyPageFragment
+import com.dsm.dms.presentation.ui.fragment.apply.ApplyFragment
+import com.dsm.dms.presentation.ui.fragment.chatting.ChattingFragment
+import com.dsm.dms.presentation.ui.fragment.meal.MealFragment
+import com.dsm.dms.presentation.ui.fragment.mypage.MyPageFragment
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 
