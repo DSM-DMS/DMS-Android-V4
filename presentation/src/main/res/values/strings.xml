@@ -28,4 +28,19 @@
     <string name="meal_item_breakfast_tv">아침</string>
     <string name="meal_item_lunch_tv">점심</string>
     <string name="meal_item_dinner_tv">저녁</string>
+    <string name="login_text">로그인</string>
+    <string name="login_auto_login">자동 로그인</string>
+    <string name="login_is_not_dms_user">아직 DMS 회원이 아니시라면?</string>
+    <string name="login_register">회원가입</string>
+    <string name="sign_id_hint">아이디를 입력해주세요</string>
+    <string name="sign_pw_hint">비밀번호를 입력해주세요</string>
+    <string name="sign_pw_retry_hint">비밀번호를 다시 입력해주세요</string>
+    <string name="account_info_input">계정 정보 입력</string>
+    <string name="account_check_code_input">확인코드 입력</string>
+    <string name="account_check_code_input_edit">확인코드를 입력해주세요</string>
+    <string name="account_check_code_result_success">인증에 성공하였습니다\n계속 진행해 주세요</string>
+    <string name="account_check_code_result_failure">인증에 실패하였습니다\n코드를 확인하신 후 다시 인증해 주세요</string>
+    <string name="register_complete_btn_text">완료</string>
+    <string name="register_complete_title_text">회원가입 완료</string>
+    <string name="register_complete_description_text">이제부터 DMS를 사용하실 수 있습니다</string>
 </resources>
