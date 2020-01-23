@@ -1,7 +1,7 @@
 package com.dsm.dms.presentation.di.module.main.chatting
 
 import com.dsm.dms.presentation.di.scope.MainFragmentScope
-import com.dsm.dms.presentation.viewmodel.main.ChattingViewModelFactory
+import com.dsm.dms.presentation.viewmodel.main.chatting.ChattingViewModelFactory
 import dagger.Module
 import dagger.Provides
 

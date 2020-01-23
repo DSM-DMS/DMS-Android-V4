@@ -3,7 +3,7 @@
     <data>
         <variable
                 name="vm"
-                type="com.dsm.dms.presentation.viewmodel.main.ChattingViewModel" />
+                type="com.dsm.dms.presentation.viewmodel.main.chatting.ChattingViewModel" />
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
             xmlns:app="http://schemas.android.com/apk/res-auto"

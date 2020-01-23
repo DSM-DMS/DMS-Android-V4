@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.dsm.dms.presentation.viewmodel.sign.register.RegisterViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:animateLayoutChanges="true">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/register_gl_top"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.04" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/register_gl_start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.06" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/register_gl_end"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.94" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/register_gl_bottom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.96" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/register_floating_gl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.8" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/register_back_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
+            android:focusable="true"
+            android:onClick="@{()->vm.backClick()}"
+            android:src="@drawable/ic_back"
+            android:tint="@color/colorBlack"
+            app:layout_constraintStart_toStartOf="@+id/register_gl_start"
+            app:layout_constraintTop_toTopOf="@+id/register_gl_top" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/register_complete_btn"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:backgroundTint="@color/colorMain"
+            android:lineSpacingExtra="3sp"
+            android:onClick="@{()->vm.completeClick()}"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:text="@string/register_complete_btn_text"
+            android:textColor="@color/colorWhite"
+            android:textSize="18sp"
+            android:visibility="gone"
+            app:cornerRadius="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/register_gl_end"
+            app:layout_constraintStart_toStartOf="@+id/register_gl_start" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/register_next_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/colorSignMain"
+            android:onClick="@{()->vm.nextClick()}"
+            android:src="@drawable/ic_next"
+            app:elevation="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/register_gl_bottom"
+            app:layout_constraintEnd_toStartOf="@+id/register_gl_end"
+            app:layout_constraintStart_toStartOf="@+id/register_floating_gl"
+            app:rippleColor="@color/colorMain"
+            app:tint="@color/colorWhite" />
+
+        <fragment
+            android:id="@+id/register_container"
+            android:name="androidx.navigation.fragment.NavHostFragment"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:defaultNavHost="true"
+            app:layout_constraintBottom_toTopOf="@+id/register_gl_bottom"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/register_back_img"
+            app:navGraph="@navigation/register_nav_graph" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
+

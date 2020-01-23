@@ -5,4 +5,14 @@
         <item name="colorPrimaryDark">@color/colorPrimary</item>
     </style>
 
+    <style name="SignEditTextStyle" parent="@style/Widget.AppCompat.EditText">
+        <item name="colorControlActivated">@color/colorSignMain</item>
+        <item name="colorControlNormal">@color/colorLowBlack</item>
+    </style>
+
+    <style name="SignCheckBoxTheme" parent="Theme.AppCompat">
+        <item name="colorAccent">@color/colorSignMain</item>
+        <item name="android:textColorSecondary">@color/colorLowBlack</item>
+    </style>
+
 </resources>

@@ -11,7 +11,6 @@ import androidx.lifecycle.Lifecycle
 import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
 import dagger.android.support.AndroidSupportInjection
-import dagger.android.support.DaggerFragment
 import dagger.android.support.HasSupportFragmentInjector
 import javax.inject.Inject
 
@@ -36,6 +35,14 @@ abstract class DataBindingFragment<T : ViewDataBinding> : Fragment(), HasSupport
         binding.lifecycleOwner = this
         return rootView
     }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        register(viewModel)
+        observeEvent()
+    }
+
+    abstract fun observeEvent()
 
     override fun onStart() {
         super.onStart()
