@@ -1,13 +1,25 @@
 package com.dsm.dms.presentation
 
-import com.dsm.dms.presentation.base.BaseViewModel
-import org.junit.After
+import androidx.arch.core.executor.testing.InstantTaskExecutorRule
+import com.dsm.dms.presentation.RxSchedulerRule
+import org.junit.Before
+import org.junit.ClassRule
+import org.junit.Rule
+import org.mockito.MockitoAnnotations
 
-abstract class BaseViewModelTest {
+open class BaseViewModelTest {
+    @Rule
+    @JvmField
+    val instantTaskExecutorRule = InstantTaskExecutorRule()
 
-    lateinit var viewModel: BaseViewModel
+    companion object {
+        @ClassRule
+        @JvmField
+        val schedulers = RxSchedulerRule()
+    }
 
-    abstract fun setUp()
-
-    abstract fun teardown()
+    @Before
+    fun before() {
+        MockitoAnnotations.initMocks(this)
+    }
 }

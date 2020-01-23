@@ -37,6 +37,8 @@ dependencies {
     implementation 'androidx.preference:preference:1.1.0'
     implementation 'androidx.core:core-ktx:1.1.0'
     testImplementation 'junit:junit:4.12'
+    testImplementation "androidx.arch.core:core-testing:2.1.0"
+    testImplementation 'com.jraska.livedata:testing-ktx:1.1.1'
     // mockito
     testImplementation 'org.mockito:mockito-core:2.28.2'
     // kluent
