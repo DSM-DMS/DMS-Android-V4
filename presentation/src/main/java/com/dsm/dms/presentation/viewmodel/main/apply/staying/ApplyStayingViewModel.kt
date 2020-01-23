@@ -1,5 +1,6 @@
 package com.dsm.dms.presentation.viewmodel.main.apply.staying
 
+import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.MutableLiveData
 import com.dsm.dms.presentation.base.BaseViewModel
 import com.dsm.dms.presentation.base.SingleLiveEvent
@@ -9,6 +10,10 @@ class ApplyStayingViewModel: BaseViewModel() {
 
     val cardChangeColorEvent = SingleLiveEvent<String>()
     val backToMainEvent = SingleLiveEvent<Unit>()
+
+    override fun apply(event: Lifecycle.Event) {
+
+    }
 
     fun fridayGoClick() {
         cardChangeColorEvent.value = "금요귀가"

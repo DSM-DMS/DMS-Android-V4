@@ -1,5 +1,6 @@
 package com.dsm.dms.presentation.viewmodel.main.meal
 
+import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
 import com.dsm.dms.presentation.base.BaseViewModel
@@ -23,6 +24,10 @@ class MealViewModel: BaseViewModel() {
         val calendar = Calendar.getInstance()
         calendar.add(Calendar.DAY_OF_YEAR, it)
         SimpleDateFormat("yyyy년 MM월 dd일 EEEE", Locale.KOREA).format(calendar.time)
+    }
+
+    override fun apply(event: Lifecycle.Event) {
+
     }
 
     fun dateBeforeClick() {

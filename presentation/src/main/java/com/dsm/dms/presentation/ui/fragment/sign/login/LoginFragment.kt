@@ -25,7 +25,10 @@ class LoginFragment : DataBindingFragment<FragmentLoginBinding>() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding.vm = viewModel
+    }
 
+    override fun observeEvent() {
         viewModel.loginSingleLiveEvent
             .observe(this, Observer {
                 findNavController().navigate(R.id.action_loginFragment_to_mainFragment)
@@ -35,7 +38,5 @@ class LoginFragment : DataBindingFragment<FragmentLoginBinding>() {
             .observe(this, Observer {
                 findNavController().navigate(R.id.action_loginFragment_to_registerFragment)
             })
-
-        binding.vm = viewModel
     }
 }

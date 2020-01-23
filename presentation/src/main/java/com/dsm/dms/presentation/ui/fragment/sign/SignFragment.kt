@@ -25,4 +25,8 @@ class SignFragment : EndPointDataBindingFragment<FragmentSignBinding>() {
         super.onViewCreated(view, savedInstanceState)
         binding.vm = viewModel
     }
+
+    override fun observeEvent() {
+
+    }
 }

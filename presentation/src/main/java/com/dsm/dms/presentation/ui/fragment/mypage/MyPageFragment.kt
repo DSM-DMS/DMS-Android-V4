@@ -6,8 +6,8 @@ import androidx.lifecycle.ViewModelProviders
 import com.dsm.dms.presentation.R
 import com.dsm.dms.presentation.base.DataBindingFragment
 import com.dsm.dms.presentation.databinding.FragmentMypageBinding
-import com.dsm.dms.presentation.viewmodel.main.MyPageViewModel
-import com.dsm.dms.presentation.viewmodel.main.MyPageViewModelFactory
+import com.dsm.dms.presentation.viewmodel.main.mypage.MyPageViewModel
+import com.dsm.dms.presentation.viewmodel.main.mypage.MyPageViewModelFactory
 import javax.inject.Inject
 
 class MyPageFragment: DataBindingFragment<FragmentMypageBinding>() {
@@ -23,6 +23,10 @@ class MyPageFragment: DataBindingFragment<FragmentMypageBinding>() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.vm = viewModel
+
+    }
+
+    override fun observeEvent() {
 
     }
 }

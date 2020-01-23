@@ -3,7 +3,7 @@
     <data>
         <variable
                 name="vm"
-                type="com.dsm.dms.presentation.viewmodel.main.ApplyViewModel" />
+                type="com.dsm.dms.presentation.viewmodel.main.apply.ApplyViewModel" />
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
             xmlns:android="http://schemas.android.com/apk/res/android"

@@ -44,11 +44,9 @@ class ApplyStayingFragment: DataBindingFragment<FragmentApplyStayingBinding>() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.vm = viewModel
-
-        observeEvent()
     }
 
-    private fun observeEvent() {
+    override fun observeEvent() {
         viewModel.cardChangeColorEvent.observe(this, Observer {
             when (viewModel.nowStayingState.value) {
                 "금요귀가" -> originalColor(apply_staying_friday_go_card,

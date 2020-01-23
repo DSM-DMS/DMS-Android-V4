@@ -1,7 +1,10 @@
 package com.dsm.dms.presentation.viewmodel.sign
 
+import androidx.lifecycle.Lifecycle
 import com.dsm.dms.presentation.base.BaseViewModel
 
 class SignViewModel : BaseViewModel() {
+    override fun apply(event: Lifecycle.Event) {
 
+    }
 }

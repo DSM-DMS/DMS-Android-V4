@@ -21,4 +21,7 @@ class CertifyAccountFragment : DataBindingFragment<FragmentCertifyAccountBinding
         binding.vm = viewModel
     }
 
+    override fun observeEvent() {
+
+    }
 }

@@ -42,4 +42,8 @@ class MealFragment: DataBindingFragment<FragmentMealBinding>() {
         (binding.mealPager.getChildAt(0) as RecyclerView)
             .overScrollMode= RecyclerView.OVER_SCROLL_NEVER
     }
+
+    override fun observeEvent() {
+
+    }
 }

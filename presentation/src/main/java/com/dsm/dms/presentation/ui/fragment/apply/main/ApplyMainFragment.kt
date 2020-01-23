@@ -27,11 +27,9 @@ class ApplyMainFragment: DataBindingFragment<FragmentApplyMainBinding>() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.vm = viewModel
-
-        observeEvent()
     }
 
-    private fun observeEvent() {
+    override fun observeEvent() {
         viewModel.goStayingEvent.observe(this, Observer {
             findNavController().navigate(R.id.action_applyMainFragment_to_applyStayingFragment)
         })

@@ -6,8 +6,8 @@ import androidx.lifecycle.ViewModelProviders
 import com.dsm.dms.presentation.R
 import com.dsm.dms.presentation.base.DataBindingFragment
 import com.dsm.dms.presentation.databinding.FragmentChattingBinding
-import com.dsm.dms.presentation.viewmodel.main.ChattingViewModel
-import com.dsm.dms.presentation.viewmodel.main.ChattingViewModelFactory
+import com.dsm.dms.presentation.viewmodel.main.chatting.ChattingViewModel
+import com.dsm.dms.presentation.viewmodel.main.chatting.ChattingViewModelFactory
 import javax.inject.Inject
 
 class ChattingFragment: DataBindingFragment<FragmentChattingBinding>() {
@@ -23,6 +23,10 @@ class ChattingFragment: DataBindingFragment<FragmentChattingBinding>() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.vm = viewModel
+
+    }
+
+    override fun observeEvent() {
 
     }
 }

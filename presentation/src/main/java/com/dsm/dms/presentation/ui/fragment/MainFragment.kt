@@ -34,4 +34,8 @@ class MainFragment : EndPointDataBindingFragment<FragmentMainBinding>() {
         )
     }
 
+    override fun observeEvent() {
+
+    }
+
 }

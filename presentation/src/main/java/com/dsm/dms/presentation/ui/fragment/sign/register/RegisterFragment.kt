@@ -21,7 +21,10 @@ class RegisterFragment : DataBindingFragment<FragmentRegisterBinding>() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding.vm = viewModel
+    }
 
+    override fun observeEvent() {
         val navHost = fragmentManager?.findFragmentById(R.id.sign_container)!!
 
         viewModel.backSingleLiveEvent
@@ -56,8 +59,6 @@ class RegisterFragment : DataBindingFragment<FragmentRegisterBinding>() {
             .observe(this, Observer {
                 findNavController().navigate(R.id.action_registerFragment_to_mainFragment)
             })
-
-        binding.vm = viewModel
     }
 
     private fun backPressedGoToMain() {

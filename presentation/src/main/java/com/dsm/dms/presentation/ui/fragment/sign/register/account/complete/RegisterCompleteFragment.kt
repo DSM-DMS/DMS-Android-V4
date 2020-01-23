@@ -20,4 +20,8 @@ class RegisterCompleteFragment : DataBindingFragment<FragmentRegisterCompleteBin
 
         binding.vm = viewModel
     }
+
+    override fun observeEvent() {
+
+    }
 }

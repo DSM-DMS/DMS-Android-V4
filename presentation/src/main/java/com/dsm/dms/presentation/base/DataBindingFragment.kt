@@ -36,6 +36,14 @@ abstract class DataBindingFragment<T : ViewDataBinding> : Fragment(), HasSupport
         return rootView
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        register(viewModel)
+        observeEvent()
+    }
+
+    abstract fun observeEvent()
+
     override fun onStart() {
         super.onStart()
         notifyEvent(Lifecycle.Event.ON_START)

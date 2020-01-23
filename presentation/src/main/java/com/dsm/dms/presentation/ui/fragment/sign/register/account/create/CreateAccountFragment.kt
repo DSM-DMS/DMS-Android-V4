@@ -20,4 +20,8 @@ class CreateAccountFragment : DataBindingFragment<FragmentCreateAccountBinding>(
 
         binding.vm = viewModel
     }
+
+    override fun observeEvent() {
+
+    }
 }

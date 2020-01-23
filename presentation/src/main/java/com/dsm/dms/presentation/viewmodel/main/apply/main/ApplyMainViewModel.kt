@@ -1,5 +1,6 @@
 package com.dsm.dms.presentation.viewmodel.main.apply.main
 
+import androidx.lifecycle.Lifecycle
 import com.dsm.dms.presentation.base.BaseViewModel
 import com.dsm.dms.presentation.base.SingleLiveEvent
 
@@ -9,6 +10,10 @@ class ApplyMainViewModel: BaseViewModel() {
     val goGoingOutEvent = SingleLiveEvent<Unit>()
     val goMusicEvent = SingleLiveEvent<Unit>()
     val goRestEvent = SingleLiveEvent<Unit>()
+
+    override fun apply(event: Lifecycle.Event) {
+
+    }
 
     fun stayingClick() = goStayingEvent.call()
     fun studyingClick() = goStudyingEvent.call()
