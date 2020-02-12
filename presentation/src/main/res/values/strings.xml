@@ -43,4 +43,11 @@
     <string name="register_complete_btn_text">완료</string>
     <string name="register_complete_title_text">회원가입 완료</string>
     <string name="register_complete_description_text">이제부터 DMS를 사용하실 수 있습니다</string>
+    <string name="extension_title">연장 신청</string>
+    <string name="extension_description">기숙사로 이동 후 학생들은 연장학습을 할 수 있습니다. \n 11시 연장은 8시 반까지, 12시 연장은 10시 반까지 신청할 수 있습니다.</string>
+    <string name="extension_first_floor_title">1층</string>
+    <string name="extension_second_floor_title">2층</string>
+    <string name="extension_third_floor_title">3층</string>
+    <string name="extension_fourth_floor_title">4층</string>
+    <string name="extension_fifth_floor_title">5층</string>
 </resources>

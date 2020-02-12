@@ -16,6 +16,12 @@
             app:exitAnim="@anim/fadeout"
             android:id="@+id/action_applyMainFragment_to_applyStayingFragment"
             app:destination="@id/applyStayingFragment" />
+        <action
+            app:popUpTo="@id/applyMainFragment"
+            app:enterAnim="@anim/slide_from_right"
+            app:exitAnim="@anim/fadeout"
+            android:id="@+id/action_applyMainFragment_to_applyExtensionStudyFloorListFragment"
+            app:destination="@id/applyExtensionStudyFloorListFragment" />
     </fragment>
     <fragment
         android:id="@+id/applyStayingFragment"
@@ -27,6 +33,18 @@
             app:enterAnim="@anim/fadein"
             app:exitAnim="@anim/slide_to_right"
             android:id="@+id/action_applyStayingFragment_to_applyMainFragment"
+            app:destination="@id/applyMainFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/applyExtensionStudyFloorListFragment"
+        android:name="com.dsm.dms.presentation.ui.fragment.apply.extension.ApplyExtensionStudyFloorListFragment"
+        android:label="ApplyExtensionStudyFloorListFragment"
+        tools:layout="@layout/fragment_apply_extension_study_floor_list">
+        <action
+            app:popUpTo="@id/applyStayingFragment"
+            app:enterAnim="@anim/fadein"
+            app:exitAnim="@anim/slide_to_right"
+            android:id="@+id/action_applyExtensionStudyFloorListFragment_to_applyMainFragment"
             app:destination="@id/applyMainFragment" />
     </fragment>
 </navigation>

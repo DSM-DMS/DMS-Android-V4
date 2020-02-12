@@ -34,7 +34,7 @@ class ApplyMainFragment: DataBindingFragment<FragmentApplyMainBinding>() {
             findNavController().navigate(R.id.action_applyMainFragment_to_applyStayingFragment)
         })
         viewModel.goStudyingEvent.observe(this, Observer {
-
+            findNavController().navigate(R.id.action_applyMainFragment_to_applyExtensionStudyFloorListFragment)
         })
         viewModel.goGoingOutEvent.observe(this, Observer {
 
