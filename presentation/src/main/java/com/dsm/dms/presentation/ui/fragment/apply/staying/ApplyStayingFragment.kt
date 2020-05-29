@@ -4,10 +4,8 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.widget.AppCompatTextView
 import androidx.cardview.widget.CardView
-import androidx.core.content.ContextCompat
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.fragment.findNavController
 import com.dsm.dms.presentation.R
 import com.dsm.dms.presentation.base.DataBindingFragment
 import com.dsm.dms.presentation.databinding.FragmentApplyStayingBinding
@@ -67,14 +65,16 @@ class ApplyStayingFragment: DataBindingFragment<FragmentApplyStayingBinding>() {
 
     private fun changeColor(card: CardView, title: AppCompatTextView, content: AppCompatTextView) {
         card.setCardBackgroundColor(
-            ContextCompat.getColor(context!!, R.color.colorMain))
+            resources.getColor(R.color.colorMain, null)
+        )
         title.setTextColor(resources.getColor(R.color.colorWhite, null))
         content.setTextColor(resources.getColor(R.color.colorWhite, null))
     }
 
     private fun originalColor(card: CardView, title: AppCompatTextView, content: AppCompatTextView) {
         card.setCardBackgroundColor(
-            ContextCompat.getColor(context!!, R.color.colorNightViewBackgroundDefault))
+            resources.getColor(R.color.colorNightViewBackgroundDefault, null)
+        )
         title.setTextColor(resources.getColor(R.color.colorNightBlack, null))
         content.setTextColor(resources.getColor(R.color.colorNightViewColorDefault, null))
     }
