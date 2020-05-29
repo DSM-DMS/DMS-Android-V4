@@ -4,6 +4,8 @@
     <string name="navigation_apply">신청</string>
     <string name="navigation_chatting">채팅</string>
     <string name="navigation_mypage">마이페이지</string>
+
+    // main
     <string name="apply_main_title_tv">신청</string>
     <string name="apply_main_staying_title_tv">귀가 신청</string>
     <string name="apply_main_staying_content_tv">금요일부터 일요일까지의 상태를 신청합니다</string>
@@ -15,6 +17,8 @@
     <string name="apply_main_music_content_tv">아침 점호를 알리는 기상음악을 신청합니다</string>
     <string name="apply_main_rest_title_tv">휴식 신청</string>
     <string name="apply_main_rest_content_tv">일요일 호실 휴식을 신청합니다</string>
+
+    // staying
     <string name="apply_staying_title_tv">귀가 신청</string>
     <string name="apply_staying_content_tv">금요일 밤부터 일요일 밤까지의 상태를 선택합니다 \n 목요일 오후 10시까지 잔류 신청을 완료해야 합니다</string>
     <string name="apply_staying_friday_go_title_tv">금요귀가</string>
@@ -25,9 +29,13 @@
     <string name="apply_staying_saturday_back_content_tv">금요귀가 후 토요일 취침 점호 전까지 귀사합니다</string>
     <string name="apply_staying_staying_title_tv">잔류</string>
     <string name="apply_staying_staying_content_tv">기숙사에 잔류합니다</string>
+
+    // meal
     <string name="meal_item_breakfast_tv">아침</string>
     <string name="meal_item_lunch_tv">점심</string>
     <string name="meal_item_dinner_tv">저녁</string>
+
+    // account
     <string name="login_text">로그인</string>
     <string name="login_auto_login">자동 로그인</string>
     <string name="login_is_not_dms_user">아직 DMS 회원이 아니시라면?</string>
@@ -43,6 +51,8 @@
     <string name="register_complete_btn_text">완료</string>
     <string name="register_complete_title_text">회원가입 완료</string>
     <string name="register_complete_description_text">이제부터 DMS를 사용하실 수 있습니다</string>
+
+    // extension
     <string name="extension_title">연장 신청</string>
     <string name="extension_description">기숙사로 이동 후 학생들은 연장학습을 할 수 있습니다. \n 11시 연장은 8시 반까지, 12시 연장은 10시 반까지 신청할 수 있습니다.</string>
     <string name="extension_first_floor_title">1층</string>
@@ -50,4 +60,18 @@
     <string name="extension_third_floor_title">3층</string>
     <string name="extension_fourth_floor_title">4층</string>
     <string name="extension_fifth_floor_title">5층</string>
+    <string name="extension_first_floor_first_room">가온실</string>
+    <string name="extension_first_floor_second_room">나온실</string>
+    <string name="extension_first_floor_third_room">다온실</string>
+    <string name="extension_first_floor_fourth_room">라온실</string>
+    <string name="extension_second_floor_first_room">자습실</string>
+    <string name="extension_third_floor_first_room">학교측</string>
+    <string name="extension_third_floor_second_room">기숙사측</string>
+    <string name="extension_third_floor_third_room">소파</string>
+    <string name="extension_fourth_floor_first_room">학교측</string>
+    <string name="extension_fourth_floor_second_room">기숙사측</string>
+    <string name="extension_fifth_floor_first_room">자습실</string>
+    <string name="extension_apply_text">신청</string>
+    <string name="extension_apply_eleven_text">11시</string>
+    <string name="extension_apply_twelve_text">12시</string>
 </resources>
