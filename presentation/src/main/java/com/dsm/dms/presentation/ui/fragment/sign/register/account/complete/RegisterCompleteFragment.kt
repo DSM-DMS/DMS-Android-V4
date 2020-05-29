@@ -2,6 +2,7 @@ package com.dsm.dms.presentation.ui.fragment.sign.register.account.complete
 
 import android.os.Bundle
 import android.view.View
+import androidx.navigation.fragment.findNavController
 import com.dsm.dms.presentation.R
 import com.dsm.dms.presentation.base.DataBindingFragment
 import com.dsm.dms.presentation.databinding.FragmentRegisterCompleteBinding

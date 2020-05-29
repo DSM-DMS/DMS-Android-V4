@@ -2,6 +2,7 @@ package com.dsm.dms.presentation.ui.fragment
 
 import android.os.Bundle
 import android.view.View
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.Navigation
 import androidx.navigation.ui.setupWithNavController
@@ -14,7 +15,7 @@ import kotlinx.android.synthetic.main.fragment_main.*
 import javax.inject.Inject
 
 
-class MainFragment : EndPointDataBindingFragment<FragmentMainBinding>() {
+class MainFragment: EndPointDataBindingFragment<FragmentMainBinding>() {
 
     override val layoutId: Int = R.layout.fragment_main
 
@@ -22,7 +23,7 @@ class MainFragment : EndPointDataBindingFragment<FragmentMainBinding>() {
     lateinit var factory: MainViewModelFactory
 
     override val viewModel by lazy {
-        ViewModelProviders.of(this, factory).get(MainViewModel::class.java)
+        ViewModelProvider(this, factory).get(MainViewModel::class.java)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

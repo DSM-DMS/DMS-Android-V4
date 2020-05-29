@@ -2,7 +2,7 @@ package com.dsm.dms.presentation.ui.fragment.meal
 
 import android.os.Bundle
 import android.view.View
-import androidx.lifecycle.ViewModelProviders
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
 import com.dsm.dms.presentation.R
 import com.dsm.dms.presentation.adapter.MealPagerAdapter
@@ -21,7 +21,7 @@ class MealFragment: DataBindingFragment<FragmentMealBinding>() {
     lateinit var factory: MealViewModelFactory
 
     override val viewModel
-            by lazy { ViewModelProviders.of(this, factory).get(MealViewModel::class.java) }
+            by lazy { ViewModelProvider(this, factory).get(MealViewModel::class.java) }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

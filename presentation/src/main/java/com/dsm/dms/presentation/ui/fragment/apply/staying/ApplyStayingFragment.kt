@@ -1,16 +1,12 @@
 package com.dsm.dms.presentation.ui.fragment.apply.staying
 
-import android.content.Context
-import android.graphics.Color
 import android.os.Bundle
 import android.view.View
-import android.widget.TextView
-import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.widget.AppCompatTextView
 import androidx.cardview.widget.CardView
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.dsm.dms.presentation.R
 import com.dsm.dms.presentation.base.DataBindingFragment
@@ -18,7 +14,6 @@ import com.dsm.dms.presentation.databinding.FragmentApplyStayingBinding
 import com.dsm.dms.presentation.viewmodel.main.apply.staying.ApplyStayingViewModel
 import com.dsm.dms.presentation.viewmodel.main.apply.staying.ApplyStayingViewModelFactory
 import kotlinx.android.synthetic.main.fragment_apply_staying.*
-import org.jetbrains.anko.textColor
 import javax.inject.Inject
 
 class ApplyStayingFragment: DataBindingFragment<FragmentApplyStayingBinding>() {
@@ -29,17 +24,7 @@ class ApplyStayingFragment: DataBindingFragment<FragmentApplyStayingBinding>() {
     lateinit var factory: ApplyStayingViewModelFactory
 
     override val viewModel
-            by lazy { ViewModelProviders.of(this, factory).get(ApplyStayingViewModel::class.java) }
-
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-        requireActivity().onBackPressedDispatcher.addCallback(
-            this, object: OnBackPressedCallback(true) {
-                override fun handleOnBackPressed() {
-                    backToMain()
-                }
-            })
-    }
+            by lazy { ViewModelProvider(this, factory).get(ApplyStayingViewModel::class.java) }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -62,12 +47,9 @@ class ApplyStayingFragment: DataBindingFragment<FragmentApplyStayingBinding>() {
         })
 
         viewModel.backToMainEvent.observe(this, Observer {
-            backToMain()
+            back()
         })
     }
-
-    private fun backToMain()
-            = findNavController().navigate(R.id.action_applyStayingFragment_to_applyMainFragment)
 
     private fun searchCard(cardText: String) {
         when(cardText) {
@@ -86,14 +68,14 @@ class ApplyStayingFragment: DataBindingFragment<FragmentApplyStayingBinding>() {
     private fun changeColor(card: CardView, title: AppCompatTextView, content: AppCompatTextView) {
         card.setCardBackgroundColor(
             ContextCompat.getColor(context!!, R.color.colorMain))
-        title.textColor = ContextCompat.getColor(context!!, R.color.colorWhite)
-        content.textColor = ContextCompat.getColor(context!!, R.color.colorWhite)
+        title.setTextColor(resources.getColor(R.color.colorWhite, null))
+        content.setTextColor(resources.getColor(R.color.colorWhite, null))
     }
 
     private fun originalColor(card: CardView, title: AppCompatTextView, content: AppCompatTextView) {
         card.setCardBackgroundColor(
             ContextCompat.getColor(context!!, R.color.colorNightViewBackgroundDefault))
-        title.textColor = ContextCompat.getColor(context!!, R.color.colorNightBlack)
-        content.textColor = ContextCompat.getColor(context!!, R.color.colorNightViewColorDefault)
+        title.setTextColor(resources.getColor(R.color.colorNightBlack, null))
+        content.setTextColor(resources.getColor(R.color.colorNightViewColorDefault, null))
     }
 }

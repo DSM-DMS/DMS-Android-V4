@@ -2,8 +2,8 @@ package com.dsm.dms.presentation.ui.fragment.sign.register
 
 import android.os.Bundle
 import android.view.View
-import androidx.activity.OnBackPressedCallback
 import androidx.lifecycle.Observer
+import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import com.dsm.dms.presentation.R
 import com.dsm.dms.presentation.base.DataBindingFragment
@@ -25,31 +25,26 @@ class RegisterFragment : DataBindingFragment<FragmentRegisterBinding>() {
     }
 
     override fun observeEvent() {
-        val navHost = fragmentManager?.findFragmentById(R.id.sign_container)!!
 
         viewModel.backSingleLiveEvent
             .observe(this, Observer {
-                requireActivity().onBackPressed()
+                back()
             })
 
         viewModel.nextSingleLiveEvent
             .observe(this, Observer {
-                navHost.childFragmentManager.primaryNavigationFragment.let {
-                    val navController = it?.findNavController()
-
-                    when (navController?.currentDestination?.label) {
+                Navigation.findNavController(requireActivity(), R.id.register_container).let {
+                    when (it.currentDestination?.label) {
                         "CreateAccountFragment" -> {
-                            navController.navigate(R.id.action_createAccountFragment_to_certifyAccountFragment)
+                            it.navigate(R.id.action_createAccountFragment_to_certifyAccountFragment)
                         }
                         "CertifyAccountFragment" -> {
-                            navController.navigate(R.id.action_certifyAccountFragment_to_registerCompleteFragment)
+                            it.navigate(R.id.action_certifyAccountFragment_to_registerCompleteFragment)
 
                             register_back_img.visibility = View.GONE
                             register_next_btn.visibility = View.GONE
 
                             register_complete_btn.visibility = View.VISIBLE
-
-                            backPressedGoToMain()
                         }
                     }
                 }
@@ -58,15 +53,6 @@ class RegisterFragment : DataBindingFragment<FragmentRegisterBinding>() {
         viewModel.completeSingleLiveEvent
             .observe(this, Observer {
                 findNavController().navigate(R.id.action_registerFragment_to_mainFragment)
-            })
-    }
-
-    private fun backPressedGoToMain() {
-        requireActivity().onBackPressedDispatcher.addCallback(
-            this, object : OnBackPressedCallback(true) {
-                override fun handleOnBackPressed() {
-                    findNavController().navigate(R.id.action_registerFragment_to_mainFragment)
-                }
             })
     }
 }
