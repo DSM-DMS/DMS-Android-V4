@@ -2,12 +2,13 @@ package com.dsm.dms.presentation.ui.fragment.mypage
 
 import android.os.Bundle
 import android.view.View
-import androidx.lifecycle.ViewModelProviders
+import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.dsm.dms.presentation.R
 import com.dsm.dms.presentation.base.DataBindingFragment
 import com.dsm.dms.presentation.databinding.FragmentMypageBinding
-import com.dsm.dms.presentation.viewmodel.main.MyPageViewModel
-import com.dsm.dms.presentation.viewmodel.main.MyPageViewModelFactory
+import com.dsm.dms.presentation.viewmodel.main.mypage.MyPageViewModel
+import com.dsm.dms.presentation.viewmodel.main.mypage.MyPageViewModelFactory
 import javax.inject.Inject
 
 class MyPageFragment: DataBindingFragment<FragmentMypageBinding>() {
@@ -18,11 +19,15 @@ class MyPageFragment: DataBindingFragment<FragmentMypageBinding>() {
     lateinit var factory: MyPageViewModelFactory
 
     override val viewModel
-            by lazy { ViewModelProviders.of(this, factory).get(MyPageViewModel::class.java) }
+            by lazy { ViewModelProvider(this, factory).get(MyPageViewModel::class.java) }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.vm = viewModel
+
+    }
+
+    override fun observeEvent() {
 
     }
 }

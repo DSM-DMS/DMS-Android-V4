@@ -1,17 +1,20 @@
 package com.dsm.dms.presentation.base
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.OnBackPressedCallback
+import androidx.activity.addCallback
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
+import androidx.navigation.fragment.findNavController
 import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
 import dagger.android.support.AndroidSupportInjection
-import dagger.android.support.DaggerFragment
 import dagger.android.support.HasSupportFragmentInjector
 import javax.inject.Inject
 
@@ -35,6 +38,18 @@ abstract class DataBindingFragment<T : ViewDataBinding> : Fragment(), HasSupport
         rootView = binding.root
         binding.lifecycleOwner = this
         return rootView
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        register(viewModel)
+        observeEvent()
+    }
+
+    abstract fun observeEvent()
+
+    open fun back() {
+        findNavController().navigateUp()
     }
 
     override fun onStart() {

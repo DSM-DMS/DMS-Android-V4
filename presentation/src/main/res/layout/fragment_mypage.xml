@@ -3,7 +3,7 @@
     <data>
         <variable
                 name="vm"
-                type="com.dsm.dms.presentation.viewmodel.main.MyPageViewModel" />
+                type="com.dsm.dms.presentation.viewmodel.main.mypage.MyPageViewModel" />
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
             xmlns:app="http://schemas.android.com/apk/res-auto"

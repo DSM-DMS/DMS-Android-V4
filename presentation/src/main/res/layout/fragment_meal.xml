@@ -1,25 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <data>
         <variable
                 name="vm"
-                type="com.dsm.dms.presentation.viewmodel.main.MealViewModel" />
+                type="com.dsm.dms.presentation.viewmodel.main.meal.MealViewModel" />
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
-            xmlns:app="http://schemas.android.com/apk/res-auto"
-            xmlns:android="http://schemas.android.com/apk/res/android"
-            android:layout_height="match_parent"
+        android:layout_height="match_parent"
             android:layout_width="match_parent">
 
+        <androidx.appcompat.widget.AppCompatImageView
+            android:onClick="@{() -> vm.dateBeforeClick()}"
+            android:id="@+id/meal_before_btn"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:tint="@color/colorNightBlack"
+            android:src="@drawable/ic_before"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_margin="54dp"
+            android:layout_width="24dp"
+            android:layout_height="24dp"/>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:onClick="@{() -> vm.dateAfterClick()}"
+            android:id="@+id/meal_after_btn"
+            android:src="@drawable/ic_after"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:tint="@color/colorNightBlack"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_margin="54dp"
+            android:layout_width="24dp"
+            android:layout_height="24dp"/>
+
         <androidx.appcompat.widget.AppCompatTextView
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                android:textSize="200dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/navigation_meal"/>
+            android:id="@+id/meal_date_tv"
+            app:layout_constraintTop_toTopOf="@id/meal_before_btn"
+            app:layout_constraintBottom_toBottomOf="@id/meal_before_btn"
+            app:layout_constraintStart_toEndOf="@id/meal_before_btn"
+            app:layout_constraintEnd_toStartOf="@id/meal_after_btn"
+            android:textSize="18sp"
+            android:textColor="@color/colorMain"
+            android:text="@{vm.dateText}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:layout_marginTop="16dp"
+            android:id="@+id/meal_pager"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/meal_date_tv"
+            app:layout_constraintVertical_bias="0.0"
+            app:mealItems="@{vm.mealItems}"
+            app:pageChange="@={vm.pageStatusLiveData}" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

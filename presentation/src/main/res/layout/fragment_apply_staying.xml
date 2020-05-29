@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="vm"
+            type="com.dsm.dms.presentation.viewmodel.main.apply.staying.ApplyStayingViewModel" />
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:onClick="@{() -> vm.backClick()}"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:tint="@color/colorNightBlack"
+            android:clickable="true"
+            android:focusable="true"
+            android:src="@drawable/ic_back"
+            android:id="@+id/apply_staying_back_btn"
+            android:layout_marginTop="24dp"
+            android:layout_marginStart="24dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:background="@drawable/ic_staying"
+            android:backgroundTint="@color/colorMain"
+            android:id="@+id/apply_staying_icon_imv"
+            android:layout_marginTop="24dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="54dp"
+            android:layout_height="54dp"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/apply_staying_title_tv"
+            android:layout_marginTop="24dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/apply_staying_icon_imv"
+            android:text="@string/apply_staying_title_tv"
+            android:textSize="18sp"
+            android:textColor="@color/colorNightBlack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/apply_staying_content_tv"
+            android:layout_marginTop="24dp"
+            app:layout_constraintTop_toBottomOf="@id/apply_staying_title_tv"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:text="@string/apply_staying_content_tv"
+            android:textSize="14sp"
+            android:textColor="@color/colorNightBlack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <androidx.cardview.widget.CardView
+            android:foreground="?android:attr/selectableItemBackground"
+            android:onClick="@{() -> vm.fridayGoClick()}"
+            android:id="@+id/apply_staying_friday_go_card"
+            app:cardCornerRadius="14dp"
+            app:cardElevation="4dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/apply_staying_content_tv"
+            app:layout_constraintBottom_toTopOf="@id/apply_staying_saturday_go_card"
+            android:layout_width="0dp"
+            android:layout_height="0dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    app:layout_constraintVertical_chainStyle="packed"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toTopOf="@id/apply_staying_friday_go_content_tv"
+                    android:text="@string/apply_staying_friday_go_title_tv"
+                    android:textSize="16sp"
+                    android:textColor="@color/colorNightBlack"
+                    android:id="@+id/apply_staying_friday_go_title_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_marginTop="10dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/apply_staying_friday_go_title_tv"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:text="@string/apply_staying_friday_go_content_tv"
+                    android:textSize="12sp"
+                    android:id="@+id/apply_staying_friday_go_content_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:foreground="?android:attr/selectableItemBackground"
+            android:onClick="@{() -> vm.saturdayGoClick()}"
+            android:id="@+id/apply_staying_saturday_go_card"
+            app:cardCornerRadius="14dp"
+            app:cardElevation="4dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/apply_staying_friday_go_card"
+            app:layout_constraintBottom_toTopOf="@id/apply_staying_saturday_back_card"
+            android:layout_width="0dp"
+            android:layout_height="0dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    app:layout_constraintVertical_chainStyle="packed"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toTopOf="@id/apply_staying_saturday_go_content_tv"
+                    android:text="@string/apply_staying_saturday_go_title_tv"
+                    android:textSize="16sp"
+                    android:textColor="@color/colorNightBlack"
+                    android:id="@+id/apply_staying_saturday_go_title_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_marginTop="10dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/apply_staying_saturday_go_title_tv"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:text="@string/apply_staying_saturday_go_content_tv"
+                    android:textSize="12sp"
+                    android:id="@+id/apply_staying_saturday_go_content_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:foreground="?android:attr/selectableItemBackground"
+            android:onClick="@{() -> vm.saturdayBackClick()}"
+            android:id="@+id/apply_staying_saturday_back_card"
+            app:cardCornerRadius="14dp"
+            app:cardElevation="4dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/apply_staying_saturday_go_card"
+            app:layout_constraintBottom_toTopOf="@id/apply_staying_staying_card"
+            android:layout_width="0dp"
+            android:layout_height="0dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    app:layout_constraintVertical_chainStyle="packed"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toTopOf="@id/apply_staying_saturday_back_content_tv"
+                    android:text="@string/apply_staying_saturday_back_title_tv"
+                    android:textSize="16sp"
+                    android:textColor="@color/colorNightBlack"
+                    android:id="@+id/apply_staying_saturday_back_title_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_marginTop="10dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/apply_staying_saturday_back_title_tv"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:text="@string/apply_staying_saturday_back_content_tv"
+                    android:textSize="12sp"
+                    android:id="@+id/apply_staying_saturday_back_content_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:foreground="?android:attr/selectableItemBackground"
+            android:onClick="@{() -> vm.stayingClick()}"
+            android:id="@+id/apply_staying_staying_card"
+            app:cardCornerRadius="14dp"
+            app:cardElevation="4dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="24dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/apply_staying_saturday_back_card"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_width="0dp"
+            android:layout_height="0dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    app:layout_constraintVertical_chainStyle="packed"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toTopOf="@id/apply_staying_staying_content_tv"
+                    android:text="@string/apply_staying_staying_title_tv"
+                    android:textSize="16sp"
+                    android:textColor="@color/colorNightBlack"
+                    android:id="@+id/apply_staying_staying_title_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_marginTop="10dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/apply_staying_staying_title_tv"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:text="@string/apply_staying_staying_content_tv"
+                    android:textSize="12sp"
+                    android:id="@+id/apply_staying_staying_content_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
