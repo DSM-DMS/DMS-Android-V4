@@ -11,10 +11,13 @@
         android:layout_height="match_parent"
         android:layout_width="match_parent">
 
-        <androidx.appcompat.widget.AppCompatImageButton
+        <androidx.appcompat.widget.AppCompatImageView
             android:onClick="@{() -> vm.backClick()}"
-            android:background="@drawable/ic_back"
-            android:backgroundTint="@color/colorNightBlack"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:tint="@color/colorNightBlack"
+            android:clickable="true"
+            android:focusable="true"
+            android:src="@drawable/ic_back"
             android:id="@+id/apply_staying_back_btn"
             android:layout_marginTop="24dp"
             android:layout_marginStart="24dp"

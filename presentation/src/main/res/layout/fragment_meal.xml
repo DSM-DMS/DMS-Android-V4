@@ -10,22 +10,24 @@
         android:layout_height="match_parent"
             android:layout_width="match_parent">
 
-        <androidx.appcompat.widget.AppCompatImageButton
+        <androidx.appcompat.widget.AppCompatImageView
             android:onClick="@{() -> vm.dateBeforeClick()}"
             android:id="@+id/meal_before_btn"
-            android:backgroundTint="@color/colorNightBlack"
-            android:background="@drawable/ic_before"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:tint="@color/colorNightBlack"
+            android:src="@drawable/ic_before"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             android:layout_margin="54dp"
             android:layout_width="24dp"
             android:layout_height="24dp"/>
 
-        <androidx.appcompat.widget.AppCompatImageButton
+        <androidx.appcompat.widget.AppCompatImageView
             android:onClick="@{() -> vm.dateAfterClick()}"
             android:id="@+id/meal_after_btn"
-            android:background="@drawable/ic_after"
-            android:backgroundTint="@color/colorNightBlack"
+            android:src="@drawable/ic_after"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:tint="@color/colorNightBlack"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_margin="54dp"
