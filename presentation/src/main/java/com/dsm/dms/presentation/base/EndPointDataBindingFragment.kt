@@ -1,13 +1,13 @@
 package com.dsm.dms.presentation.base
 
 import android.content.Context
-import androidx.activity.OnBackPressedCallback
+import androidx.activity.addCallback
 import androidx.databinding.ViewDataBinding
+import com.dsm.dms.presentation.toast
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
 import io.reactivex.subjects.BehaviorSubject
 import io.reactivex.subjects.Subject
-import org.jetbrains.anko.support.v4.toast
 
 abstract class EndPointDataBindingFragment<V: ViewDataBinding>: DataBindingFragment<V>() {
 
@@ -19,19 +19,19 @@ abstract class EndPointDataBindingFragment<V: ViewDataBinding>: DataBindingFragm
         .buffer(2, 1)
         .observeOn(AndroidSchedulers.mainThread())
         .subscribe {
-            if (it[1] - it[0] <= 1500) activity?.finish()
-            else toast("뒤로가기 버튼을 한 번 더 누르시면 종료됩니다.")
+            if (it[1] - it[0] <= 1500) requireActivity().finish()
+            else toast(requireContext(),"뒤로가기 버튼을 한 번 더 누르시면 종료됩니다.")
         }
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
+        requireActivity().onBackPressedDispatcher.addCallback {
+            back()
+        }
+    }
 
-        requireActivity().onBackPressedDispatcher.addCallback(
-            this, object: OnBackPressedCallback(true) {
-                override fun handleOnBackPressed() {
-                    backButtonSubject.onNext(System.currentTimeMillis())
-                }
-            })
+    override fun back() {
+        backButtonSubject.onNext(System.currentTimeMillis())
     }
 
     override fun onDestroy() {
