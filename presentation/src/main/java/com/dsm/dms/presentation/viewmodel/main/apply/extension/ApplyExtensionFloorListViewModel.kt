@@ -6,29 +6,14 @@ import com.dsm.dms.presentation.base.SingleLiveEvent
 
 class ApplyExtensionFloorListViewModel: BaseViewModel() {
     val backToMainEvent = SingleLiveEvent<Unit>()
+    val goToDetailEvent = SingleLiveEvent<Int>()
 
     override fun apply(event: Lifecycle.Event) {
 
     }
 
-    fun firstFloorClick() {
-
-    }
-
-    fun secondFloorClick() {
-
-    }
-
-    fun thirdFloorClick() {
-
-    }
-
-    fun fourthFloorClick() {
-
-    }
-
-    fun fifthFloorClick() {
-
+    fun floorClick(floor: Int) {
+        goToDetailEvent.value = floor
     }
 
     fun backClick() = backToMainEvent.call()

@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <data>
         <variable
             name="vm"
             type="com.dsm.dms.presentation.viewmodel.main.apply.extension.ApplyExtensionFloorListViewModel" />
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        xmlns:app="http://schemas.android.com/apk/res-auto">
+        android:layout_height="match_parent">
 
         <androidx.appcompat.widget.AppCompatImageView
             android:onClick="@{() -> vm.backClick()}"
@@ -21,7 +21,7 @@
             android:clickable="true"
             android:focusable="true"
             android:src="@drawable/ic_back"
-            android:tint="@color/colorBlack"
+            android:tint="@color/colorNightBlack"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
@@ -62,31 +62,33 @@
             android:layout_height="wrap_content"/>
 
         <androidx.cardview.widget.CardView
-            android:onClick="@{() -> vm.firstFloorClick()}"
-            android:foreground="?android:attr/selectableItemBackground"
             android:id="@+id/extension_first_floor_card"
-            app:layout_constraintTop_toBottomOf="@id/extension_floor_list_description_tv"
-            app:layout_constraintBottom_toTopOf="@id/extension_second_floor_card"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginHorizontal="24dp"
+            android:layout_marginTop="20dp"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:onClick="@{() -> vm.floorClick(1)}"
             app:cardCornerRadius="14dp"
             app:cardElevation="4dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginHorizontal="24dp"
-            android:layout_width="match_parent"
-            android:layout_height="0dp">
+            app:layout_constraintBottom_toTopOf="@id/extension_second_floor_card"
+            app:layout_constraintTop_toBottomOf="@id/extension_floor_list_description_tv"
+            tools:layout_editor_absoluteX="24dp">
+
             <androidx.appcompat.widget.AppCompatTextView
-                android:textSize="16sp"
-                android:textColor="@color/colorNightBlack"
-                android:padding="16dp"
-                android:gravity="center"
-                android:layout_gravity="center"
                 android:id="@+id/extension_first_floor_tv"
-                android:text="@string/extension_first_floor_title"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:padding="16dp"
+                android:text="@string/extension_first_floor_title"
+                android:textColor="@color/colorNightBlack"
+                android:textSize="16sp" />
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
-            android:onClick="@{() -> vm.secondFloorClick()}"
+            android:onClick="@{() -> vm.floorClick(2)}"
             android:foreground="?android:attr/selectableItemBackground"
             android:id="@+id/extension_second_floor_card"
             app:layout_constraintTop_toBottomOf="@id/extension_first_floor_card"
@@ -110,7 +112,7 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
-            android:onClick="@{() -> vm.thirdFloorClick()}"
+            android:onClick="@{() -> vm.floorClick(3)}"
             android:foreground="?android:attr/selectableItemBackground"
             android:id="@+id/extension_third_floor_card"
             app:layout_constraintTop_toBottomOf="@id/extension_second_floor_card"
@@ -134,7 +136,7 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
-            android:onClick="@{() -> vm.fourthFloorClick()}"
+            android:onClick="@{() -> vm.floorClick(4)}"
             android:foreground="?android:attr/selectableItemBackground"
             android:id="@+id/extension_fourth_floor_card"
             app:layout_constraintTop_toBottomOf="@id/extension_third_floor_card"
@@ -158,7 +160,7 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
-            android:onClick="@{() -> vm.fifthFloorClick()}"
+            android:onClick="@{() -> vm.floorClick(5)}"
             android:foreground="?android:attr/selectableItemBackground"
             android:id="@+id/extension_fifth_floor_card"
             app:layout_constraintTop_toBottomOf="@id/extension_fourth_floor_card"

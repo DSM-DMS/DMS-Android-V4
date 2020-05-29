@@ -5,8 +5,9 @@ import com.dsm.dms.presentation.viewmodel.main.apply.extension.ApplyExtensionFlo
 import dagger.Module
 import dagger.Provides
 
+
 @Module
-class ApplyExtensionStudyFloorListModule {
+class ApplyExtensionFloorListModule {
     @ApplyFragmentScope
     @Provides
     fun provideViewModelFactory(): ApplyExtensionFloorListViewModelFactory
