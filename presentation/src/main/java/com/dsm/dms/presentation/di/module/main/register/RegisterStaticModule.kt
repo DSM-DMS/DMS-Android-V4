@@ -1,7 +1,7 @@
-package com.dsm.dms.presentation.di.module.sign.register
+package com.dsm.dms.presentation.di.module.main.register
 
 import androidx.lifecycle.ViewModelProviders
-import com.dsm.dms.presentation.di.scope.SignFragmentScope
+import com.dsm.dms.presentation.di.scope.FragmentScope
 import com.dsm.dms.presentation.ui.fragment.sign.register.RegisterFragment
 import com.dsm.dms.presentation.viewmodel.sign.register.RegisterViewModel
 import com.dsm.dms.presentation.viewmodel.sign.register.RegisterViewModelFactory
@@ -10,12 +10,12 @@ import dagger.Provides
 
 @Module
 class RegisterStaticModule {
-    @SignFragmentScope
+    @FragmentScope
     @Provides
     fun provideViewModelFactory(): RegisterViewModelFactory =
         RegisterViewModelFactory()
 
-    @SignFragmentScope
+    @FragmentScope
     @Provides
     fun provideViewModel(
         registerFragment: RegisterFragment,

@@ -1,13 +1,13 @@
-package com.dsm.dms.presentation.di.module.sign.login
+package com.dsm.dms.presentation.di.module.main.login
 
-import com.dsm.dms.presentation.di.scope.SignFragmentScope
+import com.dsm.dms.presentation.di.scope.FragmentScope
 import com.dsm.dms.presentation.viewmodel.sign.login.LoginViewModelFactory
 import dagger.Module
 import dagger.Provides
 
 @Module
 class LoginStaticModule {
-    @SignFragmentScope
+    @FragmentScope
     @Provides
     fun provideViewModelFactory(): LoginViewModelFactory = LoginViewModelFactory()
 }

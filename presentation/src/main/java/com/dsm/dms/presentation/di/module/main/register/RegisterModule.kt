@@ -1,4 +1,4 @@
-package com.dsm.dms.presentation.di.module.sign.register
+package com.dsm.dms.presentation.di.module.main.register
 
 import com.dsm.dms.presentation.di.scope.RegisterFragmentScope
 import com.dsm.dms.presentation.ui.fragment.sign.register.account.certify.CertifyAccountFragment
