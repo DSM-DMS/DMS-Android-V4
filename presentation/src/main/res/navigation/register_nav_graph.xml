@@ -13,10 +13,10 @@
         <action
             android:id="@+id/action_createAccountFragment_to_certifyAccountFragment"
             app:destination="@id/certifyAccountFragment"
-            app:enterAnim="@anim/nav_default_enter_anim"
-            app:exitAnim="@anim/nav_default_exit_anim"
-            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
-            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+            app:popEnterAnim="@anim/fadein"
+            app:popExitAnim="@anim/slide_to_right"
+            app:enterAnim="@anim/slide_from_right"
+            app:exitAnim="@anim/fadeout" />
     </fragment>
     <fragment
         android:id="@+id/certifyAccountFragment"
@@ -26,10 +26,10 @@
         <action
             android:id="@+id/action_certifyAccountFragment_to_registerCompleteFragment"
             app:destination="@id/registerCompleteFragment"
-            app:enterAnim="@anim/nav_default_enter_anim"
-            app:exitAnim="@anim/nav_default_exit_anim"
-            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
-            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+            app:popEnterAnim="@anim/fadein"
+            app:popExitAnim="@anim/slide_to_right"
+            app:enterAnim="@anim/slide_from_right"
+            app:exitAnim="@anim/fadeout" />
     </fragment>
     <fragment
         android:id="@+id/registerCompleteFragment"

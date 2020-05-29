@@ -11,40 +11,28 @@
         android:label="ApplyMainFragment"
         tools:layout="@layout/fragment_apply_main">
         <action
-            app:popUpTo="@id/applyMainFragment"
+            app:popEnterAnim="@anim/fadein"
+            app:popExitAnim="@anim/slide_to_right"
             app:enterAnim="@anim/slide_from_right"
             app:exitAnim="@anim/fadeout"
             android:id="@+id/action_applyMainFragment_to_applyStayingFragment"
             app:destination="@id/applyStayingFragment" />
         <action
-            app:popUpTo="@id/applyMainFragment"
+            app:popEnterAnim="@anim/fadein"
+            app:popExitAnim="@anim/slide_to_right"
             app:enterAnim="@anim/slide_from_right"
             app:exitAnim="@anim/fadeout"
-            android:id="@+id/action_applyMainFragment_to_applyExtensionStudyFloorListFragment"
-            app:destination="@id/applyExtensionStudyFloorListFragment" />
+            android:id="@+id/action_applyMainFragment_to_applyExtensionFloorListFragment"
+            app:destination="@id/applyExtensionFloorListFragment" />
     </fragment>
     <fragment
         android:id="@+id/applyStayingFragment"
         android:name="com.dsm.dms.presentation.ui.fragment.apply.staying.ApplyStayingFragment"
         android:label="ApplyStayingFragment"
-        tools:layout="@layout/fragment_apply_staying">
-        <action
-            app:popUpTo="@id/applyStayingFragment"
-            app:enterAnim="@anim/fadein"
-            app:exitAnim="@anim/slide_to_right"
-            android:id="@+id/action_applyStayingFragment_to_applyMainFragment"
-            app:destination="@id/applyMainFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_apply_staying"/>
     <fragment
-        android:id="@+id/applyExtensionStudyFloorListFragment"
-        android:name="com.dsm.dms.presentation.ui.fragment.apply.extension.ApplyExtensionStudyFloorListFragment"
-        android:label="ApplyExtensionStudyFloorListFragment"
-        tools:layout="@layout/fragment_apply_extension_study_floor_list">
-        <action
-            app:popUpTo="@id/applyStayingFragment"
-            app:enterAnim="@anim/fadein"
-            app:exitAnim="@anim/slide_to_right"
-            android:id="@+id/action_applyExtensionStudyFloorListFragment_to_applyMainFragment"
-            app:destination="@id/applyMainFragment" />
-    </fragment>
+        android:id="@+id/applyExtensionFloorListFragment"
+        android:name="com.dsm.dms.presentation.ui.fragment.apply.extension.ApplyExtensionFloorListFragment"
+        android:label="ApplyExtensionFloorListFragment"
+        tools:layout="@layout/fragment_apply_extension_floor_list"/>
 </navigation>
