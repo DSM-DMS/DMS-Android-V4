@@ -1,13 +1,13 @@
 package com.dsm.dms.presentation.di.module.main.apply
 
-import com.dsm.dms.presentation.di.module.main.apply.extension.ApplyExtensionFloorDetailModule
 import com.dsm.dms.presentation.di.module.main.apply.extension.ApplyExtensionFloorListModule
 import com.dsm.dms.presentation.di.module.main.apply.main.ApplyMainModule
+import com.dsm.dms.presentation.di.module.main.apply.rest.ApplyWeekendRestModule
 import com.dsm.dms.presentation.di.module.main.apply.staying.ApplyStayingModule
 import com.dsm.dms.presentation.di.scope.ApplyFragmentScope
-import com.dsm.dms.presentation.ui.fragment.apply.extension.ApplyExtensionFloorDetailFragment
 import com.dsm.dms.presentation.ui.fragment.apply.extension.ApplyExtensionFloorListFragment
 import com.dsm.dms.presentation.ui.fragment.apply.main.ApplyMainFragment
+import com.dsm.dms.presentation.ui.fragment.apply.rest.ApplyWeekendRestFragment
 import com.dsm.dms.presentation.ui.fragment.apply.staying.ApplyStayingFragment
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
@@ -25,4 +25,8 @@ abstract class ApplyModule {
     @ApplyFragmentScope
     @ContributesAndroidInjector(modules = [ApplyExtensionFloorListModule::class])
     abstract fun applyExtensionFloorListFragment(): ApplyExtensionFloorListFragment
+
+    @ApplyFragmentScope
+    @ContributesAndroidInjector(modules = [ApplyWeekendRestModule::class])
+    abstract fun applyWeekendRestFragment(): ApplyWeekendRestFragment
 }
