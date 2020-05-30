@@ -41,7 +41,7 @@ class ApplyMainFragment: DataBindingFragment<FragmentApplyMainBinding>() {
 
         })
         viewModel.goRestEvent.observe(this, Observer {
-
+            findNavController().navigate(R.id.action_applyMainFragment_to_applyWeekendRestFragment)
         })
     }
 }
