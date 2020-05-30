@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.res.Resources
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.widget.AppCompatTextView
 import androidx.cardview.widget.CardView
 import androidx.lifecycle.MutableLiveData
 
@@ -32,6 +33,22 @@ fun changeCardViewColor(card: CardView?, text: TextView?, resources: Resources, 
             resources.getColor(R.color.colorNightBlack, null)
         )
     }
+}
+
+fun changeColor(resources: Resources, card: CardView, title: AppCompatTextView, content: AppCompatTextView) {
+    card.setCardBackgroundColor(
+        resources.getColor(R.color.colorMain, null)
+    )
+    title.setTextColor(resources.getColor(R.color.colorWhite, null))
+    content.setTextColor(resources.getColor(R.color.colorWhite, null))
+}
+
+fun originalColor(resources: Resources, card: CardView, title: AppCompatTextView, content: AppCompatTextView) {
+    card.setCardBackgroundColor(
+        resources.getColor(R.color.colorNightViewBackgroundDefault, null)
+    )
+    title.setTextColor(resources.getColor(R.color.colorNightBlack, null))
+    content.setTextColor(resources.getColor(R.color.colorNightViewColorDefault, null))
 }
 
 fun String.intOrString() = toIntOrNull() ?: this
