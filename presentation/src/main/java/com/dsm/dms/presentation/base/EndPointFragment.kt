@@ -20,7 +20,7 @@ abstract class EndPointFragment: DaggerFragment() {
         .observeOn(AndroidSchedulers.mainThread())
         .subscribe {
             if (it[1] - it[0] <= 1500) requireActivity().finish()
-            else toast(requireContext(), "뒤로가기 버튼을 한 번 더 누르시면 종료됩니다.")
+            else requireContext().toast("뒤로가기 버튼을 한 번 더 누르시면 종료됩니다.")
         }
 
     override fun onAttach(context: Context) {

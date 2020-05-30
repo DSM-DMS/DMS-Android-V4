@@ -11,44 +11,44 @@ import androidx.lifecycle.MutableLiveData
 
 fun MutableLiveData<String>.isValueBlank() = this.value.isNullOrBlank()
 
-fun toast(context: Context, message: String) = Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
+fun Context.toast(message: String) = Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
 
-fun dp(resources: Resources, value: Int): Int = (value * resources.displayMetrics.density).toInt()
+fun Resources.dp(value: Int): Int = (value * this.displayMetrics.density).toInt()
 
-fun changeCardViewColor(card: CardView?, text: TextView?, resources: Resources, isNew: Boolean) {
+fun Resources.changeTitleCardColor(card: CardView?, text: TextView?, isNew: Boolean) {
     if (isNew) {
         card?.setCardBackgroundColor(
-            resources.getColor(R.color.colorMain, null)
+            this.getColor(R.color.colorMain, null)
         )
 
         text?.setTextColor(
-            resources.getColor(R.color.colorWhite, null)
+            this.getColor(R.color.colorWhite, null)
         )
     } else {
         card?.setCardBackgroundColor(
-            resources.getColor(R.color.colorNightWhite, null)
+            this.getColor(R.color.colorNightWhite, null)
         )
 
         text?.setTextColor(
-            resources.getColor(R.color.colorNightBlack, null)
+            this.getColor(R.color.colorNightBlack, null)
         )
     }
 }
 
-fun changeColor(resources: Resources, card: CardView, title: AppCompatTextView, content: AppCompatTextView) {
+fun Resources.changeContentCardColor(card: CardView, title: AppCompatTextView, content: AppCompatTextView) {
     card.setCardBackgroundColor(
-        resources.getColor(R.color.colorMain, null)
+        this.getColor(R.color.colorMain, null)
     )
-    title.setTextColor(resources.getColor(R.color.colorWhite, null))
-    content.setTextColor(resources.getColor(R.color.colorWhite, null))
+    title.setTextColor(this.getColor(R.color.colorWhite, null))
+    content.setTextColor(this.getColor(R.color.colorWhite, null))
 }
 
-fun originalColor(resources: Resources, card: CardView, title: AppCompatTextView, content: AppCompatTextView) {
+fun Resources.originContentCardColor(card: CardView, title: AppCompatTextView, content: AppCompatTextView) {
     card.setCardBackgroundColor(
-        resources.getColor(R.color.colorNightViewBackgroundDefault, null)
+        this.getColor(R.color.colorNightViewBackgroundDefault, null)
     )
-    title.setTextColor(resources.getColor(R.color.colorNightBlack, null))
-    content.setTextColor(resources.getColor(R.color.colorNightViewColorDefault, null))
+    title.setTextColor(this.getColor(R.color.colorNightBlack, null))
+    content.setTextColor(this.getColor(R.color.colorNightViewColorDefault, null))
 }
 
 fun String.intOrString() = toIntOrNull() ?: this

@@ -9,11 +9,9 @@ import androidx.cardview.widget.CardView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import com.dsm.dms.presentation.R
-import com.dsm.dms.presentation.changeCardViewColor
-import com.dsm.dms.presentation.ui.fragment.apply.extension.ApplyExtensionFloorDetailFragment
+import com.dsm.dms.presentation.changeTitleCardColor
 import com.dsm.dms.presentation.viewmodel.main.apply.extension.detail.ApplyExtensionFloorDetailViewModel
 import kotlinx.android.synthetic.main.fragment_apply_extension_second_floor_rooms.*
-import splitties.views.onClick
 
 class SecondRoomsFragment(val vm: ApplyExtensionFloorDetailViewModel): Fragment() {
 
@@ -51,6 +49,6 @@ class SecondRoomsFragment(val vm: ApplyExtensionFloorDetailViewModel): Fragment(
             }
         }
 
-        changeCardViewColor(cardView, textView, resources, isNew)
+        resources.changeTitleCardColor(cardView, textView, isNew)
     }
 }
