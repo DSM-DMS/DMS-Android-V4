@@ -74,4 +74,12 @@
     <string name="extension_apply_text">신청</string>
     <string name="extension_apply_eleven_text">11시</string>
     <string name="extension_apply_twelve_text">12시</string>
+
+    // rest
+    <string name="weekend_rest_title">휴식 신청</string>
+    <string name="weekend_rest_description">일요일 자습 시간 때 호실 휴식을 신청할 수 있습니다</string>
+    <string name="weekend_rest_am_rest_title">오전 자습 휴식</string>
+    <string name="weekend_rest_am_rest_description">일요일 오전 자습 시간 때 호실 휴식을 합니다</string>
+    <string name="weekend_rest_pm_rest_title">오후 자습 휴식</string>
+    <string name="weekend_rest_pm_rest_description">일요일 오후 자습 시간 때 호실 휴식을 합니다</string>
 </resources>
