@@ -18,6 +18,7 @@
     <color name="colorCheckCodeResult">#333333</color>
 
     <color name="colorNightWhite">#FFFFFF</color>
+    <color name="colorNightWhiteToGray">#FFFFFF</color>
     <color name="colorNightGray">#F5F5F5</color>
     <color name="colorNightBlack">#000000</color>
     <color name="colorNightViewBackgroundDefault">#FFFFFF</color>
