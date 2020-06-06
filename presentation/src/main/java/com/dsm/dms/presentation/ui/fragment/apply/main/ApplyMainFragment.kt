@@ -38,7 +38,7 @@ class ApplyMainFragment: DataBindingFragment<FragmentApplyMainBinding>() {
 
         })
         viewModel.goMusicEvent.observe(this, Observer{
-
+            findNavController().navigate(R.id.action_applyMainFragment_to_applyMusicDayListFragment)
         })
         viewModel.goRestEvent.observe(this, Observer {
 
