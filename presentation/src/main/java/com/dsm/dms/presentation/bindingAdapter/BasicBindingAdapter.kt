@@ -1,18 +1,21 @@
 package com.dsm.dms.presentation.bindingAdapter
 
-import android.util.Log
+import android.content.Context
 import androidx.databinding.BindingAdapter
 import androidx.databinding.InverseBindingAdapter
 import androidx.databinding.InverseBindingListener
 import androidx.lifecycle.MutableLiveData
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
 import com.dsm.dms.presentation.adapter.MealPagerAdapter
+import com.dsm.dms.presentation.base.BaseViewModel
+import com.dsm.dms.presentation.base.RecyclerViewAdapter
 import com.dsm.dms.presentation.model.MealModel
+
 
 @BindingAdapter("pageChange")
 fun ViewPager2.setPageChange(data: MutableLiveData<Int>) {
-    Log.d("MealBindingAdapter", "Page is $currentItem")
     if (currentItem != data.value)
         currentItem = data.value ?: 0
 }
@@ -36,4 +39,16 @@ fun ViewPager2.setPageChangeListener(listener: InverseBindingListener) {
 @BindingAdapter("mealItems")
 fun ViewPager2.bindMealItems(mealItems: MutableLiveData<ArrayList<MealModel>>) {
     (adapter as MealPagerAdapter).setItem(mealItems)
+}
+
+@BindingAdapter("recyclerItems")
+fun RecyclerView.setRecyclerViewItems(
+    items: List<RecyclerItem>
+) {
+    if (adapter == null) {
+        adapter = RecyclerViewAdapter()
+        layoutManager = LinearLayoutManager(context)
+    }
+
+    (adapter as? RecyclerViewAdapter)?.updateData(items)
 }

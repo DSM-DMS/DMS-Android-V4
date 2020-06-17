@@ -50,11 +50,23 @@
             app:enterAnim="@anim/slide_from_right"
             app:exitAnim="@anim/fadeout"
             app:destination="@id/applyExtensionFloorDetailFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_applyMusicApplyFragment"
+            app:popEnterAnim="@anim/fadein"
+            app:popExitAnim="@anim/slide_to_right"
+            app:enterAnim="@anim/slide_from_right"
+            app:exitAnim="@anim/fadeout"
+            app:destination="@id/applyMusicApplyFragment" />
     </fragment>
     <fragment
         android:id="@+id/applyExtensionFloorDetailFragment"
         android:name="com.dsm.dms.presentation.ui.fragment.apply.extension.ApplyExtensionFloorDetailFragment"
         android:label="ApplyExtensionFloorDetailFragment"
         tools:layout="@layout/fragment_apply_extension_floor_detail"/>
+    <fragment
+        android:id="@+id/applyMusicApplyFragment"
+        android:name="com.dsm.dms.presentation.ui.fragment.apply.music.apply.ApplyMusicApplyFragment"
+        android:label="ApplyMusicApplyFragment"
+        tools:layout="@layout/fragment_apply_music_apply"/>
 
 </navigation>

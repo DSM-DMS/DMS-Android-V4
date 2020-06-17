@@ -1,0 +1,362 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="vm"
+            type="com.dsm.dms.presentation.viewmodel.main.apply.music.ApplyMusicDayListViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/apply_music_day_list_back_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="24dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
+            android:focusable="true"
+            android:onClick="@{() -> vm.backClick()}"
+            android:src="@drawable/ic_back"
+            android:tint="@color/colorNightBlack"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/apply_music_day_list_icon_imv"
+            android:layout_width="54dp"
+            android:layout_height="54dp"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/ic_music"
+            android:backgroundTint="@color/colorMain"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/apply_music_day_list_title_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="@string/music_day_list_title"
+            android:textColor="@color/colorNightBlack"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/apply_music_day_list_icon_imv" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/apply_music_day_list_content_tv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="24dp"
+            android:layout_marginTop="24dp"
+            android:gravity="center"
+            android:text="@string/music_day_list_content"
+            android:textColor="@color/colorNightBlack"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/apply_music_day_list_title_tv" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/apply_music_day_list_monday_card"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginHorizontal="24dp"
+            android:layout_marginTop="32dp"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:onClick='@{() -> vm.dayClick("monday")}'
+            app:cardCornerRadius="14dp"
+            app:cardElevation="4dp"
+            app:layout_constraintBottom_toTopOf="@id/apply_music_day_list_tuesday_card"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/apply_music_day_list_content_tv">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/apply_music_day_list_monday_title_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/music_day_list_monday"
+                    android:textColor="@color/colorNightBlack"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_chainStyle="packed" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/apply_music_day_list_monday_size_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginBottom="10dp"
+                    android:textColor="@color/colorNightBlack"
+                    android:text="@{vm.mondaySize}"
+                    android:textSize="12sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/apply_music_day_list_monday_title_tv" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/apply_music_day_list_monday_music_imv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:src="@drawable/ic_round_queue_music"
+                    app:layout_constraintBottom_toBottomOf="@id/apply_music_day_list_monday_size_tv"
+                    app:layout_constraintEnd_toStartOf="@id/apply_music_day_list_monday_size_tv"
+                    app:layout_constraintTop_toTopOf="@id/apply_music_day_list_monday_size_tv" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/apply_music_day_list_tuesday_card"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginHorizontal="24dp"
+            android:layout_marginTop="32dp"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:onClick='@{() -> vm.dayClick("tuesday")}'
+            app:cardCornerRadius="14dp"
+            app:cardElevation="4dp"
+            app:layout_constraintBottom_toTopOf="@id/apply_music_day_list_wednesday_card"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/apply_music_day_list_monday_card">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/apply_music_day_list_tuesday_title_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/music_day_list_tuesday"
+                    android:textColor="@color/colorNightBlack"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_chainStyle="packed" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/apply_music_day_list_tuesday_size_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginBottom="10dp"
+                    android:textColor="@color/colorNightBlack"
+                    android:text="@{vm.tuesdaySize}"
+                    android:textSize="12sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/apply_music_day_list_tuesday_title_tv" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/apply_music_day_list_tuesday_music_imv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:backgroundTint="@color/colorNightBlack"
+                    android:src="@drawable/ic_round_queue_music"
+                    app:layout_constraintBottom_toBottomOf="@id/apply_music_day_list_tuesday_size_tv"
+                    app:layout_constraintEnd_toStartOf="@id/apply_music_day_list_tuesday_size_tv"
+                    app:layout_constraintTop_toTopOf="@id/apply_music_day_list_tuesday_size_tv" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/apply_music_day_list_wednesday_card"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginHorizontal="24dp"
+            android:layout_marginTop="32dp"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:onClick='@{() -> vm.dayClick("wednesday")}'
+            app:cardCornerRadius="14dp"
+            app:cardElevation="4dp"
+            app:layout_constraintBottom_toTopOf="@id/apply_music_day_list_thursday_card"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/apply_music_day_list_tuesday_card">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/apply_music_day_list_wednesday_title_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/music_day_list_wednesday"
+                    android:textColor="@color/colorNightBlack"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_chainStyle="packed" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/apply_music_day_list_wednesday_size_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginBottom="10dp"
+                    android:textColor="@color/colorNightBlack"
+                    android:text="@{vm.wednesdaySize}"
+                    android:textSize="12sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/apply_music_day_list_wednesday_title_tv" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/apply_music_day_list_wednesday_music_imv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:backgroundTint="@color/colorNightBlack"
+                    android:src="@drawable/ic_round_queue_music"
+                    app:layout_constraintBottom_toBottomOf="@id/apply_music_day_list_wednesday_size_tv"
+                    app:layout_constraintEnd_toStartOf="@id/apply_music_day_list_wednesday_size_tv"
+                    app:layout_constraintTop_toTopOf="@id/apply_music_day_list_wednesday_size_tv" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/apply_music_day_list_thursday_card"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginHorizontal="24dp"
+            android:layout_marginTop="32dp"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:onClick='@{() -> vm.dayClick("thursday")}'
+            app:cardCornerRadius="14dp"
+            app:cardElevation="4dp"
+            app:layout_constraintBottom_toTopOf="@id/apply_music_day_list_friday_card"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/apply_music_day_list_wednesday_card">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/apply_music_day_list_thursday_title_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/music_day_list_thursday"
+                    android:textColor="@color/colorNightBlack"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_chainStyle="packed" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/apply_music_day_list_thursday_size_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginBottom="10dp"
+                    android:textColor="@color/colorNightBlack"
+                    android:text="@{vm.thursdaySize}"
+                    android:textSize="12sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/apply_music_day_list_thursday_title_tv" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/apply_music_day_list_thursday_music_imv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:backgroundTint="@color/colorNightBlack"
+                    android:src="@drawable/ic_round_queue_music"
+                    app:layout_constraintBottom_toBottomOf="@id/apply_music_day_list_thursday_size_tv"
+                    app:layout_constraintEnd_toStartOf="@id/apply_music_day_list_thursday_size_tv"
+                    app:layout_constraintTop_toTopOf="@id/apply_music_day_list_thursday_size_tv" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/apply_music_day_list_friday_card"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginHorizontal="24dp"
+            android:layout_marginVertical="32dp"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:onClick='@{() -> vm.dayClick("friday")}'
+            app:cardCornerRadius="14dp"
+            app:cardElevation="4dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/apply_music_day_list_thursday_card">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/apply_music_day_list_friday_title_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/music_day_list_friday"
+                    android:textColor="@color/colorNightBlack"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_chainStyle="packed" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/apply_music_day_list_friday_size_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginBottom="10dp"
+                    android:textColor="@color/colorNightBlack"
+                    android:text="@{vm.fridaySize}"
+                    android:textSize="12sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/apply_music_day_list_friday_title_tv" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/apply_music_day_list_friday_music_imv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:backgroundTint="@color/colorNightBlack"
+                    android:src="@drawable/ic_round_queue_music"
+                    app:layout_constraintBottom_toBottomOf="@id/apply_music_day_list_friday_size_tv"
+                    app:layout_constraintEnd_toStartOf="@id/apply_music_day_list_friday_size_tv"
+                    app:layout_constraintTop_toTopOf="@id/apply_music_day_list_friday_size_tv" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

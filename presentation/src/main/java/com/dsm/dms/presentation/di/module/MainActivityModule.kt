@@ -3,12 +3,14 @@ package com.dsm.dms.presentation.di.module
 import com.dsm.dms.presentation.di.module.main.MainModule
 import com.dsm.dms.presentation.di.module.main.MainStaticModule
 import com.dsm.dms.presentation.di.module.main.apply.extension.ApplyExtensionFloorDetailModule
+import com.dsm.dms.presentation.di.module.main.apply.music.apply.ApplyMusicApplyModule
 import com.dsm.dms.presentation.di.module.main.login.LoginStaticModule
 import com.dsm.dms.presentation.di.module.main.register.RegisterModule
 import com.dsm.dms.presentation.di.module.main.register.RegisterStaticModule
 import com.dsm.dms.presentation.di.scope.FragmentScope
 import com.dsm.dms.presentation.ui.fragment.MainFragment
 import com.dsm.dms.presentation.ui.fragment.apply.extension.ApplyExtensionFloorDetailFragment
+import com.dsm.dms.presentation.ui.fragment.apply.music.apply.ApplyMusicApplyFragment
 import com.dsm.dms.presentation.ui.fragment.sign.login.LoginFragment
 import com.dsm.dms.presentation.ui.fragment.sign.register.RegisterFragment
 import dagger.Module
@@ -31,4 +33,8 @@ abstract class MainActivityModule {
     @FragmentScope
     @ContributesAndroidInjector(modules = [ApplyExtensionFloorDetailModule::class])
     abstract fun applyExtensionsFloorDetailFragment(): ApplyExtensionFloorDetailFragment
+
+    @FragmentScope
+    @ContributesAndroidInjector(modules = [ApplyMusicApplyModule::class])
+    abstract fun applyMusicApplyFragment(): ApplyMusicApplyFragment
 }

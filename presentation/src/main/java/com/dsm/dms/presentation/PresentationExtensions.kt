@@ -6,6 +6,8 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.cardview.widget.CardView
 import androidx.lifecycle.MutableLiveData
+import com.dsm.dms.presentation.bindingAdapter.RecyclerItem
+import com.dsm.dms.presentation.model.MusicModel
 
 
 fun MutableLiveData<String>.isValueBlank() = this.value.isNullOrBlank()
@@ -25,7 +27,7 @@ fun changeCardViewColor(card: CardView?, text: TextView?, resources: Resources, 
         )
     } else {
         card?.setCardBackgroundColor(
-            resources.getColor(R.color.colorNightWhite, null)
+            resources.getColor(R.color.colorNightWhiteToGray, null)
         )
 
         text?.setTextColor(
