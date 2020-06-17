@@ -6,13 +6,13 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.dsm.dms.presentation.R
-import com.dsm.dms.presentation.base.DataBindingFragment
+import com.dsm.dms.presentation.base.DataBindingInjectFragment
 import com.dsm.dms.presentation.databinding.FragmentApplyMainBinding
 import com.dsm.dms.presentation.viewmodel.main.apply.main.ApplyMainViewModel
 import com.dsm.dms.presentation.viewmodel.main.apply.main.ApplyMainViewModelFactory
 import javax.inject.Inject
 
-class ApplyMainFragment: DataBindingFragment<FragmentApplyMainBinding>() {
+class ApplyMainFragment: DataBindingInjectFragment<FragmentApplyMainBinding>() {
     override val layoutId: Int
         get() = R.layout.fragment_apply_main
 

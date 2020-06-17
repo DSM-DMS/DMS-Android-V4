@@ -2,7 +2,6 @@ package com.dsm.dms.presentation.ui.fragment.apply.extension
 
 import android.content.Context
 import android.os.Bundle
-import android.view.Gravity
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
@@ -13,7 +12,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.dsm.dms.presentation.R
-import com.dsm.dms.presentation.base.DataBindingFragment
+import com.dsm.dms.presentation.base.DataBindingInjectFragment
 import com.dsm.dms.presentation.changeCardViewColor
 import com.dsm.dms.presentation.databinding.FragmentApplyExtensionFloorDetailBinding
 import com.dsm.dms.presentation.dp
@@ -29,7 +28,7 @@ import splitties.views.onClick
 import javax.inject.Inject
 
 
-class ApplyExtensionFloorDetailFragment: DataBindingFragment<FragmentApplyExtensionFloorDetailBinding>() {
+class ApplyExtensionFloorDetailFragment: DataBindingInjectFragment<FragmentApplyExtensionFloorDetailBinding>() {
     override val layoutId: Int
         get() = R.layout.fragment_apply_extension_floor_detail
 

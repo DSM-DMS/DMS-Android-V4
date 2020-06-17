@@ -2,13 +2,10 @@
 <layout>
     <data>
         <variable
-            name="vm"
-            type="com.dsm.dms.presentation.viewmodel.main.meal.MealViewModel" />
-        
-        <variable
             name="meal"
             type="com.dsm.dms.presentation.model.MealModel" />
     </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
