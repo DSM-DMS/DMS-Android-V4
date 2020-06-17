@@ -47,4 +47,17 @@
         android:name="com.dsm.dms.presentation.ui.fragment.apply.rest.ApplyWeekendRestFragment"
         android:label="ApplyWeekendRestFragment"
         tools:layout="@layout/fragment_apply_weekend_rest"/>
+        <action
+            app:popEnterAnim="@anim/fadein"
+            app:popExitAnim="@anim/slide_to_right"
+            app:enterAnim="@anim/slide_from_right"
+            app:exitAnim="@anim/fadeout"
+            android:id="@+id/action_applyMusicDayListFragment_to_applyMusicDayDetailListFragment"
+            app:destination="@id/applyMusicDayDetailListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/applyMusicDayDetailListFragment"
+        android:name="com.dsm.dms.presentation.ui.fragment.apply.music.detail.ApplyMusicDayDetailListFragment"
+        android:label="ApplyMusicDayDetailListFragment"
+        tools:layout="@layout/fragment_apply_music_day_detail_list"/>
 </navigation>

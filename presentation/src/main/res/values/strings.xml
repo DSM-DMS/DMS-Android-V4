@@ -82,4 +82,16 @@
     <string name="weekend_rest_am_rest_description">일요일 오전 자습 시간 때 호실 휴식을 합니다</string>
     <string name="weekend_rest_pm_rest_title">오후 자습 휴식</string>
     <string name="weekend_rest_pm_rest_description">일요일 오후 자습 시간 때 호실 휴식을 합니다</string>
+
+    // music
+    <string name="music_day_list_title">기상음악 신청</string>
+    <string name="music_day_list_content">기상 음악을 신청할 수 있습니다. \n 요일 별로 신청 가능하며 상시 신청 가능합니다.</string>
+    <string name="music_day_list_monday">월요일</string>
+    <string name="music_day_list_tuesday">화요일</string>
+    <string name="music_day_list_wednesday">수요일</string>
+    <string name="music_day_list_thursday">목요일</string>
+    <string name="music_day_list_friday">금요일</string>
+    <string name="music_apply_music_title_hint">노래 제목을 입력해주세요</string>
+    <string name="music_apply_music_artist_hint">아티스트를 입력해주세요</string>
+
 </resources>
