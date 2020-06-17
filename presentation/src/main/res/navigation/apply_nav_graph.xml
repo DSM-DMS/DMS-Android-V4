@@ -29,8 +29,8 @@
             app:popExitAnim="@anim/slide_to_right"
             app:enterAnim="@anim/slide_from_right"
             app:exitAnim="@anim/fadeout"
-            android:id="@+id/action_applyMainFragment_to_applyMusicDayListFragment"
-            app:destination="@id/applyMusicDayListFragment" />
+            android:id="@+id/action_applyMainFragment_to_applyWeekendRestFragment"
+            app:destination="@id/applyWeekendRestFragment" />
     </fragment>
     <fragment
         android:id="@+id/applyStayingFragment"
@@ -43,10 +43,10 @@
         android:label="ApplyExtensionFloorListFragment"
         tools:layout="@layout/fragment_apply_extension_floor_list"/>
     <fragment
-        android:id="@+id/applyMusicDayListFragment"
-        android:name="com.dsm.dms.presentation.ui.fragment.apply.music.ApplyMusicDayListFragment"
-        android:label="ApplyMusicDayListFragment"
-        tools:layout="@layout/fragment_apply_music_day_list">
+        android:id="@+id/applyWeekendRestFragment"
+        android:name="com.dsm.dms.presentation.ui.fragment.apply.rest.ApplyWeekendRestFragment"
+        android:label="ApplyWeekendRestFragment"
+        tools:layout="@layout/fragment_apply_weekend_rest"/>
         <action
             app:popEnterAnim="@anim/fadein"
             app:popExitAnim="@anim/slide_to_right"
@@ -60,5 +60,4 @@
         android:name="com.dsm.dms.presentation.ui.fragment.apply.music.detail.ApplyMusicDayDetailListFragment"
         android:label="ApplyMusicDayDetailListFragment"
         tools:layout="@layout/fragment_apply_music_day_detail_list"/>
-
 </navigation>
