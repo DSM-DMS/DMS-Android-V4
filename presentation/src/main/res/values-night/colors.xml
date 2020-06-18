@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorNightWhite">#000000</color>
+    <color name="colorNightWhiteToGray">#404040</color>
     <color name="colorNightGray">#121212</color>
     <color name="colorNightBlack">#F0F0F0</color>
     <color name="colorNightViewBackgroundDefault">#404040</color>

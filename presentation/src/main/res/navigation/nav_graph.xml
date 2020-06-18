@@ -51,6 +51,7 @@
             app:exitAnim="@anim/fadeout"
             app:destination="@id/applyExtensionFloorDetailFragment" />
         <action
+            android:id="@+id/action_mainFragment_to_applyMusicApplyFragment"
             app:popEnterAnim="@anim/fadein"
             app:popExitAnim="@anim/slide_to_right"
             app:enterAnim="@anim/slide_from_right"
@@ -71,6 +72,7 @@
             app:exitAnim="@anim/fadeout"
             android:id="@+id/action_mainFragment_to_pointFragment"
             app:destination="@id/pointFragment" />
+            app:destination="@id/applyMusicApplyFragment" />
     </fragment>
     <fragment
         android:id="@+id/applyExtensionFloorDetailFragment"
@@ -91,5 +93,10 @@
         android:id="@+id/pointFragment"
         android:name="com.dsm.dms.presentation.ui.fragment.mypage.etc.point.PointFragment"
         tools:layout="@layout/fragment_point" />
+        
+        android:id="@+id/applyMusicApplyFragment"
+        android:name="com.dsm.dms.presentation.ui.fragment.apply.music.apply.ApplyMusicApplyFragment"
+        android:label="ApplyMusicApplyFragment"
+        tools:layout="@layout/fragment_apply_music_apply"/>
 
 </navigation>

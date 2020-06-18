@@ -14,6 +14,8 @@ import androidx.lifecycle.ViewModelProvider
 import com.dsm.dms.presentation.R
 import com.dsm.dms.presentation.base.DataBindingInjectFragment
 import com.dsm.dms.presentation.changeCardViewColor
+import com.dsm.dms.presentation.base.DataBindingFragment
+import com.dsm.dms.presentation.changeTitleCardColor
 import com.dsm.dms.presentation.databinding.FragmentApplyExtensionFloorDetailBinding
 import com.dsm.dms.presentation.dp
 import com.dsm.dms.presentation.ui.fragment.apply.extension.rooms.*
@@ -76,32 +78,28 @@ class ApplyExtensionFloorDetailFragment: DataBindingInjectFragment<FragmentApply
             setFloorRoomsFragment(FifthRoomsFragment(viewModel))
         })
         viewModel.elevenClockEvent.observe(this, Observer {
-            changeCardViewColor(
+            resources.changeTitleCardColor(
                 extension_floor_detail_eleven_card,
                 extension_floor_detail_eleven_tv,
-                resources,
                 it.first
             )
-            changeCardViewColor(
+            resources.changeTitleCardColor(
                 extension_floor_detail_twelve_card,
                 extension_floor_detail_twelve_tv,
-                resources,
                 it.second
             )
             extension_floor_detail_eleven_card.isClickable = false
             extension_floor_detail_twelve_card.isClickable = true
         })
         viewModel.twelveClockEvent.observe(this, Observer {
-            changeCardViewColor(
+            resources.changeTitleCardColor(
                 extension_floor_detail_twelve_card,
                 extension_floor_detail_twelve_tv,
-                resources,
                 it.first
             )
-            changeCardViewColor(
+            resources.changeTitleCardColor(
                 extension_floor_detail_eleven_card,
                 extension_floor_detail_eleven_tv,
-                resources,
                 it.second
           )
             extension_floor_detail_eleven_card.isClickable = true
@@ -120,9 +118,9 @@ class ApplyExtensionFloorDetailFragment: DataBindingInjectFragment<FragmentApply
         ).commit()
 
     private fun getLayoutParam(): LinearLayout.LayoutParams {
-        val seatHorizonMargin = dp(resources, 8)
-        val seatVerticalMargin = dp(resources, 16)
-        val seatSize = dp(resources, 50)
+        val seatHorizonMargin = resources.dp(8)
+        val seatVerticalMargin = resources.dp(16)
+        val seatSize = resources.dp(50)
 
         val layoutParam = LinearLayout.LayoutParams(seatSize, seatSize)
 
@@ -141,7 +139,7 @@ class ApplyExtensionFloorDetailFragment: DataBindingInjectFragment<FragmentApply
     private fun createNobodySeat(styles: AppCompatStyles, seatNum: Int): TextView =
         styles.textView.spinnerItem {
             centerText()
-            textSize = dp(resources,4).toFloat()
+            textSize = resources.dp(4).toFloat()
             layoutParams = getLayoutParam()
             background = resources.getDrawable(R.drawable.radius_circle_gray, null)
             onClick {
@@ -159,7 +157,7 @@ class ApplyExtensionFloorDetailFragment: DataBindingInjectFragment<FragmentApply
     private fun createSomeoneSeat(styles: AppCompatStyles, seatName: String): TextView =
         styles.textView.spinnerItem {
             centerText()
-            textSize = dp(resources,4).toFloat()
+            textSize = resources.dp(4).toFloat()
             setTextColor(resources.getColor(R.color.colorWhite, null))
             background = resources.getDrawable(R.drawable.radius_circle_main_color, null)
             layoutParams = getLayoutParam()
