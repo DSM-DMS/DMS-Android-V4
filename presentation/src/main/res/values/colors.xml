@@ -12,6 +12,7 @@
 
     <color name="colorMain">#19c49b</color>
     <color name="colorBackground">#fdfdfd</color>
+    <color name="colorRed">#ff4b4b</color>
 
     <color name="colorSignMain">#00be91</color>
     <color name="colorLowBlack">#404040</color>

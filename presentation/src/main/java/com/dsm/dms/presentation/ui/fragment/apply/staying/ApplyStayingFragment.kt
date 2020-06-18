@@ -5,6 +5,7 @@ import android.view.View
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.dsm.dms.presentation.R
+import com.dsm.dms.presentation.base.DataBindingInjectFragment
 import com.dsm.dms.presentation.base.DataBindingFragment
 import com.dsm.dms.presentation.changeContentCardColor
 import com.dsm.dms.presentation.databinding.FragmentApplyStayingBinding
@@ -14,7 +15,7 @@ import com.dsm.dms.presentation.viewmodel.main.apply.staying.ApplyStayingViewMod
 import kotlinx.android.synthetic.main.fragment_apply_staying.*
 import javax.inject.Inject
 
-class ApplyStayingFragment: DataBindingFragment<FragmentApplyStayingBinding>() {
+class ApplyStayingFragment: DataBindingInjectFragment<FragmentApplyStayingBinding>() {
     override val layoutId: Int
         get() = R.layout.fragment_apply_staying
 

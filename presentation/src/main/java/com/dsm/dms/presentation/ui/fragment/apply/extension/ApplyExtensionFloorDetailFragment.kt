@@ -12,7 +12,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.dsm.dms.presentation.R
-import com.dsm.dms.presentation.base.DataBindingFragment
+import com.dsm.dms.presentation.base.DataBindingInjectFragment
 import com.dsm.dms.presentation.changeTitleCardColor
 import com.dsm.dms.presentation.databinding.FragmentApplyExtensionFloorDetailBinding
 import com.dsm.dms.presentation.dp
@@ -28,7 +28,7 @@ import splitties.views.onClick
 import javax.inject.Inject
 
 
-class ApplyExtensionFloorDetailFragment: DataBindingFragment<FragmentApplyExtensionFloorDetailBinding>() {
+class ApplyExtensionFloorDetailFragment: DataBindingInjectFragment<FragmentApplyExtensionFloorDetailBinding>() {
     override val layoutId: Int
         get() = R.layout.fragment_apply_extension_floor_detail
 

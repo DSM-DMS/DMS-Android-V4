@@ -5,7 +5,7 @@ import android.view.View
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.dsm.dms.presentation.R
-import com.dsm.dms.presentation.base.DataBindingFragment
+import com.dsm.dms.presentation.base.DataBindingInjectFragment
 import com.dsm.dms.presentation.changeContentCardColor
 import com.dsm.dms.presentation.databinding.FragmentApplyWeekendRestBinding
 import com.dsm.dms.presentation.originContentCardColor
@@ -14,7 +14,7 @@ import com.dsm.dms.presentation.viewmodel.main.apply.rest.ApplyWeekendRestViewMo
 import kotlinx.android.synthetic.main.fragment_apply_weekend_rest.*
 import javax.inject.Inject
 
-class ApplyWeekendRestFragment: DataBindingFragment<FragmentApplyWeekendRestBinding>() {
+class ApplyWeekendRestFragment: DataBindingInjectFragment<FragmentApplyWeekendRestBinding>() {
     override val layoutId: Int
         get() = R.layout.fragment_apply_weekend_rest
 

@@ -1,4 +1,4 @@
-package com.dsm.dms.presentation.base
+package com.dsm.dms.presentation.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -47,7 +47,3 @@ class RecyclerViewAdapter : RecyclerView.Adapter<BindingViewHolder>() {
         return items[position]
     }
 }
-
-class BindingViewHolder(
-    val binding: ViewDataBinding
-) : RecyclerView.ViewHolder(binding.root)

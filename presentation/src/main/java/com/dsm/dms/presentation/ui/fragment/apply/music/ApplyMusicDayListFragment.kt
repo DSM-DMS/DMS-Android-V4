@@ -6,14 +6,14 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.dsm.dms.presentation.R
-import com.dsm.dms.presentation.base.DataBindingFragment
+import com.dsm.dms.presentation.base.DataBindingInjectFragment
 import com.dsm.dms.presentation.databinding.FragmentApplyMusicDayListBinding
 import com.dsm.dms.presentation.viewmodel.main.apply.music.ApplyMusicDayListViewModel
 import com.dsm.dms.presentation.viewmodel.main.apply.music.ApplyMusicDayListViewModelFactory
 import javax.inject.Inject
 
 
-class ApplyMusicDayListFragment: DataBindingFragment<FragmentApplyMusicDayListBinding>() {
+class ApplyMusicDayListFragment: DataBindingInjectFragment<FragmentApplyMusicDayListBinding>() {
     override val layoutId: Int
         get() = R.layout.fragment_apply_music_day_list
 

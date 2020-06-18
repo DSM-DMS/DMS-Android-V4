@@ -74,6 +74,64 @@
     <string name="extension_apply_text">신청</string>
     <string name="extension_apply_eleven_text">11시</string>
     <string name="extension_apply_twelve_text">12시</string>
+    
+    // mydata
+    <string name="mypage_mydata_staying_status_title">귀가 상태</string>
+    <string name="mypage_mydata_good_point_status_title">상점</string>
+    <string name="mypage_mydata_bad_point_status_title">벌점</string>
+    <string name="mypage_mydata_extension_eleven_status_title">11시</string>
+    <string name="mypage_mydata_extension_twelve_status_title">12시</string>
+    <string name="mypage_mydata_going_out_saturday_status_title">토요 외출</string>
+    <string name="mypage_mydata_going_out_sunday_status_title">일요 외출</string>
+    
+    // etc
+    <string name="mypage_etc_title">기타</string>
+    <string name="mypage_etc_password_change_title">비밀번호 변경</string>
+    <string name="mypage_etc_password_change_content">현재 계정의 비밀번호를 변경합니다.</string>
+    <string name="mypage_etc_bug_report_title">버그 신고</string>
+    <string name="mypage_etc_bug_report_content">DMS 사용 중에 발견된 버그를 신고합니다.</string>
+    <string name="mypage_etc_point_log_title">상・벌점 내역</string>
+    <string name="mypage_etc_point_log_content">상・벌점 내역을 확인합니다.</string>
+    <string name="mypage_etc_logout_title">로그아웃</string>
+    <string name="mypage_etc_logout_content">현재 계정에서 로그아웃을 합니다.</string>
+    <string name="mypage_etc_notice_title">공지사항</string>
+    <string name="mypage_etc_notice_content">기숙사의 공지사항을 확인합니다.</string>
+    
+    // setting
+    <string name="mypage_setting_title">설정</string>
+    <string name="mypage_setting_dark_mode_title">다크모드</string>
+    <string name="mypage_setting_dark_mode_content">DMS 테마를 다크모드로 설정할 수 있습니다.</string>
+    <string name="mypage_setting_extension_alert_title">연장 신청 알림</string>
+    <string name="mypage_setting_extension_alert_content">연장학습 신청이 끝나기 15분 전에 알립니다.</string>
+    <string name="mypage_setting_staying_alert_title">귀가 신청 알림</string>
+    <string name="mypage_setting_staying_alert_content">귀가 신청이 끝나기 15분 전에 알립니다.</string>
+    <string name="mypage_setting_notice_alert_title">공지사항 알림</string>
+    <string name="mypage_setting_notice_alert_content">새로운 공지사항을 알립니다.</string>
+
+    // change password
+    <string name="change_password_title">비밀번호 변경</string>
+    <string name="change_password_origin_password_hint">기존 비밀번호를 입력해주세요</string>
+    <string name="change_password_change_password_hint">변경할 비밀번호를 입력해주세요</string>
+    <string name="change_password_change_password_check_hint">변경할 비밀번호를 다시 입력해주세요</string>
+    <string name="change_password_change">변경</string>
+
+    // bug report
+    <string name="bug_report_title">버그 신고</string>
+    <string name="bug_report_title_hint">제목를 입력해주세요</string>
+    <string name="bug_report_content_hint">내용를 입력해주세요</string>
+    <string name="bug_report_send">전송</string>
+    
+    // point
+    <string name="point_title">상・벌점 내역</string>
+
+    // notice
+    <string name="notice_list_title">공지사항</string>
+
+    // logout
+    <string name="logout_dialog_title">로그아웃</string>
+    <string name="logout_dialog_content">정말로 로그아웃 하시겠습니까?</string>
+    <string name="logout_dialog_okay">확인</string>
+    <string name="logout_dialog_no">아니오</string>
 
     // rest
     <string name="weekend_rest_title">휴식 신청</string>

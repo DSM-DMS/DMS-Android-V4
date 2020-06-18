@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mypage_nav_graph"
+    app:startDestination="@id/myPageMainFragment">
+
+    <fragment
+        android:id="@+id/noticeListFragment"
+        android:name="com.dsm.dms.presentation.ui.fragment.mypage.etc.notice.NoticeListFragment"
+        android:label="NoticeListFragment"
+        tools:layout="@layout/fragment_notice_list">
+        <action
+            app:popEnterAnim="@anim/fadein"
+            app:popExitAnim="@anim/slide_to_right"
+            app:enterAnim="@anim/slide_from_right"
+            app:exitAnim="@anim/fadeout"
+            android:id="@+id/action_noticeListFragment_to_noticeDetailFragment"
+            app:destination="@id/noticeDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/noticeDetailFragment"
+        android:name="com.dsm.dms.presentation.ui.fragment.mypage.etc.notice.NoticeDetailFragment"
+        android:label="NoticeDetailFragment"
+        tools:layout="@layout/fragment_notice_detail"/>
+    <fragment
+        android:id="@+id/settingFragment"
+        android:name="com.dsm.dms.presentation.ui.fragment.mypage.etc.setting.SettingFragment"
+        android:label="SettingFragment"
+        tools:layout="@layout/fragment_setting"/>
+    <fragment
+        android:id="@+id/myPageMainFragment"
+        android:name="com.dsm.dms.presentation.ui.fragment.mypage.main.MyPageMainFragment"
+        android:label="MyPageMainFragment"
+        tools:layout="@layout/fragment_mypage_main">
+        <action
+            app:popEnterAnim="@anim/fadein"
+            app:popExitAnim="@anim/slide_to_right"
+            app:enterAnim="@anim/slide_from_right"
+            app:exitAnim="@anim/fadeout"
+            android:id="@+id/action_myPageMainFragment_to_noticeListFragment"
+            app:destination="@id/noticeListFragment" />
+        <action
+            app:popEnterAnim="@anim/fadein"
+            app:popExitAnim="@anim/slide_to_right"
+            app:enterAnim="@anim/slide_from_right"
+            app:exitAnim="@anim/fadeout"
+            android:id="@+id/action_myPageMainFragment_to_settingFragment"
+            app:destination="@id/settingFragment" />
+    </fragment>
+</navigation>

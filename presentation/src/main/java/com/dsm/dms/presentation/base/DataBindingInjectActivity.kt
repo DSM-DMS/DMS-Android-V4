@@ -14,7 +14,7 @@ import dagger.android.HasActivityInjector
 import javax.inject.Inject
 
 
-abstract class DataBindingActivity<T : ViewDataBinding> : AppCompatActivity(), HasActivityInjector {
+abstract class DataBindingInjectActivity<T : ViewDataBinding> : AppCompatActivity(), HasActivityInjector {
 
     @Inject
     lateinit var activityInjector: DispatchingAndroidInjector<Activity>

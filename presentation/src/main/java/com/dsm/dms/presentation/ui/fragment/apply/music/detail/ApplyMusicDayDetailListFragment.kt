@@ -7,8 +7,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import com.dsm.dms.presentation.R
-import com.dsm.dms.presentation.base.DataBindingFragment
-import com.dsm.dms.presentation.base.RecyclerViewAdapter
+import com.dsm.dms.presentation.base.DataBindingInjectFragment
 import com.dsm.dms.presentation.databinding.FragmentApplyMusicDayDetailListBinding
 import com.dsm.dms.presentation.viewmodel.main.apply.music.detail.ApplyMusicDayDetailListViewModel
 import com.dsm.dms.presentation.viewmodel.main.apply.music.detail.ApplyMusicDayDetailListViewModelFactory
@@ -16,7 +15,7 @@ import kotlinx.android.synthetic.main.fragment_apply_music_day_detail_list.*
 import javax.inject.Inject
 
 
-class ApplyMusicDayDetailListFragment: DataBindingFragment<FragmentApplyMusicDayDetailListBinding>() {
+class ApplyMusicDayDetailListFragment: DataBindingInjectFragment<FragmentApplyMusicDayDetailListBinding>() {
     override val layoutId: Int
         get() = R.layout.fragment_apply_music_day_detail_list
 

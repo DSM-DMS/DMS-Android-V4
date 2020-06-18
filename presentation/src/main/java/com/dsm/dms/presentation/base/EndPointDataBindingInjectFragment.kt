@@ -9,7 +9,7 @@ import io.reactivex.disposables.Disposable
 import io.reactivex.subjects.BehaviorSubject
 import io.reactivex.subjects.Subject
 
-abstract class EndPointDataBindingFragment<V: ViewDataBinding>: DataBindingFragment<V>() {
+abstract class EndPointDataBindingInjectFragment<V: ViewDataBinding>: DataBindingInjectFragment<V>() {
 
     val backButtonSubject: Subject<Long> =
         BehaviorSubject.createDefault(0L)
