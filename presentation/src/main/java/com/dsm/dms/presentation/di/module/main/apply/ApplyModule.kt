@@ -34,6 +34,7 @@ abstract class ApplyModule {
     @ContributesAndroidInjector(modules = [ApplyWeekendRestModule::class])
     abstract fun applyWeekendRestFragment(): ApplyWeekendRestFragment
 
+    @ApplyFragmentScope
     @ContributesAndroidInjector(modules = [ApplyMusicDayListModule::class])
     abstract fun applyMusicDayListFragment(): ApplyMusicDayListFragment
 
