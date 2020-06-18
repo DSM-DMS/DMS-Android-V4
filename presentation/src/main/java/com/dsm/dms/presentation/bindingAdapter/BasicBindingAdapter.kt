@@ -1,6 +1,5 @@
 package com.dsm.dms.presentation.bindingAdapter
 
-import android.content.Context
 import androidx.databinding.BindingAdapter
 import androidx.databinding.InverseBindingAdapter
 import androidx.databinding.InverseBindingListener
@@ -10,10 +9,6 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
 import com.dsm.dms.presentation.adapter.RecyclerViewAdapter
 import com.dsm.dms.presentation.adapter.ViewPagerAdapter
-import com.dsm.dms.presentation.adapter.MealPagerAdapter
-import com.dsm.dms.presentation.base.BaseViewModel
-import com.dsm.dms.presentation.base.RecyclerViewAdapter
-import com.dsm.dms.presentation.model.MealModel
 
 
 @BindingAdapter("pageChange")
@@ -47,10 +42,6 @@ fun ViewPager2.setViewPagerItems(
     }
 
     (adapter as? ViewPagerAdapter)?.updateData(items)
-
-@BindingAdapter("mealItems")
-fun ViewPager2.bindMealItems(mealItems: MutableLiveData<ArrayList<MealModel>>) {
-    (adapter as MealPagerAdapter).setItem(mealItems)
 }
 
 @BindingAdapter("recyclerItems")

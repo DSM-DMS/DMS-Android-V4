@@ -52,6 +52,7 @@ abstract class MainActivityModule {
     @ContributesAndroidInjector(modules = [PointModule::class])
     abstract fun pointFragment(): PointFragment
 
+    @FragmentScope
     @ContributesAndroidInjector(modules = [ApplyMusicApplyModule::class])
     abstract fun applyMusicApplyFragment(): ApplyMusicApplyFragment
 
