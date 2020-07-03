@@ -95,7 +95,7 @@
             app:layout_constraintTop_toBottomOf="@id/apply_music_apply_music_title_edit"
             app:layout_constraintBottom_toTopOf="@id/apply_music_apply_button_tv"/>
 
-        <androidx.appcompat.widget.AppCompatTextView
+        <com.dsm.dms.dmsviewlibrary.button.textview.DmsProgressButton
             android:id="@+id/apply_music_apply_button_tv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -108,7 +108,6 @@
             android:textColor="@color/colorWhite"
             android:gravity="center"
             android:padding="13dp"
-            android:background="@color/colorMain"
             app:layout_constraintBottom_toBottomOf="parent"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
