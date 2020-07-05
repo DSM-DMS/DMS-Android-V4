@@ -92,7 +92,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>
 
-        <androidx.appcompat.widget.AppCompatTextView
+        <com.dsm.dms.dmsviewlibrary.button.textview.DmsProgressButton
             android:id="@+id/bug_report_send_tv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -104,7 +104,6 @@
             android:textColor="@color/colorWhite"
             android:gravity="center"
             android:padding="13dp"
-            android:background="@color/colorMain"
             app:layout_constraintBottom_toBottomOf="parent"
             android:onClick="@{() -> vm.clickSend()}"/>
 

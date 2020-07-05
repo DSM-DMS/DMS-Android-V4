@@ -16,7 +16,7 @@
             android:id="@+id/mypage_etc_title_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/mypage_setting_title"
+            android:text="@string/mypage_etc_title"
             android:textSize="30sp"
             android:textStyle="bold"
             android:textColor="@color/colorMain"

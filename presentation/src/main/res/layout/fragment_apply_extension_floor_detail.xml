@@ -129,7 +129,7 @@
 
         </androidx.cardview.widget.CardView>
 
-        <androidx.appcompat.widget.AppCompatTextView
+        <com.dsm.dms.dmsviewlibrary.button.textview.DmsProgressButton
             android:id="@+id/extension_floor_detail_apply"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -141,7 +141,6 @@
             android:textColor="@color/colorWhite"
             android:gravity="center"
             android:padding="13dp"
-            android:background="@color/colorMain"
             app:layout_constraintBottom_toBottomOf="parent"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>

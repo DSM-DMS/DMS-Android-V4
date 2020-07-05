@@ -1,5 +1,6 @@
 package com.dsm.dms.presentation.viewmodel.main.mypage.etc.notice
 
+import android.view.View
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.MutableLiveData
 import com.dsm.dms.presentation.BR
@@ -16,7 +17,7 @@ class NoticeListViewModel: BaseViewModel() {
     val noticeList = MutableLiveData<List<RecyclerItem>>()
 
     val backToMyPageEvent = SingleLiveEvent<Unit>()
-    val goToDetailEvent = SingleLiveEvent<NoticeModel>()
+    val goToDetailEvent = SingleLiveEvent<Pair<View, NoticeModel>>()
 
     override fun apply(event: Lifecycle.Event) {
         when(event) {
@@ -48,8 +49,8 @@ class NoticeListViewModel: BaseViewModel() {
         )
 
     inner class NoticeItemViewModel(val notice: NoticeModel) {
-        fun clickNoticeCard() {
-            goToDetailEvent.value = notice
+        fun clickNoticeCard(view: View) {
+            goToDetailEvent.value = view to notice
         }
     }
 }
