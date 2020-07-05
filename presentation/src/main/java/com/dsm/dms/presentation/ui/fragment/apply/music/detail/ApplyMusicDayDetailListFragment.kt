@@ -3,6 +3,7 @@ package com.dsm.dms.presentation.ui.fragment.apply.music.detail
 
 import android.os.Bundle
 import android.view.View
+import android.view.animation.AnimationUtils
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
@@ -33,6 +34,12 @@ class ApplyMusicDayDetailListFragment: DataBindingInjectFragment<FragmentApplyMu
     }
 
     override fun observeEvent() {
+        viewModel.listItem.observe(this, Observer {
+            apply_music_day_detail_list_rcv.layoutAnimation =
+                AnimationUtils.loadLayoutAnimation(context, R.anim.layout_animation_slide_from_right)
+            apply_music_day_detail_list_rcv.scheduleLayoutAnimation()
+        })
+
         viewModel.backToListEvent.observe(this, Observer {
             back()
         })

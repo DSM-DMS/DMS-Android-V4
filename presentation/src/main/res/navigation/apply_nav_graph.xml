@@ -11,32 +11,32 @@
         android:label="ApplyMainFragment"
         tools:layout="@layout/fragment_apply_main">
         <action
-            app:popEnterAnim="@anim/fadein"
-            app:popExitAnim="@anim/slide_to_right"
-            app:enterAnim="@anim/slide_from_right"
-            app:exitAnim="@anim/fadeout"
             android:id="@+id/action_applyMainFragment_to_applyStayingFragment"
+            app:popEnterAnim="@anim/fadein"
+            app:popExitAnim="@anim/fadeout"
+            app:enterAnim="@anim/fadein"
+            app:exitAnim="@anim/fadeout"
             app:destination="@id/applyStayingFragment" />
         <action
-            app:popEnterAnim="@anim/fadein"
-            app:popExitAnim="@anim/slide_to_right"
-            app:enterAnim="@anim/slide_from_right"
-            app:exitAnim="@anim/fadeout"
             android:id="@+id/action_applyMainFragment_to_applyExtensionFloorListFragment"
+            app:popEnterAnim="@anim/fadein"
+            app:popExitAnim="@anim/fadeout"
+            app:enterAnim="@anim/fadein"
+            app:exitAnim="@anim/fadeout"
             app:destination="@id/applyExtensionFloorListFragment" />
         <action
-            app:popEnterAnim="@anim/fadein"
-            app:popExitAnim="@anim/slide_to_right"
-            app:enterAnim="@anim/slide_from_right"
-            app:exitAnim="@anim/fadeout"
             android:id="@+id/action_applyMainFragment_to_applyWeekendRestFragment"
+            app:popEnterAnim="@anim/fadein"
+            app:popExitAnim="@anim/fadeout"
+            app:enterAnim="@anim/fadein"
+            app:exitAnim="@anim/fadeout"
             app:destination="@id/applyWeekendRestFragment" />
         <action
-            app:popEnterAnim="@anim/fadein"
-            app:popExitAnim="@anim/slide_to_right"
-            app:enterAnim="@anim/slide_from_right"
-            app:exitAnim="@anim/fadeout"
             android:id="@+id/action_applyMainFragment_to_applyMusicDayListFragment"
+            app:popEnterAnim="@anim/fadein"
+            app:popExitAnim="@anim/fadeout"
+            app:enterAnim="@anim/fadein"
+            app:exitAnim="@anim/fadeout"
             app:destination="@id/applyMusicDayListFragment" />
     </fragment>
     <fragment
@@ -66,8 +66,8 @@
         tools:layout="@layout/fragment_apply_music_day_list">
         <action
             app:popEnterAnim="@anim/fadein"
-            app:popExitAnim="@anim/slide_to_right"
-            app:enterAnim="@anim/slide_from_right"
+            app:popExitAnim="@anim/fadeout"
+            app:enterAnim="@anim/fadein"
             app:exitAnim="@anim/fadeout"
             android:id="@+id/action_applyMusicDayListFragment_to_applyMusicDayDetailListFragment"
             app:destination="@id/applyMusicDayDetailListFragment" />

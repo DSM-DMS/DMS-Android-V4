@@ -49,7 +49,7 @@
             app:layout_constraintTop_toBottomOf="@id/notice_list_icon_imv" />
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/point_list_rcv"
+            android:id="@+id/notice_list_rcv"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginTop="36dp"

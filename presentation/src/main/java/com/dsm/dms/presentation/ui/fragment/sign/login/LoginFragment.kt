@@ -33,17 +33,7 @@ class LoginFragment: EndPointDataBindingInjectFragment<FragmentLoginBinding>() {
     override fun observeEvent() {
         viewModel.loginSingleLiveEvent
             .observe(this, Observer {
-                login_btn.onLoad("로그인 중")
-                Handler().postDelayed(
-                    {
-                        login_btn.onSuccess("로그인 성공")
-                        Handler().postDelayed(
-                            {
-                                findNavController().navigate(R.id.action_loginFragment_to_mainFragment)
-                            }, 1000
-                        )
-                    }, 5000
-                )
+                findNavController().navigate(R.id.action_loginFragment_to_mainFragment)
             })
 
         viewModel.registerSingleLiveEvent

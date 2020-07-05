@@ -28,7 +28,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="11dp"
                 android:textColor="@color/colorNightBlack"
-                android:textSize="16sp"
+                android:textSize="18sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toTopOf="@id/apply_music_day_detail_list_item_artist_tv"
                 app:layout_constraintEnd_toEndOf="parent"

@@ -27,6 +27,7 @@
             android:layout_height="wrap_content"/>
 
         <androidx.appcompat.widget.AppCompatImageView
+            android:transitionName="stayingImageView"
             android:background="@drawable/ic_staying"
             android:backgroundTint="@color/colorMain"
             android:id="@+id/apply_staying_icon_imv"

@@ -12,8 +12,8 @@
         tools:layout="@layout/fragment_notice_list">
         <action
             app:popEnterAnim="@anim/fadein"
-            app:popExitAnim="@anim/slide_to_right"
-            app:enterAnim="@anim/slide_from_right"
+            app:popExitAnim="@anim/fadeout"
+            app:enterAnim="@anim/fadein"
             app:exitAnim="@anim/fadeout"
             android:id="@+id/action_noticeListFragment_to_noticeDetailFragment"
             app:destination="@id/noticeDetailFragment" />
@@ -35,15 +35,15 @@
         tools:layout="@layout/fragment_mypage_main">
         <action
             app:popEnterAnim="@anim/fadein"
-            app:popExitAnim="@anim/slide_to_right"
-            app:enterAnim="@anim/slide_from_right"
+            app:popExitAnim="@anim/fadeout"
+            app:enterAnim="@anim/fadein"
             app:exitAnim="@anim/fadeout"
             android:id="@+id/action_myPageMainFragment_to_noticeListFragment"
             app:destination="@id/noticeListFragment" />
         <action
             app:popEnterAnim="@anim/fadein"
-            app:popExitAnim="@anim/slide_to_right"
-            app:enterAnim="@anim/slide_from_right"
+            app:popExitAnim="@anim/fadeout"
+            app:enterAnim="@anim/fadein"
             app:exitAnim="@anim/fadeout"
             android:id="@+id/action_myPageMainFragment_to_settingFragment"
             app:destination="@id/settingFragment" />
