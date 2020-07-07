@@ -151,5 +151,8 @@
     <string name="music_day_list_friday">금요일</string>
     <string name="music_apply_music_title_hint">노래 제목을 입력해주세요</string>
     <string name="music_apply_music_artist_hint">아티스트를 입력해주세요</string>
+    
+    // chat
+    <string name="chat_send_box_hint">메세지를 입력하세요...</string>
 
 </resources>
