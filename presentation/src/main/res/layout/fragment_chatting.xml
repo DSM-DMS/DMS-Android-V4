@@ -11,15 +11,43 @@
             android:layout_height="match_parent"
             android:layout_width="match_parent">
 
-        <androidx.appcompat.widget.AppCompatTextView
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                android:textSize="200dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/navigation_chatting"/>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/chatting_rcv"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:recyclerItems="@{vm.chatList}"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/chatting_send_box_tv"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/chatting_send_box_tv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/chat_send_box_hint"
+            android:text="@={vm.sendBoxMessage}"
+            android:textSize="@dimen/font_250"
+            android:padding="12dp"
+            android:background="@drawable/radius_chat"
+            android:backgroundTint="@color/colorGray"
+            android:layout_marginBottom="16dp"
+            android:layout_marginStart="16dp"
+            app:layout_constraintEnd_toStartOf="@id/chatting_send_icon_imv"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/chatting_send_icon_imv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_send"
+            android:layout_marginHorizontal="16dp"
+            app:layout_constraintStart_toEndOf="@id/chatting_send_box_tv"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/chatting_send_box_tv"
+            app:layout_constraintBottom_toBottomOf="@id/chatting_send_box_tv"
+            android:onClick="@{() -> vm.clickSend()}"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
