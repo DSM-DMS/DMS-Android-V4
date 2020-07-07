@@ -24,7 +24,7 @@ class ChattingViewModel: BaseViewModel() {
                         ChatModel(date = "8월 4일 일요일", type = ChatModel.ChatType.HEADER),
                         ChatModel(message = "안녕 지혁아", time = "13:14", isViewed = true, type = ChatModel.ChatType.SEND),
                         ChatModel(message = "안녕 진우야", time = "13:15", isViewed = true, type = ChatModel.ChatType.RECEIVE),
-                        ChatModel(message = "뭘 안녕이야 시발련아 ㅋㅋㅋ", time = "13:16", type = ChatModel.ChatType.SEND)
+                        ChatModel(message = "뭘 안녕이야 ㅋㅋㅋㅋ", time = "13:16", type = ChatModel.ChatType.SEND)
                     )
                 )
             }
