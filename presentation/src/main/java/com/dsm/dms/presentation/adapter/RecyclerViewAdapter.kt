@@ -43,6 +43,11 @@ class RecyclerViewAdapter : RecyclerView.Adapter<BindingViewHolder>() {
         notifyDataSetChanged()
     }
 
+    fun addData(newItems: List<RecyclerItem>) {
+        this.items.addAll(newItems)
+        notifyDataSetChanged()
+    }
+
     private fun getItem(position: Int): RecyclerItem {
         return items[position]
     }
