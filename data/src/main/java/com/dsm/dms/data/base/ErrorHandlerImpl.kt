@@ -1,6 +1,5 @@
 package com.dsm.dms.data.base
 
-import android.util.Log
 import com.dsm.dms.domain.base.ErrorHandler
 import com.dsm.dms.domain.base.Message
 import com.dsm.dms.domain.base.Message.*
@@ -8,6 +7,7 @@ import retrofit2.HttpException
 import java.net.ConnectException
 import java.net.SocketTimeoutException
 import java.net.UnknownHostException
+
 
 class ErrorHandlerImpl: ErrorHandler {
     override fun errorHandle(throwable: Throwable): Message =
@@ -23,9 +23,6 @@ class ErrorHandlerImpl: ErrorHandler {
                 else -> UNKNOW_ERROR
             }
             is ConnectException, is SocketTimeoutException, is UnknownHostException -> NETWORK_ERROR
-            else -> {
-                Log.e("asd", throwable.message)
-                UNKNOW_ERROR
-            }
+            else -> UNKNOW_ERROR
         }
 }

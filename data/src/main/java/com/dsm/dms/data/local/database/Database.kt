@@ -19,7 +19,7 @@ import com.dsm.dms.data.local.database.entity.*
     NoticeEntity::class,
     ScheduleEntity::class,
     MealEntity::class
-], version = 1)
+], version = 1, exportSchema = false)
 @TypeConverters(
     GoingOutTypeConverter::class,
     StayInfoConverter::class,

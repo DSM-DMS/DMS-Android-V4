@@ -1,6 +1,5 @@
 package com.dsm.dms.presentation.viewmodel.main.meal
 
-import android.util.Log
 import android.view.View
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.MutableLiveData
@@ -19,7 +18,6 @@ import com.dsm.dms.presentation.model.toModel
 import io.reactivex.observers.DisposableSingleObserver
 import java.text.SimpleDateFormat
 import java.util.*
-import kotlin.collections.ArrayList
 
 
 class MealViewModel(private val getMeal: GetMealUseCase): BaseViewModel() {
@@ -112,7 +110,6 @@ class MealViewModel(private val getMeal: GetMealUseCase): BaseViewModel() {
                         }
 
                         is Result.Error -> {
-                            Log.e("123", result.message.toString())
                             when (result.message) {
                                 Message.UNKNOW_ERROR -> onErrorShow(R.drawable.ic_server_error)
                                 Message.NETWORK_ERROR -> onErrorShow(R.drawable.ic_network_error)
