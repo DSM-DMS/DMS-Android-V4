@@ -53,7 +53,7 @@ fun <T> Single<Result<T>>.processLocal(localData: T?, saveLocalFun: (T) -> Unit)
             }
             is Result.Error -> {
                 localData?.let {
-                    Single.just(
+                    return@flatMap Single.just(
                         Result.Error(it, result.message)
                     )
                 }.let {

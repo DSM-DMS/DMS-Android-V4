@@ -40,7 +40,7 @@ class MealServiceTest: BaseTest() {
         val meal = Meal("", listOf("김치"), listOf("김치"), listOf("김치"))
 
         `when`(mealRepository.getLocalMeal(date))
-            .thenReturn(Maybe.just(meal))
+            .thenReturn(meal)
 
         `when`(mealRepository.getRemoteMeal(date))
             .thenReturn(Single.just(meal))
@@ -61,7 +61,7 @@ class MealServiceTest: BaseTest() {
             .thenReturn(Message.UNKNOW_ERROR)
 
         `when`(mealRepository.getLocalMeal(date))
-            .thenReturn(Maybe.just(meal))
+            .thenReturn(meal)
 
         `when`(mealRepository.getRemoteMeal(date))
             .thenReturn(Single.error(exception))
