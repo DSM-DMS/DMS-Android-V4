@@ -1,5 +1,6 @@
 package com.dsm.dms.presentation.bindingAdapter
 
+import android.widget.ImageView
 import androidx.databinding.BindingAdapter
 import androidx.databinding.InverseBindingAdapter
 import androidx.databinding.InverseBindingListener
@@ -54,4 +55,9 @@ fun RecyclerView.setRecyclerViewItems(
     }
 
     (adapter as? RecyclerViewAdapter)?.updateData(items)
+}
+
+@BindingAdapter("android:src")
+fun ImageView.setImageViewResource(resource: Int) {
+    setImageResource(resource)
 }
