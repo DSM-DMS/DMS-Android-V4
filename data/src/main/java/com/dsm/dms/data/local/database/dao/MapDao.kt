@@ -16,10 +16,10 @@ interface MapDao {
     @Query("SELECT * FROM `mapentity`")
     fun getAllMapData(): List<MapEntity>?
 
-    @Query("SELECT * FROM `mapentity` WHERE `id` == :id")
-    fun getMapData(id: String): MapEntity?
+    @Query("SELECT * FROM `mapentity` WHERE `time` == :time AND `classNum` == :classNum")
+    fun getMapData(time: Int, classNum: Int): MapEntity?
 
-    @Query("DELETE FROM `mapentity` WHERE `id` == :id")
-    fun deleteMapData(id: String)
+    @Query("DELETE FROM `mapentity` WHERE `time` == :time AND `classNum` == :classNum")
+    fun deleteMapData(time: Int, classNum: Int)
 
 }

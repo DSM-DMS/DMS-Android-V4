@@ -5,7 +5,6 @@ import com.dsm.dms.domain.entity.Map
 
 
 data class MapData(
-    var id: String,
     var classNum: Int,
     var time: Int,
     var map: List<List<Any>>
@@ -13,7 +12,6 @@ data class MapData(
 
 fun MapData.toEntity() =
     Map(
-        id = id,
         classNum = classNum,
         time = time,
         map = map
@@ -21,7 +19,6 @@ fun MapData.toEntity() =
 
 fun Map.toDataEntity() =
     MapData(
-        id = id,
         classNum = classNum,
         time = time,
         map = map
@@ -29,7 +26,6 @@ fun Map.toDataEntity() =
 
 fun MapData.toDbEntity() =
     MapEntity(
-        id = id,
         classNum = classNum,
         time = time,
         map = map
@@ -37,7 +33,6 @@ fun MapData.toDbEntity() =
 
 fun MapEntity.toDataEntity() =
     MapData(
-        id = id,
         classNum = classNum,
         time = time,
         map = map

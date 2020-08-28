@@ -16,14 +16,9 @@ class ExtensionServiceImpl(
 
     override fun getExtensionMap(time: Int, classNum: Int): Single<Result<Map>> =
         repository.getRemoteExtensionMap(time, classNum)
-            .map {
-                it.apply {
-                    id = "$classNum, $time"
-                }
-            }
             .toResult(
                 handler = handler,
-                localData = repository.getLocalExtensionMap( "$classNum, $time"),
+                localData = repository.getLocalExtensionMap(time, classNum),
                 saveLocalFun = { T -> repository.saveLocalExtensionMap(T) }
             )
 

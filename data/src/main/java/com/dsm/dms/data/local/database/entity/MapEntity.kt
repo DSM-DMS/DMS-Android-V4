@@ -4,10 +4,8 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 
-@Entity
+@Entity(primaryKeys = ["classNum", "time"])
 data class MapEntity(
-    @PrimaryKey
-    var id: String,
     var classNum: Int,
     var time: Int,
     var map: List<List<Any>>

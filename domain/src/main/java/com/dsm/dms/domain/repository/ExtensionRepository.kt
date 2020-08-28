@@ -10,11 +10,11 @@ interface ExtensionRepository {
 
     fun getRemoteExtensionMap(time: Int, classNum: Int): Single<Map>
 
-    fun getLocalExtensionMap(id: String): Map?
+    fun getLocalExtensionMap(time: Int, classNum: Int): Map?
 
     fun saveLocalExtensionMap(vararg map: Map)
 
-    fun deleteLocalExtensionMap(id: String)
+    fun deleteLocalExtensionMap(time: Int, classNum: Int)
 
     fun getRemoteExtensionInfo(time: Int): Single<ExtensionInfo>
 

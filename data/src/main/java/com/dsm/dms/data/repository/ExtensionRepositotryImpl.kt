@@ -19,8 +19,8 @@ class ExtensionRepositotryImpl(
     override fun getRemoteExtensionMap(time: Int, classNum: Int): Single<Map> =
         dataSource.getRemoteExtensionMap(time, classNum).map { it.toEntity() }
 
-    override fun getLocalExtensionMap(id: String): Map? =
-        dataSource.getLocalExtensionMap(id)?.toDataEntity()?.toEntity()
+    override fun getLocalExtensionMap(time: Int, classNum: Int): Map? =
+        dataSource.getLocalExtensionMap(time, classNum)?.toDataEntity()?.toEntity()
 
     override fun saveLocalExtensionMap(vararg map: Map) =
         dataSource.saveLocalExtensionMap(
@@ -29,8 +29,8 @@ class ExtensionRepositotryImpl(
             }.toTypedArray()
         )
 
-    override fun deleteLocalExtensionMap(id: String) =
-        dataSource.deleteLocalExtensionMap(id)
+    override fun deleteLocalExtensionMap(time: Int, classNum: Int) =
+        dataSource.deleteLocalExtensionMap(time, classNum)
 
     override fun getRemoteExtensionInfo(time: Int): Single<ExtensionInfo> =
         dataSource.getRemoteExtensionInfo(time).map { it.toEntity() }

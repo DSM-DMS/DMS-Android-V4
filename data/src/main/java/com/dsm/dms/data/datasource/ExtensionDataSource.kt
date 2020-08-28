@@ -11,11 +11,11 @@ import io.reactivex.Single
 interface ExtensionDataSource {
     fun getRemoteExtensionMap(time: Int, classNum: Int): Single<MapData>
 
-    fun getLocalExtensionMap(id: String): MapEntity?
+    fun getLocalExtensionMap(time: Int, classNum: Int): MapEntity?
 
     fun saveLocalExtensionMap(vararg mapEntity: MapEntity)
 
-    fun deleteLocalExtensionMap(id: String)
+    fun deleteLocalExtensionMap(time: Int, classNum: Int)
 
     fun getRemoteExtensionInfo(time: Int): Single<ExtensionInfoData>
 

@@ -21,14 +21,14 @@ class ExtensionDataSourceImpl(
     override fun getRemoteExtensionMap(time: Int, classNum: Int): Single<MapData> =
         api.getExtensionStudyMap(time, classNum)
 
-    override fun getLocalExtensionMap(id: String): MapEntity? =
-        mapDao.getMapData(id)
+    override fun getLocalExtensionMap(time: Int, classNum: Int): MapEntity? =
+        mapDao.getMapData(time, classNum)
 
     override fun saveLocalExtensionMap(vararg mapEntity: MapEntity) =
         mapDao.saveMapData(*mapEntity)
 
-    override fun deleteLocalExtensionMap(id: String) =
-        mapDao.deleteMapData(id)
+    override fun deleteLocalExtensionMap(time: Int, classNum: Int) =
+        mapDao.deleteMapData(time, classNum)
 
     override fun getRemoteExtensionInfo(time: Int): Single<ExtensionInfoData> =
         api.getExtensionStudy(time)
