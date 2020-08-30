@@ -1,21 +1,21 @@
 package com.dsm.dms.domain.base
 
-import io.reactivex.Flowable
+import io.reactivex.Single
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
+import io.reactivex.observers.DisposableSingleObserver
 import io.reactivex.schedulers.Schedulers
-import io.reactivex.subscribers.DisposableSubscriber
 
-abstract class UseCase<T, E>(val composite: CompositeDisposable) {
+abstract class UseCase<T, E>(private val composite: CompositeDisposable) {
 
-    abstract fun createFlowable(data: E): Flowable<T>
+    abstract fun create(data: T): Single<E>
 
-    fun execute(data: E, disposableObserver: DisposableSubscriber<T>) {
-        val observable = createFlowable(data)
+    fun execute(data: T, singleObserver: DisposableSingleObserver<E>) {
+        val observer =
+            create(data)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
-
-        val observer = observable.subscribeWith(disposableObserver)
+            .subscribeWith(singleObserver)
 
         composite.add(observer)
     }

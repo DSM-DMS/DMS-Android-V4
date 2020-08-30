@@ -7,6 +7,7 @@
                 type="com.dsm.dms.presentation.viewmodel.main.meal.MealViewModel" />
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/meal_layout"
         android:layout_height="match_parent"
             android:layout_width="match_parent">
 
@@ -58,6 +59,6 @@
             app:viewpagerItems="@{vm.listItem}"
             app:pageChange="@={vm.pageStatusLiveData}" />
 
-
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 </layout>
