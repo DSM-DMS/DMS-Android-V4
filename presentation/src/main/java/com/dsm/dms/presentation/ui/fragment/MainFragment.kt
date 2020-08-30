@@ -3,11 +3,10 @@ package com.dsm.dms.presentation.ui.fragment
 import android.os.Bundle
 import android.view.View
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.Navigation
 import androidx.navigation.ui.setupWithNavController
 import com.dsm.dms.presentation.R
-import com.dsm.dms.presentation.base.EndPointDataBindingFragment
+import com.dsm.dms.presentation.base.EndPointDataBindingInjectFragment
 import com.dsm.dms.presentation.databinding.FragmentMainBinding
 import com.dsm.dms.presentation.viewmodel.main.MainViewModel
 import com.dsm.dms.presentation.viewmodel.main.MainViewModelFactory
@@ -15,7 +14,7 @@ import kotlinx.android.synthetic.main.fragment_main.*
 import javax.inject.Inject
 
 
-class MainFragment: EndPointDataBindingFragment<FragmentMainBinding>() {
+class MainFragment: EndPointDataBindingInjectFragment<FragmentMainBinding>() {
 
     override val layoutId: Int = R.layout.fragment_main
 

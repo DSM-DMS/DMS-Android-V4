@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <network-security-config>
     <domain-config cleartextTrafficPermitted="true">
-        <domain includeSubdomains="true">dsm-dms.com:5000</domain>
+        <domain includeSubdomains="true">dev-api.dsm-dms.com</domain>
     </domain-config>
 </network-security-config>

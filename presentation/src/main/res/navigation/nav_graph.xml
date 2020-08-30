@@ -21,8 +21,8 @@
             android:id="@+id/action_loginFragment_to_mainFragment"
             app:destination="@id/mainFragment"
             app:popEnterAnim="@anim/fadein"
-            app:popExitAnim="@anim/slide_to_right"
-            app:enterAnim="@anim/slide_from_right"
+            app:popExitAnim="@anim/fadeout"
+            app:enterAnim="@anim/fadein"
             app:exitAnim="@anim/fadeout" />
     </fragment>
     <fragment
@@ -46,15 +46,67 @@
         <action
             android:id="@+id/action_mainFragment_to_applyExtensionFloorDetailFragment"
             app:popEnterAnim="@anim/fadein"
-            app:popExitAnim="@anim/slide_to_right"
-            app:enterAnim="@anim/slide_from_right"
+            app:popExitAnim="@anim/fadeout"
+            app:enterAnim="@anim/fadein"
             app:exitAnim="@anim/fadeout"
             app:destination="@id/applyExtensionFloorDetailFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_bugReportFragment"
+            app:popEnterAnim="@anim/fadein"
+            app:popExitAnim="@anim/fadeout"
+            app:enterAnim="@anim/fadein"
+            app:exitAnim="@anim/fadeout"
+            app:destination="@id/bugReportFragment" />
+        <action
+            app:popEnterAnim="@anim/fadein"
+            app:popExitAnim="@anim/fadeout"
+            app:enterAnim="@anim/fadein"
+            app:exitAnim="@anim/fadeout"
+            android:id="@+id/action_mainFragment_to_changePasswordFragment"
+            app:destination="@id/changePasswordFragment" />
+        <action
+            app:popEnterAnim="@anim/fadein"
+            app:popExitAnim="@anim/fadeout"
+            app:enterAnim="@anim/fadein"
+            app:exitAnim="@anim/fadeout"
+            android:id="@+id/action_mainFragment_to_pointFragment"
+            app:destination="@id/pointFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_applyMusicApplyFragment"
+            app:popEnterAnim="@anim/fadein"
+            app:popExitAnim="@anim/fadeout"
+            app:enterAnim="@anim/fadein"
+            app:exitAnim="@anim/fadeout"
+            app:destination="@id/applyMusicApplyFragment" />
     </fragment>
+
     <fragment
         android:id="@+id/applyExtensionFloorDetailFragment"
         android:name="com.dsm.dms.presentation.ui.fragment.apply.extension.ApplyExtensionFloorDetailFragment"
         android:label="ApplyExtensionFloorDetailFragment"
         tools:layout="@layout/fragment_apply_extension_floor_detail"/>
+
+    <fragment
+        android:id="@+id/bugReportFragment"
+        android:name="com.dsm.dms.presentation.ui.fragment.mypage.etc.bug.BugReportFragment"
+        android:label="BugReportFragment"
+        tools:layout="@layout/fragment_bug_report"/>
+
+    <fragment
+        android:id="@+id/changePasswordFragment"
+        android:name="com.dsm.dms.presentation.ui.fragment.mypage.etc.change.ChangePasswordFragment"
+        android:label="ChangePasswordFragment"
+        tools:layout="@layout/fragment_change_password"/>
+
+    <fragment
+        android:id="@+id/pointFragment"
+        android:name="com.dsm.dms.presentation.ui.fragment.mypage.etc.point.PointFragment"
+        tools:layout="@layout/fragment_point" />
+
+    <fragment
+        android:id="@+id/applyMusicApplyFragment"
+        android:name="com.dsm.dms.presentation.ui.fragment.apply.music.apply.ApplyMusicApplyFragment"
+        android:label="ApplyMusicApplyFragment"
+        tools:layout="@layout/fragment_apply_music_apply"/>
 
 </navigation>
