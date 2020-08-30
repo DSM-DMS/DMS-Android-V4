@@ -26,16 +26,4 @@ interface NoticeDao {
     @Query("DELETE FROM `noticeentity` WHERE `id` == :id")
     fun deleteNoticeData(id: Int)
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun savePointNoticeData(vararg pointEntity: PointEntity)
-
-    @Query("SELECT * FROM `pointentity`")
-    fun getAllPointNoticeData(): List<PointEntity>?
-
-    @Query("SELECT * FROM `pointentity` WHERE `name` == :name")
-    fun getPointNoticeData(name: String): PointEntity?
-
-    @Query("DELETE FROM `pointentity` WHERE `name` == :name")
-    fun deletePointNoticeData(name: String)
-
 }

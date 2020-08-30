@@ -15,12 +15,4 @@ interface NoticeRepository {
 
     fun deleteLocalNotice(id: Int)
 
-    fun getRemotePointNotice(): Single<List<Point>>
-
-    fun getLocalPointNotice(): List<Point>?
-
-    fun saveLocalPointNotice(vararg point: Point)
-
-    fun deleteLocalPointNotice(name: String)
-
 }

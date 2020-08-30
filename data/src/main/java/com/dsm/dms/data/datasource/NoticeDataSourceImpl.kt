@@ -27,15 +27,4 @@ class NoticeDataSourceImpl(
     override fun deleteLocalNotice(id: Int) =
         noticeDao.deleteNoticeData(id)
 
-    override fun getRemotePointNotice(): Single<GetListPointNoticeResponse> =
-        api.getPointNotice()
-
-    override fun getLocalPointNotice(): List<PointEntity>? =
-        noticeDao.getAllPointNoticeData()
-
-    override fun saveLocalPointNotice(vararg pointEntity: PointEntity) =
-        noticeDao.savePointNoticeData(*pointEntity)
-
-    override fun deleteLocalPointNotice(name: String) =
-        noticeDao.deletePointNoticeData(name)
 }

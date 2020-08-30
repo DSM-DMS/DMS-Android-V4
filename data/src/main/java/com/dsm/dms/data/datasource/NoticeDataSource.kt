@@ -19,12 +19,4 @@ interface NoticeDataSource {
 
     fun deleteLocalNotice(id: Int)
 
-    fun getRemotePointNotice(): Single<GetListPointNoticeResponse>
-
-    fun getLocalPointNotice(): List<PointEntity>?
-
-    fun saveLocalPointNotice(vararg pointEntity: PointEntity)
-
-    fun deleteLocalPointNotice(name: String)
-
 }
