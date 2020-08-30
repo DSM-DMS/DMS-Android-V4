@@ -5,6 +5,7 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.dsm.dms.data.local.database.entity.NoticeEntity
+import com.dsm.dms.data.local.database.entity.PointEntity
 import io.reactivex.Completable
 import io.reactivex.Maybe
 import io.reactivex.Single
@@ -24,5 +25,17 @@ interface NoticeDao {
 
     @Query("DELETE FROM `noticeentity` WHERE `id` == :id")
     fun deleteNoticeData(id: Int)
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun savePointNoticeData(vararg pointEntity: PointEntity)
+
+    @Query("SELECT * FROM `pointentity`")
+    fun getAllPointNoticeData(): List<PointEntity>?
+
+    @Query("SELECT * FROM `pointentity` WHERE `name` == :name")
+    fun getPointNoticeData(name: String): PointEntity?
+
+    @Query("DELETE FROM `pointentity` WHERE `name` == :name")
+    fun deletePointNoticeData(name: String)
 
 }
