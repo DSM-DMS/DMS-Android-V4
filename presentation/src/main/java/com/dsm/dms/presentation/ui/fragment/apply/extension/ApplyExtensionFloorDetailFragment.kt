@@ -2,6 +2,7 @@ package com.dsm.dms.presentation.ui.fragment.apply.extension
 
 import android.content.Context
 import android.os.Bundle
+import android.view.Gravity
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
@@ -12,8 +13,8 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.dsm.dms.presentation.R
-import com.dsm.dms.presentation.base.DataBindingInjectFragment
-import com.dsm.dms.presentation.changeTitleCardColor
+import com.dsm.dms.presentation.base.DataBindingFragment
+import com.dsm.dms.presentation.changeCardViewColor
 import com.dsm.dms.presentation.databinding.FragmentApplyExtensionFloorDetailBinding
 import com.dsm.dms.presentation.dp
 import com.dsm.dms.presentation.ui.fragment.apply.extension.rooms.*
@@ -28,7 +29,7 @@ import splitties.views.onClick
 import javax.inject.Inject
 
 
-class ApplyExtensionFloorDetailFragment: DataBindingInjectFragment<FragmentApplyExtensionFloorDetailBinding>() {
+class ApplyExtensionFloorDetailFragment: DataBindingFragment<FragmentApplyExtensionFloorDetailBinding>() {
     override val layoutId: Int
         get() = R.layout.fragment_apply_extension_floor_detail
 
@@ -76,28 +77,32 @@ class ApplyExtensionFloorDetailFragment: DataBindingInjectFragment<FragmentApply
             setFloorRoomsFragment(FifthRoomsFragment(viewModel))
         })
         viewModel.elevenClockEvent.observe(this, Observer {
-            resources.changeTitleCardColor(
+            changeCardViewColor(
                 extension_floor_detail_eleven_card,
                 extension_floor_detail_eleven_tv,
+                resources,
                 it.first
             )
-            resources.changeTitleCardColor(
+            changeCardViewColor(
                 extension_floor_detail_twelve_card,
                 extension_floor_detail_twelve_tv,
+                resources,
                 it.second
             )
             extension_floor_detail_eleven_card.isClickable = false
             extension_floor_detail_twelve_card.isClickable = true
         })
         viewModel.twelveClockEvent.observe(this, Observer {
-            resources.changeTitleCardColor(
+            changeCardViewColor(
                 extension_floor_detail_twelve_card,
                 extension_floor_detail_twelve_tv,
+                resources,
                 it.first
             )
-            resources.changeTitleCardColor(
+            changeCardViewColor(
                 extension_floor_detail_eleven_card,
                 extension_floor_detail_eleven_tv,
+                resources,
                 it.second
           )
             extension_floor_detail_eleven_card.isClickable = true
@@ -116,9 +121,9 @@ class ApplyExtensionFloorDetailFragment: DataBindingInjectFragment<FragmentApply
         ).commit()
 
     private fun getLayoutParam(): LinearLayout.LayoutParams {
-        val seatHorizonMargin = resources.dp(8)
-        val seatVerticalMargin = resources.dp(16)
-        val seatSize = resources.dp(50)
+        val seatHorizonMargin = dp(resources, 8)
+        val seatVerticalMargin = dp(resources, 16)
+        val seatSize = dp(resources, 50)
 
         val layoutParam = LinearLayout.LayoutParams(seatSize, seatSize)
 
@@ -137,7 +142,7 @@ class ApplyExtensionFloorDetailFragment: DataBindingInjectFragment<FragmentApply
     private fun createNobodySeat(styles: AppCompatStyles, seatNum: Int): TextView =
         styles.textView.spinnerItem {
             centerText()
-            textSize = resources.dp(4).toFloat()
+            textSize = dp(resources,4).toFloat()
             layoutParams = getLayoutParam()
             background = resources.getDrawable(R.drawable.radius_circle_gray, null)
             onClick {
@@ -155,7 +160,7 @@ class ApplyExtensionFloorDetailFragment: DataBindingInjectFragment<FragmentApply
     private fun createSomeoneSeat(styles: AppCompatStyles, seatName: String): TextView =
         styles.textView.spinnerItem {
             centerText()
-            textSize = resources.dp(4).toFloat()
+            textSize = dp(resources,4).toFloat()
             setTextColor(resources.getColor(R.color.colorWhite, null))
             background = resources.getDrawable(R.drawable.radius_circle_main_color, null)
             layoutParams = getLayoutParam()

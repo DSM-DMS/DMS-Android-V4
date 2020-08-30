@@ -90,15 +90,6 @@ dependencies {
     implementation("com.louiscad.splitties:splitties-views-dsl-appcompat:3.0.0-alpha06")
     implementation("com.louiscad.splitties:splitties-views-dsl-material:3.0.0-alpha06")
 
-    // dms view library
-    implementation 'com.dsm.dms.library:dmsviewlibrary:0.0.4-rc1'
-    implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.0.0"
-
-    // room
-    implementation 'androidx.room:room-runtime:2.2.5'
-    implementation 'androidx.room:room-rxjava2:2.2.5'
-    kapt 'androidx.room:room-compiler:2.2.5'
-
     implementation project(':data')
     implementation project(':domain')
 }
