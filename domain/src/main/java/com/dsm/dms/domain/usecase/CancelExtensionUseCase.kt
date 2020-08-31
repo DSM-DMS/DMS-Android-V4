@@ -2,17 +2,17 @@ package com.dsm.dms.domain.usecase
 
 import com.dsm.dms.domain.base.Result
 import com.dsm.dms.domain.base.UseCase
-import com.dsm.dms.domain.entity.ExtensionInfo
 import com.dsm.dms.domain.service.ExtensionService
 import io.reactivex.Single
 import io.reactivex.disposables.CompositeDisposable
 
-class PostExtensionInfoUseCase(
+
+class CancelExtensionUseCase(
     private val service: ExtensionService,
     composite: CompositeDisposable
-): UseCase<ExtensionInfo, Result<Unit>>(composite) {
+): UseCase<Int, Result<Unit>>(composite) {
 
-    override fun create(extensionInfo: ExtensionInfo): Single<Result<Unit>> =
-        service.postExtensionInfo(extensionInfo)
+    override fun create(time: Int): Single<Result<Unit>> =
+        service.deleteExtensionInfo(time)
 
 }

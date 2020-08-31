@@ -22,8 +22,6 @@ class ExtensionServiceImpl(
                 saveLocalFun = { T -> repository.saveLocalExtensionMap(T) }
             )
 
-
-
     override fun getExtensionInfo(time: Int): Single<Result<ExtensionInfo>> =
         repository.getRemoteExtensionInfo(time)
             .toResult(
