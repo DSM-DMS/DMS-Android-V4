@@ -9,7 +9,7 @@ import com.dsm.dms.domain.base.Result
 
 
 class SignInUseCase(
-    val service: AccountService,
+    private val service: AccountService,
     composite: CompositeDisposable
 ): UseCase<Auth, Result<Unit>>(composite) {
 

@@ -10,12 +10,6 @@ fun Completable.toSingleResult(
     handler: ErrorHandler
 ): Single<Result<Unit>> = this
     .toSingle { Unit }.toResult(handler)
-    .map {
-        when(it) {
-            is Result.Success -> it
-            is Result.Error -> Result.Error(Unit, it.message)
-        }
-    }
 
 fun <T> Completable.toSingleResult(
     handler: ErrorHandler,
@@ -25,12 +19,6 @@ fun <T> Completable.toSingleResult(
     .toSingle {
         localFun(data)
     }.toResult(handler)
-    .map {
-        when(it) {
-            is Result.Success -> it
-            is Result.Error -> Result.Error(Unit, it.message)
-        }
-    }
 
 fun <T> Single<T>.toResult(
     handler: ErrorHandler,
@@ -41,7 +29,7 @@ fun <T> Single<T>.toResult(
         Result.Success(it) as Result<T>
     }
     .onErrorReturn {
-        Result.Error(null, handler.errorHandle(it))
+        Result.Error(message = handler.errorHandle(it))
     }
     .processLocal(localData, saveLocalFun)
 

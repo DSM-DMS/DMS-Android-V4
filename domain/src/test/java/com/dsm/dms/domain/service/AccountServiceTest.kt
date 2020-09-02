@@ -5,13 +5,12 @@ import com.dsm.dms.domain.base.ErrorHandler
 import com.dsm.dms.domain.base.Message
 import com.dsm.dms.domain.base.Result
 import com.dsm.dms.domain.entity.Auth
-import com.dsm.dms.domain.entity.ChangePassword
+import com.dsm.dms.domain.`object`.ChangePassword
+import com.dsm.dms.domain.`object`.SignUpObject
+import com.dsm.dms.domain.`object`.VerificationKey
 import com.dsm.dms.domain.entity.Token
 import com.dsm.dms.domain.repository.AccountRepository
-import com.dsm.dms.domain.usecase.ChangePasswordUseCase
-import com.dsm.dms.domain.usecase.SignInUseCase
-import com.dsm.dms.domain.usecase.SignUpUseCase
-import com.dsm.dms.domain.usecase.TemporaryPasswordUseCase
+import com.dsm.dms.domain.usecase.*
 import io.reactivex.Completable
 import io.reactivex.Single
 import io.reactivex.disposables.CompositeDisposable
@@ -34,6 +33,7 @@ class AccountServiceTest: BaseTest() {
     private lateinit var signUpUseCase: SignUpUseCase
     private lateinit var changePasswordUseCase: ChangePasswordUseCase
     private lateinit var temporaryPasswordUseCase: TemporaryPasswordUseCase
+    private lateinit var verifyCertificationCodeUseCase: VerifyCertificationCodeUseCase
 
     @Before
     fun init() {
@@ -44,6 +44,7 @@ class AccountServiceTest: BaseTest() {
         signUpUseCase = SignUpUseCase(accountService, CompositeDisposable())
         changePasswordUseCase = ChangePasswordUseCase(accountService, CompositeDisposable())
         temporaryPasswordUseCase = TemporaryPasswordUseCase(accountService, CompositeDisposable())
+        verifyCertificationCodeUseCase = VerifyCertificationCodeUseCase(accountService, CompositeDisposable())
     }
 
     @Test
@@ -93,7 +94,7 @@ class AccountServiceTest: BaseTest() {
 
         signInUseCase.create(auth)
             .test().assertValue(
-                Result.Error(Unit, Message.UNKNOW_ERROR)
+                Result.Error(message = Message.UNKNOW_ERROR)
             )
 
     }
@@ -101,18 +102,24 @@ class AccountServiceTest: BaseTest() {
     @Test
     fun `회원가입 성공 테스트`() {
 
-        val auth = Auth(
-            id = "asd",
-            password = "123",
-            email = "asd@gmail.com"
-        )
+        val signUpObject =
+            SignUpObject(
+                Auth(
+                    id = "asd",
+                    password = "123",
+                    email = "asd@gmail.com"
+                ),
+                VerificationKey(
+                    "sqaddsd231"
+                )
+            )
 
-        `when`(accountRepository.signUp(auth))
+        `when`(accountRepository.signUp(signUpObject))
             .thenReturn(
                 Completable.complete()
             )
 
-        signUpUseCase.create(auth)
+        signUpUseCase.create(signUpObject)
             .test().assertValue(
                 Result.Success(Unit)
             )
@@ -123,23 +130,29 @@ class AccountServiceTest: BaseTest() {
     fun `회원가입 실패 테스트`() {
 
         val exception = Exception()
-        val auth = Auth(
-            id = "asd",
-            password = "123",
-            email = "asd@gmail.com"
-        )
+        val signUpObject =
+            SignUpObject(
+                Auth(
+                    id = "asd",
+                    password = "123",
+                    email = "asd@gmail.com"
+                ),
+                VerificationKey(
+                    "sqaddsd231"
+                )
+            )
 
         `when`(errorHandler.errorHandle(exception))
             .thenReturn(Message.UNKNOW_ERROR)
 
-        `when`(accountRepository.signUp(auth))
+        `when`(accountRepository.signUp(signUpObject))
             .thenReturn(
                 Completable.error(exception)
             )
 
-        signUpUseCase.create(auth)
+        signUpUseCase.create(signUpObject)
             .test().assertValue(
-                Result.Error(Unit, Message.UNKNOW_ERROR)
+                Result.Error(message = Message.UNKNOW_ERROR)
             )
 
     }
@@ -185,7 +198,7 @@ class AccountServiceTest: BaseTest() {
 
         changePasswordUseCase.create(changePassword)
             .test().assertValue(
-                Result.Error(Unit, Message.UNKNOW_ERROR)
+                Result.Error(message = Message.UNKNOW_ERROR)
             )
 
     }
@@ -231,7 +244,44 @@ class AccountServiceTest: BaseTest() {
 
         temporaryPasswordUseCase.create(auth)
             .test().assertValue(
-                Result.Error(Unit, Message.UNKNOW_ERROR)
+                Result.Error(message = Message.UNKNOW_ERROR)
+            )
+
+    }
+
+    @Test
+    fun `확인코드 인증하기 성공 테스트`() {
+        val certificationCode = "43253"
+        val verificationKey = VerificationKey("sqaddsd231")
+
+        `when`(accountRepository.verifyCertificationCode(certificationCode))
+            .thenReturn(
+                Single.just(verificationKey)
+            )
+
+        verifyCertificationCodeUseCase.create(certificationCode)
+            .test().assertValue(
+                Result.Success(verificationKey)
+            )
+
+    }
+
+    @Test
+    fun `확인코드 인증하기 실패 테스트`() {
+        val exception = Exception()
+        val certificationCode = "43253"
+
+        `when`(errorHandler.errorHandle(exception))
+            .thenReturn(Message.UNKNOW_ERROR)
+
+        `when`(accountRepository.verifyCertificationCode(certificationCode))
+            .thenReturn(
+                Single.error(exception)
+            )
+
+        verifyCertificationCodeUseCase.create(certificationCode)
+            .test().assertValue(
+                Result.Error(message = Message.UNKNOW_ERROR)
             )
 
     }

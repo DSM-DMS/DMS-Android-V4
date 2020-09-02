@@ -1,6 +1,6 @@
-package com.dsm.dms.data.entity
+package com.dsm.dms.data.`object`
 
-import com.dsm.dms.domain.entity.ChangePassword
+import com.dsm.dms.domain.`object`.ChangePassword
 
 
 data class ChangePasswordData(
@@ -8,13 +8,13 @@ data class ChangePasswordData(
     var newPassword: String
 )
 
-fun ChangePassword.toDataEntity() =
+fun ChangePassword.toDataObject() =
     ChangePasswordData(
         currentPassword = currentPassword,
         newPassword = newPassword
     )
 
-fun ChangePasswordData.toEntity() =
+fun ChangePasswordData.toObject() =
     ChangePassword(
         currentPassword = currentPassword,
         newPassword = newPassword

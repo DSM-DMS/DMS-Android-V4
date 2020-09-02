@@ -62,16 +62,15 @@
             android:maxLength="12"
             android:paddingStart="4dp"
             android:paddingEnd="4dp"
-            android:text="@={vm.certifyCodeLiveData}"
+            android:text="@={vm.certificationCodeData}"
             android:textColor="@color/colorBlack"
             android:textSize="12sp"
             android:theme="@style/SignEditTextStyle"
-            app:layout_constraintBottom_toTopOf="@+id/certify_account_result_tv"
             app:layout_constraintEnd_toEndOf="@+id/certify_account_gl_end"
             app:layout_constraintStart_toStartOf="@+id/certify_account_gl_start"
             app:layout_constraintTop_toBottomOf="@+id/certify_account_title_tv" />
 
-        <com.google.android.material.button.MaterialButton
+        <com.dsm.dms.dmsviewlibrary.button.material.DmsProgressMaterialButton
             android:id="@+id/certify_account_check_btn"
             style="@style/Widget.MaterialComponents.Button.TextButton"
             android:layout_width="0dp"
@@ -85,23 +84,12 @@
             android:textColor="@color/colorWhite"
             android:textSize="10sp"
             app:cornerRadius="4dp"
+            android:onClick="@{() -> vm.verifyClick()}"
             app:layout_constraintBottom_toBottomOf="@+id/certify_account_check_code_edit"
             app:layout_constraintEnd_toEndOf="@+id/certify_account_check_code_edit"
             app:layout_constraintStart_toStartOf="@+id/certify_account_btn_gl"
             app:layout_constraintTop_toTopOf="@+id/certify_account_check_code_edit"
             tools:ignore="SmallSp" />
-
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/certify_account_result_tv"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="48dp"
-            android:lineSpacingExtra="1sp"
-            android:textColor="@color/colorCheckCodeResult"
-            android:textSize="12sp"
-            app:layout_constraintEnd_toEndOf="@+id/certify_account_gl_end"
-            app:layout_constraintStart_toStartOf="@+id/certify_account_gl_start"
-            app:layout_constraintTop_toBottomOf="@+id/certify_account_check_code_edit" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

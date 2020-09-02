@@ -1,4 +1,4 @@
-package com.dsm.dms.domain.entity
+package com.dsm.dms.domain.`object`
 
 data class ChangePassword(
     var currentPassword: String,

@@ -1,11 +1,9 @@
 package com.dsm.dms.data.repository
 
 import com.dsm.dms.data.datasource.UserDataSource
-import com.dsm.dms.data.entity.UserData
 import com.dsm.dms.data.entity.toDataEntity
 import com.dsm.dms.data.entity.toDbEntity
 import com.dsm.dms.data.entity.toEntity
-import com.dsm.dms.data.local.database.entity.UserEntity
 import com.dsm.dms.domain.entity.User
 import com.dsm.dms.domain.repository.UserRepository
 import io.reactivex.Single

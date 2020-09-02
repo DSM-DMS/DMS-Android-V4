@@ -212,7 +212,7 @@ class ExtensionServiceTest: BaseTest() {
 
         applyExtensionUseCase.create(extensionInfo)
             .test().assertValue(
-                Result.Error(Unit, Message.UNKNOW_ERROR)
+                Result.Error(message = Message.UNKNOW_ERROR)
             )
 
     }
@@ -250,7 +250,7 @@ class ExtensionServiceTest: BaseTest() {
 
         cancelExtensionUseCase.create(time)
             .test().assertValue(
-                Result.Error(Unit, Message.UNKNOW_ERROR)
+                Result.Error(message =  Message.UNKNOW_ERROR)
             )
 
     }

@@ -116,7 +116,7 @@ class StayServiceTest: BaseTest() {
 
         applyStayUseCase.create(stayInfo)
             .test().assertValue(
-                Result.Error(Unit, Message.UNKNOW_ERROR)
+                Result.Error(message = Message.UNKNOW_ERROR)
             )
 
     }

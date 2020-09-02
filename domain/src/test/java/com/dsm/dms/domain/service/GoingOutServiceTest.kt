@@ -151,7 +151,7 @@ class GoingOutServiceTest: BaseTest() {
 
         applyGoingOutUseCase.create(goingOutInfo)
             .test().assertValue(
-                Result.Error(Unit, Message.UNKNOW_ERROR)
+                Result.Error(message = Message.UNKNOW_ERROR)
             )
 
     }
@@ -199,7 +199,7 @@ class GoingOutServiceTest: BaseTest() {
 
         updateGoingOutInfoUseCase.create(goingOutInfo)
             .test().assertValue(
-                Result.Error(Unit, Message.UNKNOW_ERROR)
+                Result.Error(message =  Message.UNKNOW_ERROR)
             )
 
     }
@@ -237,7 +237,7 @@ class GoingOutServiceTest: BaseTest() {
 
         cancelGoingOutUseCase.create(id)
             .test().assertValue(
-                Result.Error(Unit, Message.UNKNOW_ERROR)
+                Result.Error(message = Message.UNKNOW_ERROR)
             )
 
     }
