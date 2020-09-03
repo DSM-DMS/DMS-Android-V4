@@ -38,6 +38,7 @@
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/meal_item_breakfast_tv"
                     android:text="@string/meal_item_breakfast_tv"
+                    android:fontFamily="@font/nanum_square_otf_bold"
                     android:textColor="@color/colorNightBlack"
                     android:textSize="16sp"
                     app:layout_constraintTop_toTopOf="parent"
@@ -48,6 +49,7 @@
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/meal_item_breakfast_content_tv"
                     android:text="@{vm.meal.breakfast}"
+                    android:fontFamily="@font/nanum_square_otf_regular"
                     android:textSize="12sp"
                     android:textColor="@color/colorNightBlack"
                     android:layout_marginTop="16dp"
@@ -89,6 +91,7 @@
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/meal_item_lunch_tv"
                     android:text="@string/meal_item_lunch_tv"
+                    android:fontFamily="@font/nanum_square_otf_bold"
                     android:textColor="@color/colorNightBlack"
                     android:textSize="16sp"
                     app:layout_constraintTop_toTopOf="parent"
@@ -102,6 +105,7 @@
                     android:layout_width="0dp"
                     android:layout_height="0dp"
                     android:text="@{vm.meal.lunch}"
+                    android:fontFamily="@font/nanum_square_otf_regular"
                     android:textSize="12sp"
                     android:textColor="@color/colorNightBlack"
                     android:gravity="top"
@@ -141,6 +145,7 @@
                     android:text="@string/meal_item_dinner_tv"
                     android:textColor="@color/colorNightBlack"
                     android:textSize="16sp"
+                    android:fontFamily="@font/nanum_square_otf_bold"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     android:layout_width="wrap_content"
@@ -154,6 +159,7 @@
                     android:text="@{vm.meal.dinner}"
                     android:textSize="12sp"
                     android:textColor="@color/colorNightBlack"
+                    android:fontFamily="@font/nanum_square_otf_regular"
                     android:gravity="top"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
