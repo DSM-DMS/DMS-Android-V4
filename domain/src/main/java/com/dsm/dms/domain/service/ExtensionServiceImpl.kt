@@ -18,7 +18,7 @@ class ExtensionServiceImpl(
         repository.getRemoteExtensionMap(time, classNum)
             .toResult(
                 handler = handler,
-                localData = repository.getLocalExtensionMap(time, classNum),
+                getLocalDataFun = { repository.getLocalExtensionMap(time, classNum) },
                 saveLocalFun = { T -> repository.saveLocalExtensionMap(T) }
             )
 
@@ -26,7 +26,7 @@ class ExtensionServiceImpl(
         repository.getRemoteExtensionInfo(time)
             .toResult(
                 handler = handler,
-                localData = repository.getLocalExtensionInfo(time),
+                getLocalDataFun= { repository.getLocalExtensionInfo(time) },
                 saveLocalFun = { T -> repository.saveLocalExtensionInfo(T) }
             )
 

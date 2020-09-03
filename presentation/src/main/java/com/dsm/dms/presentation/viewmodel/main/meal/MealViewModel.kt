@@ -11,6 +11,7 @@ import com.dsm.dms.domain.usecase.GetMealUseCase
 import com.dsm.dms.presentation.BR
 import com.dsm.dms.presentation.R
 import com.dsm.dms.presentation.base.BaseViewModel
+import com.dsm.dms.presentation.base.SingleLiveEvent
 import com.dsm.dms.presentation.bindingAdapter.ViewPagerItem
 import com.dsm.dms.presentation.model.MealModel
 import com.dsm.dms.presentation.model.VisibilityModel
@@ -27,6 +28,8 @@ class MealViewModel(private val getMeal: GetMealUseCase): BaseViewModel() {
     val dateText = Transformations.map(pageStatusLiveData) {
         getDateText(it)
     }
+
+    val showMessageEvent = SingleLiveEvent<String>()
 
     override fun apply(event: Lifecycle.Event) {
         when(event) {
@@ -104,17 +107,10 @@ class MealViewModel(private val getMeal: GetMealUseCase): BaseViewModel() {
             getMeal.execute(date, object: DisposableSingleObserver<Result<Meal>>() {
                 override fun onSuccess(result: Result<Meal>) {
                     when(result) {
-                        is Result.Success -> {
-                            onSuccessShow()
-                            meal = result.data.toModel()
-                        }
-
-                        is Result.Error -> {
-                            when (result.message) {
-                                Message.UNKNOW_ERROR -> onErrorShow(R.drawable.ic_server_error)
-                                Message.NETWORK_ERROR -> onErrorShow(R.drawable.ic_network_error)
-                            }
-                        }
+                        is Result.Success ->
+                            onSuccessGetMealData(result)
+                        is Result.Error ->
+                            onErrorGetMealData(result)
                     }
                     visibility.visibleLoad = View.GONE
                 }
@@ -133,6 +129,35 @@ class MealViewModel(private val getMeal: GetMealUseCase): BaseViewModel() {
 
         private fun onSuccessShow() {
             visibility.visibleContent = View.VISIBLE
+        }
+
+        private fun onErrorGetMealData(result: Result.Error<Meal>) {
+            if (result.data != null) {
+                when (result.message) {
+                    Message.UNKNOW_ERROR ->
+                        showMessageEvent.value = "알 수 없는 오류가 발생했습니다"
+                    Message.NETWORK_ERROR ->
+                        showMessageEvent.value = "네트워크 오류가 발생했습니다"
+                    else ->
+                        showMessageEvent.value = "알 수 없는 오류가 발생했습니다"
+                }
+                meal = result.data!!.toModel()
+                visibility.visibleContent = View.VISIBLE
+            } else {
+                when (result.message) {
+                    Message.UNKNOW_ERROR ->
+                        onErrorShow(R.drawable.ic_server_error)
+                    Message.NETWORK_ERROR ->
+                        onErrorShow(R.drawable.ic_network_error)
+                    else ->
+                        onErrorShow(R.drawable.ic_server_error)
+                }
+            }
+        }
+
+        private fun onSuccessGetMealData(result: Result.Success<Meal>) {
+            onSuccessShow()
+            meal = result.data.toModel()
         }
     }
 

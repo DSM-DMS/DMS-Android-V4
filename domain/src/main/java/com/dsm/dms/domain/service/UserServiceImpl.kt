@@ -25,7 +25,7 @@ class UserServiceImpl(
                 }
             }.toResult(
                 handler = handler,
-                localData = userRepository.getLocalUserData(),
+                getLocalDataFun = { userRepository.getLocalUserData() },
                 saveLocalFun = { T -> userRepository.saveLocalUserData(T) }
             )
 

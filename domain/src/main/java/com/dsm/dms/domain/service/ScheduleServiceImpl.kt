@@ -17,7 +17,7 @@ class ScheduleServiceImpl(
         repository.getRemoteSchedule(date)
             .toResult(
                 handler = handler,
-                localData = repository.getLocalSchedule(date),
+                getLocalDataFun = { repository.getLocalSchedule(date) },
                 saveLocalFun = { T -> repository.saveLocalSchedule(*T.toTypedArray()) }
             )
 

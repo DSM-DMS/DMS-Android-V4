@@ -21,6 +21,9 @@ class MealRepositoryImpl(
     override fun getLocalMeal(date: String): Meal? =
         dataSource.getLocalMeal(date)?.toEntity()
 
+    override fun getAllLocalMeal(): List<Meal>? =
+        dataSource.getAllLocalMeal()?.map { it.toEntity() }
+
     override fun saveLocalMeal(vararg meal: Meal) =
         dataSource.saveLocalMeal(
             *meal.map {

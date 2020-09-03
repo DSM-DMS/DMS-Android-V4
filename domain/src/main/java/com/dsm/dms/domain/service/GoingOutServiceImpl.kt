@@ -18,7 +18,7 @@ class GoingOutServiceImpl(
         repository.getRemoteGoingOutInfo()
             .toResult(
                 handler = handler,
-                localData = repository.getLocalGoingOutInfo(),
+                getLocalDataFun = { repository.getLocalGoingOutInfo() },
                 saveLocalFun = { T -> repository.saveLocalGoingOutInfo(*T.toTypedArray()) }
             )
 

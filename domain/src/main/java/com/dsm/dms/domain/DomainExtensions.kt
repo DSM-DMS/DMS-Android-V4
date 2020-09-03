@@ -22,7 +22,7 @@ fun <T> Completable.toSingleResult(
 
 fun <T> Single<T>.toResult(
     handler: ErrorHandler,
-    localData: T?,
+    getLocalDataFun: () -> T?,
     saveLocalFun: (T) -> Unit
 ): Single<Result<T>> = this
     .map {
@@ -31,7 +31,7 @@ fun <T> Single<T>.toResult(
     .onErrorReturn {
         Result.Error(message = handler.errorHandle(it))
     }
-    .processLocal(localData, saveLocalFun)
+    .processLocal(getLocalDataFun, saveLocalFun)
 
 fun <T> Single<T>.toResult(
     handler: ErrorHandler
@@ -44,7 +44,7 @@ fun <T> Single<T>.toResult(
     }
 
 
-fun <T> Single<Result<T>>.processLocal(localData: T?, saveLocalFun: (T) -> Unit): Single<Result<T>> = this
+fun <T> Single<Result<T>>.processLocal(getLocalDataFun: () -> T?, saveLocalFun: (T) -> Unit): Single<Result<T>> = this
     .flatMap { result ->
         when(result) {
             is Result.Success -> {
@@ -52,13 +52,12 @@ fun <T> Single<Result<T>>.processLocal(localData: T?, saveLocalFun: (T) -> Unit)
                 Single.just(result)
             }
             is Result.Error -> {
-                localData?.let {
+                val localData = getLocalDataFun()
+                if (localData != null)
                     return@flatMap Single.just(
-                        Result.Error(it, result.message)
+                        Result.Error(localData, result.message)
                     )
-                }.let {
-                    Single.just(result)
-                }
+                Single.just(result)
             }
         }
     }

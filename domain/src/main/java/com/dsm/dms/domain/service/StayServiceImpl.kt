@@ -18,7 +18,7 @@ class StayServiceImpl(
         repository.getRemoteStayInfo()
             .toResult(
                 handler = handler,
-                localData = repository.getLocalStayInfo(),
+                getLocalDataFun = { repository.getLocalStayInfo() },
                 saveLocalFun = { T -> repository.saveLocalStayInfo(T) }
             )
 
