@@ -7,9 +7,8 @@ import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
 
-@Module(includes = [(NetworkModule::class), (LocalModule::class), (ApiModule::class), (BaseModule::class)])
+@Module(includes = [(NetworkModule::class), (LocalModule::class)])
 class AppModule {
-
     @Provides
     @Singleton
     fun provideContext(application: BaseApp): Context = application
@@ -17,5 +16,4 @@ class AppModule {
     @Provides
     @Singleton
     fun provideApplication(app: BaseApp): Application = app
-
 }

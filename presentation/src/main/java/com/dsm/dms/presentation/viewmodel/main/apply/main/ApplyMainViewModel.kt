@@ -16,12 +16,8 @@ class ApplyMainViewModel: BaseViewModel() {
     }
 
     fun stayingClick() = goStayingEvent.call()
-
     fun studyingClick() = goStudyingEvent.call()
-
     fun goingOutClick() = goGoingOutEvent.call()
-
     fun musicClick() = goMusicEvent.call()
-
     fun restClick() = goRestEvent.call()
 }

@@ -7,13 +7,13 @@ import androidx.activity.addCallback
 import androidx.lifecycle.Observer
 import androidx.navigation.Navigation
 import com.dsm.dms.presentation.R
-import com.dsm.dms.presentation.base.DataBindingInjectFragment
+import com.dsm.dms.presentation.base.DataBindingFragment
 import com.dsm.dms.presentation.databinding.FragmentCertifyAccountBinding
 import com.dsm.dms.presentation.viewmodel.sign.register.RegisterViewModel
 import kotlinx.android.synthetic.main.fragment_certify_account.*
 import javax.inject.Inject
 
-class CertifyAccountFragment : DataBindingInjectFragment<FragmentCertifyAccountBinding>() {
+class CertifyAccountFragment : DataBindingFragment<FragmentCertifyAccountBinding>() {
     override val layoutId: Int
         get() = R.layout.fragment_certify_account
 

@@ -6,12 +6,12 @@ import android.view.View
 import androidx.activity.addCallback
 import androidx.navigation.Navigation
 import com.dsm.dms.presentation.R
-import com.dsm.dms.presentation.base.DataBindingInjectFragment
+import com.dsm.dms.presentation.base.DataBindingFragment
 import com.dsm.dms.presentation.databinding.FragmentCreateAccountBinding
 import com.dsm.dms.presentation.viewmodel.sign.register.RegisterViewModel
 import javax.inject.Inject
 
-class CreateAccountFragment : DataBindingInjectFragment<FragmentCreateAccountBinding>() {
+class CreateAccountFragment : DataBindingFragment<FragmentCreateAccountBinding>() {
     override val layoutId: Int
         get() = R.layout.fragment_create_account
 

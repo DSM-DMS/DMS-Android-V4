@@ -6,7 +6,8 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
 import com.dsm.dms.presentation.R
-import com.dsm.dms.presentation.base.DataBindingInjectFragment
+import com.dsm.dms.presentation.adapter.MealPagerAdapter
+import com.dsm.dms.presentation.base.DataBindingFragment
 import com.dsm.dms.presentation.databinding.FragmentMealBinding
 import com.dsm.dms.presentation.viewmodel.main.meal.MealViewModel
 import com.dsm.dms.presentation.viewmodel.main.meal.MealViewModelFactory
@@ -14,7 +15,7 @@ import com.google.android.material.snackbar.Snackbar
 import javax.inject.Inject
 import kotlin.math.abs
 
-class MealFragment: DataBindingInjectFragment<FragmentMealBinding>() {
+class MealFragment: DataBindingFragment<FragmentMealBinding>() {
     override val layoutId: Int
         get() = R.layout.fragment_meal
 
@@ -28,10 +29,11 @@ class MealFragment: DataBindingInjectFragment<FragmentMealBinding>() {
         super.onViewCreated(view, savedInstanceState)
         binding.vm = viewModel
 
-        initMealPagerAnimation()
+        initMealPager()
     }
 
-    private fun initMealPagerAnimation() {
+    private fun initMealPager() {
+        binding.mealPager.adapter = MealPagerAdapter(viewModel)
         binding.mealPager.setPageTransformer { page, position ->
             page.apply {
                 translationY = abs(position) * 300f
@@ -40,7 +42,7 @@ class MealFragment: DataBindingInjectFragment<FragmentMealBinding>() {
             }
         }
         (binding.mealPager.getChildAt(0) as RecyclerView)
-            .overScrollMode = RecyclerView.OVER_SCROLL_NEVER
+            .overScrollMode= RecyclerView.OVER_SCROLL_NEVER
     }
 
     override fun observeEvent() {
