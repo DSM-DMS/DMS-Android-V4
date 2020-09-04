@@ -1,38 +1,42 @@
 package com.dsm.dms.presentation.viewmodel.main.meal
 
+import android.view.View
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
+import com.dsm.dms.domain.base.Message
+import com.dsm.dms.domain.base.Result
+import com.dsm.dms.domain.entity.Meal
+import com.dsm.dms.domain.usecase.GetMealUseCase
+import com.dsm.dms.presentation.BR
+import com.dsm.dms.presentation.R
 import com.dsm.dms.presentation.base.BaseViewModel
 import com.dsm.dms.presentation.base.SingleLiveEvent
 import com.dsm.dms.presentation.bindingAdapter.ViewPagerItem
 import com.dsm.dms.presentation.model.MealModel
+import com.dsm.dms.presentation.model.VisibilityModel
+import com.dsm.dms.presentation.model.toModel
+import io.reactivex.observers.DisposableSingleObserver
 import java.text.SimpleDateFormat
 import java.util.*
-import kotlin.collections.ArrayList
 
 
-class MealViewModel: BaseViewModel() {
-    val mealItems = MutableLiveData<ArrayList<MealModel>>().apply {
-        value = ArrayList()
-        value!!.add(MealModel("기본값", "기본값", "기본값"))
-        value!!.add(MealModel("기본값", "기본값", "기본값"))
-        value!!.add(MealModel("기본값", "기본값", "기본값"))
-        value!!.add(MealModel("기본값", "기본값", "기본값"))
-    }
-
-    val pageStatusLiveData = MutableLiveData<Int>()
-
-    val dateText = Transformations.map(pageStatusLiveData){
-        val calendar = Calendar.getInstance()
-        calendar.add(Calendar.DAY_OF_YEAR, it)
-        SimpleDateFormat("yyyy년 MM월 dd일 EEEE", Locale.KOREA).format(calendar.time)
+class MealViewModel(private val getMeal: GetMealUseCase): BaseViewModel() {
+    val listItem =
+        MutableLiveData<List<ViewPagerItem>>().apply { value = listOf() }
+    val pageStatusLiveData = MutableLiveData<Int>().apply { postValue(6) }
+    val dateText = Transformations.map(pageStatusLiveData) {
+        getDateText(it)
     }
 
     val showMessageEvent = SingleLiveEvent<String>()
 
     override fun apply(event: Lifecycle.Event) {
-
+        when(event) {
+            Lifecycle.Event.ON_CREATE -> {
+                addMealList()
+            }
+        }
     }
 
     fun dateBeforeClick() {
@@ -41,7 +45,7 @@ class MealViewModel: BaseViewModel() {
     }
 
     fun dateAfterClick() {
-        if (pageStatusLiveData.value!! < mealItems.value!!.size - 1)
+        if (pageStatusLiveData.value!! < listItem.value!!.size - 1)
             pageStatusLiveData.value = pageStatusLiveData.value!! + 1
     }
 

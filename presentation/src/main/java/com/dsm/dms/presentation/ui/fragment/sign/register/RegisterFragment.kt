@@ -8,14 +8,14 @@ import androidx.lifecycle.Observer
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import com.dsm.dms.presentation.R
-import com.dsm.dms.presentation.base.DataBindingFragment
+import com.dsm.dms.presentation.base.DataBindingInjectFragment
 import com.dsm.dms.presentation.databinding.FragmentRegisterBinding
 import com.dsm.dms.presentation.viewmodel.sign.register.RegisterViewModel
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.fragment_register.*
 import javax.inject.Inject
 
-class RegisterFragment : DataBindingFragment<FragmentRegisterBinding>() {
+class RegisterFragment : DataBindingInjectFragment<FragmentRegisterBinding>() {
     override val layoutId: Int
         get() = R.layout.fragment_register
 

@@ -3,12 +3,9 @@
     <data>
         <variable
             name="vm"
-            type="com.dsm.dms.presentation.viewmodel.main.meal.MealViewModel" />
-        
-        <variable
-            name="meal"
-            type="com.dsm.dms.presentation.model.MealModel" />
+            type="com.dsm.dms.presentation.viewmodel.main.meal.MealViewModel.MealItemViewModel" />
     </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
@@ -27,7 +24,8 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_width="0dp"
-            android:layout_height="0dp">
+            android:layout_height="0dp"
+            android:visibility="@{vm.visibility.visibleContent}">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:paddingTop="24dp"
@@ -79,7 +77,8 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_width="0dp"
-            android:layout_height="0dp">
+            android:layout_height="0dp"
+            android:visibility="@{vm.visibility.visibleContent}">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:paddingTop="24dp"
@@ -130,7 +129,8 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_width="0dp"
-            android:layout_height="0dp">
+            android:layout_height="0dp"
+            android:visibility="@{vm.visibility.visibleContent}">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:paddingTop="24dp"
@@ -169,7 +169,26 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
 
+        <ProgressBar
+            android:id="@+id/meal_item_progress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="@{vm.visibility.visibleLoad}"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
 
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/meal_item_error_imv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@{vm.visibility.errorResource}"
+            android:visibility="@{vm.visibility.visibleError}"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -6,13 +6,14 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.dsm.dms.presentation.R
-import com.dsm.dms.presentation.base.EndPointDataBindingFragment
+import com.dsm.dms.presentation.base.EndPointDataBindingInjectFragment
 import com.dsm.dms.presentation.databinding.FragmentLoginBinding
 import com.dsm.dms.presentation.viewmodel.sign.login.LoginViewModel
 import com.dsm.dms.presentation.viewmodel.sign.login.LoginViewModelFactory
+import kotlinx.android.synthetic.main.fragment_login.*
 import javax.inject.Inject
 
-class LoginFragment: EndPointDataBindingFragment<FragmentLoginBinding>() {
+class LoginFragment: EndPointDataBindingInjectFragment<FragmentLoginBinding>() {
 
     override val layoutId: Int
         get() = R.layout.fragment_login
