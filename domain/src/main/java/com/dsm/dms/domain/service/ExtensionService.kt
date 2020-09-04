@@ -12,8 +12,8 @@ interface ExtensionService {
 
     fun getExtensionInfo(time: Int): Single<Result<ExtensionInfo>>
 
-    fun postExtensionInfo(extensionInfo: ExtensionInfo): Single<Result<Unit>>
+    fun applyExtension(extensionInfo: ExtensionInfo): Single<Result<Unit>>
 
-    fun deleteExtensionInfo(time: Int): Single<Result<Unit>>
+    fun cancelExtension(time: Int): Single<Result<Unit>>
 
 }

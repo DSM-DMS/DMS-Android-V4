@@ -21,9 +21,7 @@ fun <T> Completable.toSingleResult(
     }.toResult(handler)
 
 fun <T> Single<T>.toResult(
-    handler: ErrorHandler,
-    getLocalDataFun: () -> T?,
-    saveLocalFun: (T) -> Unit
+    handler: ErrorHandler
 ): Single<Result<T>> = this
     .map {
         Result.Success(it) as Result<T>
@@ -31,20 +29,19 @@ fun <T> Single<T>.toResult(
     .onErrorReturn {
         Result.Error(message = handler.errorHandle(it))
     }
-    .processLocal(getLocalDataFun, saveLocalFun)
 
 fun <T> Single<T>.toResult(
-    handler: ErrorHandler
+    handler: ErrorHandler,
+    getLocalDataFun: () -> T?,
+    saveLocalFun: (T) -> Unit
 ): Single<Result<T>> = this
-    .map {
-        Result.Success(it) as Result<T>
-    }
-    .onErrorReturn {
-        Result.Error(null, handler.errorHandle(it))
-    }
+    .toResult(handler)
+    .processLocal(getLocalDataFun, saveLocalFun)
 
-
-fun <T> Single<Result<T>>.processLocal(getLocalDataFun: () -> T?, saveLocalFun: (T) -> Unit): Single<Result<T>> = this
+fun <T> Single<Result<T>>.processLocal(
+    getLocalDataFun: () -> T?,
+    saveLocalFun: (T) -> Unit
+): Single<Result<T>> = this
     .flatMap { result ->
         when(result) {
             is Result.Success -> {

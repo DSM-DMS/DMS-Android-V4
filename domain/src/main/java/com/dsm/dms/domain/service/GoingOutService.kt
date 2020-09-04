@@ -10,10 +10,10 @@ interface GoingOutService {
 
     fun getGoingOutInfo(): Single<Result<List<GoingOutInfo>>>
 
-    fun postGoingOutInfo(goingOutInfo: GoingOutInfo): Single<Result<Unit>>
+    fun applyGoingOut(goingOutInfo: GoingOutInfo): Single<Result<Unit>>
 
     fun updateGoingOutInfo(goingOutInfo: GoingOutInfo): Single<Result<Unit>>
 
-    fun deleteGoingOutInfo(id: Int): Single<Result<Unit>>
+    fun cancelGoingOut(id: Int): Single<Result<Unit>>
 
 }
