@@ -13,6 +13,6 @@ class ApplyStayUseCase(
 ): UseCase<StayInfo, Result<Unit>>(composite) {
 
     override fun create(stayInfo: StayInfo): Single<Result<Unit>> =
-        service.postStayInfo(stayInfo)
+        service.applyStay(stayInfo)
 
 }

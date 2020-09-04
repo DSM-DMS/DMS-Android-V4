@@ -14,6 +14,6 @@ class ApplyGoingOutUseCase(
 ): UseCase<GoingOutInfo, Result<Unit>>(composite) {
 
     override fun create(goingOutInfo: GoingOutInfo): Single<Result<Unit>> =
-        service.postGoingOutInfo(goingOutInfo)
+        service.applyGoingOut(goingOutInfo)
 
 }

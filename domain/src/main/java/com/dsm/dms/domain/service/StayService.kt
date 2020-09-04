@@ -9,6 +9,6 @@ interface StayService {
 
     fun getStayInfo(): Single<Result<StayInfo>>
 
-    fun postStayInfo(stayInfo: StayInfo): Single<Result<Unit>>
+    fun applyStay(stayInfo: StayInfo): Single<Result<Unit>>
 
 }

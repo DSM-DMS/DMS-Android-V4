@@ -13,6 +13,6 @@ class CancelExtensionUseCase(
 ): UseCase<Int, Result<Unit>>(composite) {
 
     override fun create(time: Int): Single<Result<Unit>> =
-        service.deleteExtensionInfo(time)
+        service.cancelExtension(time)
 
 }

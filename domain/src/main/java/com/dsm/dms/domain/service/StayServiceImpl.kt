@@ -22,7 +22,7 @@ class StayServiceImpl(
                 saveLocalFun = { T -> repository.saveLocalStayInfo(T) }
             )
 
-    override fun postStayInfo(stayInfo: StayInfo): Single<Result<Unit>> =
+    override fun applyStay(stayInfo: StayInfo): Single<Result<Unit>> =
         repository.postRemoteStayInfo(stayInfo)
             .toSingleResult(
                 handler = handler,

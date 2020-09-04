@@ -13,6 +13,6 @@ class ApplyExtensionUseCase(
 ): UseCase<ExtensionInfo, Result<Unit>>(composite) {
 
     override fun create(extensionInfo: ExtensionInfo): Single<Result<Unit>> =
-        service.postExtensionInfo(extensionInfo)
+        service.applyExtension(extensionInfo)
 
 }

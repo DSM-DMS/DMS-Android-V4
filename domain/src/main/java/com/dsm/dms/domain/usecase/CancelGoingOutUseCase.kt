@@ -13,6 +13,6 @@ class CancelGoingOutUseCase(
 ): UseCase<Int, Result<Unit>>(composite) {
 
     override fun create(id: Int): Single<Result<Unit>> =
-        service.deleteGoingOutInfo(id)
+        service.cancelGoingOut(id)
 
 }
