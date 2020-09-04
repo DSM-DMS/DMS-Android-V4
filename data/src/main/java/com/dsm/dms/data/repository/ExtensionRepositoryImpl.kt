@@ -8,11 +8,10 @@ import com.dsm.dms.domain.entity.ExtensionInfo
 import com.dsm.dms.domain.entity.Map
 import com.dsm.dms.domain.repository.ExtensionRepository
 import io.reactivex.Completable
-import io.reactivex.Maybe
 import io.reactivex.Single
 
 
-class ExtensionRepositotryImpl(
+class ExtensionRepositoryImpl(
     private val dataSource: ExtensionDataSource
 ): ExtensionRepository {
 

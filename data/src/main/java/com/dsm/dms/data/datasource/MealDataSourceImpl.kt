@@ -19,6 +19,9 @@ class MealDataSourceImpl(
     override fun getLocalMeal(date: String): MealEntity? =
         mealDao.getMealData(date)
 
+    override fun getAllLocalMeal(): List<MealEntity>? =
+        mealDao.getAllMealData()
+
     override fun saveLocalMeal(vararg mealEntity: MealEntity) =
         mealDao.saveMealData(*mealEntity)
 

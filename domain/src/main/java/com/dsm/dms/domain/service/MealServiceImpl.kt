@@ -17,7 +17,7 @@ class MealServiceImpl(
         repository.getRemoteMeal(date)
             .toResult(
                 handler = handler,
-                localData = repository.getLocalMeal(date),
+                getLocalDataFun = { repository.getLocalMeal(date) },
                 saveLocalFun = { T -> repository.saveLocalMeal(T) }
             )
 

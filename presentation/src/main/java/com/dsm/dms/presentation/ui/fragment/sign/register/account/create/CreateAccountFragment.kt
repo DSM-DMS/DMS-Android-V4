@@ -1,7 +1,10 @@
 package com.dsm.dms.presentation.ui.fragment.sign.register.account.create
 
+import android.content.Context
 import android.os.Bundle
 import android.view.View
+import androidx.activity.addCallback
+import androidx.navigation.Navigation
 import com.dsm.dms.presentation.R
 import com.dsm.dms.presentation.base.DataBindingInjectFragment
 import com.dsm.dms.presentation.databinding.FragmentCreateAccountBinding
@@ -19,6 +22,17 @@ class CreateAccountFragment : DataBindingInjectFragment<FragmentCreateAccountBin
         super.onViewCreated(view, savedInstanceState)
 
         binding.vm = viewModel
+    }
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        requireActivity().onBackPressedDispatcher.addCallback(this) {
+            back()
+        }
+    }
+
+    override fun back() {
+        Navigation.findNavController(requireActivity(), R.id.fragment_container).navigateUp()
     }
 
     override fun observeEvent() {

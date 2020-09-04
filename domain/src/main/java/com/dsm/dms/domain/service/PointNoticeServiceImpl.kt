@@ -17,7 +17,7 @@ class PointNoticeServiceImpl(
         repository.getRemotePointNotice()
             .toResult(
                 handler = handler,
-                localData = repository.getLocalPointNotice(),
+                getLocalDataFun = { repository.getLocalPointNotice() },
                 saveLocalFun = { T -> repository.saveLocalPointNotice(*T.toTypedArray()) }
             )
 

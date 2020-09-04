@@ -3,7 +3,9 @@ package com.dsm.dms.domain.service
 import com.dsm.dms.domain.base.ErrorHandler
 import com.dsm.dms.domain.base.Result
 import com.dsm.dms.domain.entity.Auth
-import com.dsm.dms.domain.entity.ChangePassword
+import com.dsm.dms.domain.`object`.ChangePassword
+import com.dsm.dms.domain.`object`.SignUpObject
+import com.dsm.dms.domain.`object`.VerificationKey
 import com.dsm.dms.domain.repository.AccountRepository
 import com.dsm.dms.domain.toResult
 import com.dsm.dms.domain.toSingleResult
@@ -16,22 +18,14 @@ class AccountServiceImpl(
 
     override fun signIn(auth: Auth): Single<Result<Unit>> =
         repository.signIn(auth)
-            .toResult(handler = handler)
             .map {
-                when(it) {
-                    is Result.Success -> {
-                        repository.saveToken(it.data.accessToken, true)
-                        repository.saveToken(it.data.refreshToken, false)
-                        Result.Success(Unit)
-                    }
-                    is Result.Error -> {
-                        Result.Error(Unit, it.message)
-                    }
-                }
+                repository.saveToken(it.accessToken, true)
+                repository.saveToken(it.refreshToken, false)
             }
+            .toResult(handler)
 
-    override fun signUp(auth: Auth): Single<Result<Unit>> =
-        repository.signUp(auth)
+    override fun signUp(signUpObject: SignUpObject): Single<Result<Unit>> =
+        repository.signUp(signUpObject)
             .toSingleResult(handler)
 
     override fun changePassword(changePassword: ChangePassword): Single<Result<Unit>> =
@@ -41,5 +35,9 @@ class AccountServiceImpl(
     override fun temporaryPassword(auth: Auth): Single<Result<Unit>> =
         repository.temporaryPassword(auth)
             .toSingleResult(handler)
+
+    override fun verifyCertificationCode(certificationCode: String): Single<Result<VerificationKey>> =
+        repository.verifyCertificationCode(certificationCode)
+            .toResult(handler)
 
 }

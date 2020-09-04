@@ -18,11 +18,11 @@ class GoingOutServiceImpl(
         repository.getRemoteGoingOutInfo()
             .toResult(
                 handler = handler,
-                localData = repository.getLocalGoingOutInfo(),
+                getLocalDataFun = { repository.getLocalGoingOutInfo() },
                 saveLocalFun = { T -> repository.saveLocalGoingOutInfo(*T.toTypedArray()) }
             )
 
-    override fun postGoingOutInfo(goingOutInfo: GoingOutInfo): Single<Result<Unit>> =
+    override fun applyGoingOut(goingOutInfo: GoingOutInfo): Single<Result<Unit>> =
         repository.postRemoteGoingOutInfo(goingOutInfo)
             .toSingleResult(
                 handler = handler,
@@ -39,7 +39,7 @@ class GoingOutServiceImpl(
                 localFun = { T -> repository.saveLocalGoingOutInfo(T) }
             )
 
-    override fun deleteGoingOutInfo(id: Int): Single<Result<Unit>> =
+    override fun cancelGoingOut(id: Int): Single<Result<Unit>> =
         repository.deleteRemoteGoingOutInfo(id)
             .toSingleResult(
                 handler = handler,

@@ -18,21 +18,19 @@ class ExtensionServiceImpl(
         repository.getRemoteExtensionMap(time, classNum)
             .toResult(
                 handler = handler,
-                localData = repository.getLocalExtensionMap(time, classNum),
+                getLocalDataFun = { repository.getLocalExtensionMap(time, classNum) },
                 saveLocalFun = { T -> repository.saveLocalExtensionMap(T) }
             )
-
-
 
     override fun getExtensionInfo(time: Int): Single<Result<ExtensionInfo>> =
         repository.getRemoteExtensionInfo(time)
             .toResult(
                 handler = handler,
-                localData = repository.getLocalExtensionInfo(time),
+                getLocalDataFun= { repository.getLocalExtensionInfo(time) },
                 saveLocalFun = { T -> repository.saveLocalExtensionInfo(T) }
             )
 
-    override fun postExtensionInfo(extensionInfo: ExtensionInfo): Single<Result<Unit>> =
+    override fun applyExtension(extensionInfo: ExtensionInfo): Single<Result<Unit>> =
         repository.postRemoteExtensionInfo(extensionInfo)
             .toSingleResult(
                 handler = handler,
@@ -40,7 +38,7 @@ class ExtensionServiceImpl(
                 localFun = { T -> repository.saveLocalExtensionInfo(T) }
             )
 
-    override fun deleteExtensionInfo(time: Int): Single<Result<Unit>> =
+    override fun cancelExtension(time: Int): Single<Result<Unit>> =
         repository.deleteRemoteExtensionInfo(time)
             .toSingleResult(
                 handler = handler,

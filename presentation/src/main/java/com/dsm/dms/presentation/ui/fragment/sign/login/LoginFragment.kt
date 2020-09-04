@@ -1,7 +1,6 @@
 package com.dsm.dms.presentation.ui.fragment.sign.login
 
 import android.os.Bundle
-import android.os.Handler
 import android.view.View
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -31,14 +30,26 @@ class LoginFragment: EndPointDataBindingInjectFragment<FragmentLoginBinding>() {
     }
 
     override fun observeEvent() {
-        viewModel.loginSingleLiveEvent
+        viewModel.loginEvent
             .observe(this, Observer {
                 findNavController().navigate(R.id.action_loginFragment_to_mainFragment)
             })
 
-        viewModel.registerSingleLiveEvent
+        viewModel.registerEvent
             .observe(this, Observer {
                 findNavController().navigate(R.id.action_loginFragment_to_registerFragment)
             })
+
+        viewModel.onLoadEvent.observe(this, Observer {
+            login_btn.onLoad(it)
+        })
+
+        viewModel.onErrorEvent.observe(this, Observer {
+            login_btn.onError(it)
+        })
+
+        viewModel.onSuccessEvent.observe(this, Observer {
+            login_btn.onSuccess(it)
+        })
     }
 }

@@ -5,8 +5,6 @@ import com.dsm.dms.data.entity.toDbEntity
 import com.dsm.dms.data.entity.toEntity
 import com.dsm.dms.domain.entity.Meal
 import com.dsm.dms.domain.repository.MealRepository
-import io.reactivex.Completable
-import io.reactivex.Maybe
 import io.reactivex.Single
 
 
@@ -22,6 +20,9 @@ class MealRepositoryImpl(
 
     override fun getLocalMeal(date: String): Meal? =
         dataSource.getLocalMeal(date)?.toEntity()
+
+    override fun getAllLocalMeal(): List<Meal>? =
+        dataSource.getAllLocalMeal()?.map { it.toEntity() }
 
     override fun saveLocalMeal(vararg meal: Meal) =
         dataSource.saveLocalMeal(

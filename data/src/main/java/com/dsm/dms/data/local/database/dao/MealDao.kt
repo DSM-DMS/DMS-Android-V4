@@ -19,6 +19,9 @@ interface MealDao {
     @Query("SELECT * FROM `mealentity` WHERE `date` == :date")
     fun getMealData(date: String): MealEntity?
 
+    @Query("SELECT * FROM `mealentity`")
+    fun getAllMealData(): List<MealEntity>?
+
     @Query("DELETE FROM `mealentity` WHERE `date` == :date")
     fun deleteMealData(date: String)
 

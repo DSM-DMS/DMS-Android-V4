@@ -17,7 +17,7 @@ class NoticeServiceImpl(
         repository.getRemoteNotice()
             .toResult(
                 handler = handler,
-                localData = repository.getLocalNotice(),
+                getLocalDataFun = { repository.getLocalNotice() },
                 saveLocalFun = { T -> repository.saveLocalNotice(*T.toTypedArray()) }
             )
 

@@ -6,9 +6,9 @@ import com.dsm.dms.domain.entity.Meal
 
 data class MealData(
     var date: String,
-    var breakfast: List<String>,
-    var lunch: List<String>,
-    var dinner: List<String>
+    var breakfast: List<String> = emptyList(),
+    var lunch: List<String> = emptyList(),
+    var dinner: List<String> = emptyList()
 )
 
 fun MealData.toEntity(date: String) =

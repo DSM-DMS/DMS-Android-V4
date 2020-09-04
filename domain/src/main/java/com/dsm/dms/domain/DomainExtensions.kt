@@ -21,30 +21,27 @@ fun <T> Completable.toSingleResult(
     }.toResult(handler)
 
 fun <T> Single<T>.toResult(
-    handler: ErrorHandler,
-    localData: T?,
-    saveLocalFun: (T) -> Unit
-): Single<Result<T>> = this
-    .map {
-        Result.Success(it) as Result<T>
-    }
-    .onErrorReturn {
-        Result.Error(null, handler.errorHandle(it))
-    }
-    .processLocal(localData, saveLocalFun)
-
-fun <T> Single<T>.toResult(
     handler: ErrorHandler
 ): Single<Result<T>> = this
     .map {
         Result.Success(it) as Result<T>
     }
     .onErrorReturn {
-        Result.Error(null, handler.errorHandle(it))
+        Result.Error(message = handler.errorHandle(it))
     }
 
+fun <T> Single<T>.toResult(
+    handler: ErrorHandler,
+    getLocalDataFun: () -> T?,
+    saveLocalFun: (T) -> Unit
+): Single<Result<T>> = this
+    .toResult(handler)
+    .processLocal(getLocalDataFun, saveLocalFun)
 
-fun <T> Single<Result<T>>.processLocal(localData: T?, saveLocalFun: (T) -> Unit): Single<Result<T>> = this
+fun <T> Single<Result<T>>.processLocal(
+    getLocalDataFun: () -> T?,
+    saveLocalFun: (T) -> Unit
+): Single<Result<T>> = this
     .flatMap { result ->
         when(result) {
             is Result.Success -> {
@@ -52,13 +49,12 @@ fun <T> Single<Result<T>>.processLocal(localData: T?, saveLocalFun: (T) -> Unit)
                 Single.just(result)
             }
             is Result.Error -> {
-                localData?.let {
+                val localData = getLocalDataFun()
+                if (localData != null)
                     return@flatMap Single.just(
-                        Result.Error(it, result.message)
+                        Result.Error(localData, result.message)
                     )
-                }.let {
-                    Single.just(result)
-                }
+                Single.just(result)
             }
         }
     }

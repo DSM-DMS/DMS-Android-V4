@@ -11,6 +11,8 @@ interface MealRepository {
 
     fun getLocalMeal(date: String): Meal?
 
+    fun getAllLocalMeal(): List<Meal>?
+
     fun saveLocalMeal(vararg meal: Meal)
 
     fun deleteLocalMeal(date: String)

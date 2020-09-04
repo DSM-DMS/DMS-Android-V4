@@ -54,3 +54,5 @@ fun Resources.originContentCardColor(card: CardView, title: AppCompatTextView, c
 }
 
 fun String.intOrString() = toIntOrNull() ?: this
+
+fun String?.isNotNullOrBlank() = !isNullOrBlank()

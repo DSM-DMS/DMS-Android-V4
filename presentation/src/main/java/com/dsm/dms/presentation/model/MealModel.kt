@@ -1,7 +1,7 @@
 package com.dsm.dms.presentation.model
 
-import android.util.Log
 import com.dsm.dms.domain.entity.Meal
+
 
 data class MealModel(
     var date: String = "",
@@ -18,8 +18,6 @@ fun Meal.toModel(): MealModel {
         lunch = lunch.mealListToString(),
         dinner = dinner.mealListToString()
     )
-
-    Log.e("meal", this.toString())
 
     return meal
 }
