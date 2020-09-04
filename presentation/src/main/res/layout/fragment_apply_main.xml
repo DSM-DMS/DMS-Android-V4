@@ -46,6 +46,7 @@
                 android:layout_height="match_parent">
 
                 <androidx.appcompat.widget.AppCompatImageView
+                    android:transitionName="stayingImageView"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -53,8 +54,8 @@
                     android:id="@+id/apply_main_staying_imv"
                     android:background="@drawable/ic_staying"
                     android:backgroundTint="@color/colorMain"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"/>
 
                 <androidx.appcompat.widget.AppCompatTextView
                     app:layout_constraintVertical_chainStyle="packed"
@@ -105,6 +106,7 @@
                 android:layout_height="match_parent">
 
                 <androidx.appcompat.widget.AppCompatImageView
+                    android:transitionName="studyImageView"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -112,8 +114,8 @@
                     android:id="@+id/apply_main_studying_imv"
                     android:background="@drawable/ic_studying"
                     android:backgroundTint="@color/colorMain"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"/>
 
                 <androidx.appcompat.widget.AppCompatTextView
                     app:layout_constraintVertical_chainStyle="packed"
@@ -165,6 +167,7 @@
                 android:layout_height="match_parent">
 
                 <androidx.appcompat.widget.AppCompatImageView
+                    android:transitionName="goingOutImageView"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -172,8 +175,8 @@
                     android:id="@+id/apply_main_going_out_imv"
                     android:background="@drawable/ic_going_out"
                     android:backgroundTint="@color/colorMain"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"/>
 
                 <androidx.appcompat.widget.AppCompatTextView
                     app:layout_constraintVertical_chainStyle="packed"
@@ -225,15 +228,16 @@
                 android:layout_height="match_parent">
 
                 <androidx.appcompat.widget.AppCompatImageView
+                    android:transitionName="musicImageView"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     android:layout_marginStart="20dp"
                     android:id="@+id/apply_main_music_imv"
-                    android:background="@drawable/ic_going_out"
+                    android:background="@drawable/ic_music"
                     android:backgroundTint="@color/colorMain"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"/>
 
                 <androidx.appcompat.widget.AppCompatTextView
                     app:layout_constraintVertical_chainStyle="packed"
@@ -285,6 +289,7 @@
                 android:layout_height="match_parent">
 
                 <androidx.appcompat.widget.AppCompatImageView
+                    android:transitionName="restImageView"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -292,8 +297,8 @@
                     android:id="@+id/apply_main_rest_imv"
                     android:background="@drawable/ic_rest"
                     android:backgroundTint="@color/colorMain"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"/>
 
                 <androidx.appcompat.widget.AppCompatTextView
                     app:layout_constraintVertical_chainStyle="packed"

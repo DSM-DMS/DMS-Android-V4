@@ -11,19 +11,33 @@
         android:label="ApplyMainFragment"
         tools:layout="@layout/fragment_apply_main">
         <action
-            app:popEnterAnim="@anim/fadein"
-            app:popExitAnim="@anim/slide_to_right"
-            app:enterAnim="@anim/slide_from_right"
-            app:exitAnim="@anim/fadeout"
             android:id="@+id/action_applyMainFragment_to_applyStayingFragment"
+            app:popEnterAnim="@anim/fadein"
+            app:popExitAnim="@anim/fadeout"
+            app:enterAnim="@anim/fadein"
+            app:exitAnim="@anim/fadeout"
             app:destination="@id/applyStayingFragment" />
         <action
-            app:popEnterAnim="@anim/fadein"
-            app:popExitAnim="@anim/slide_to_right"
-            app:enterAnim="@anim/slide_from_right"
-            app:exitAnim="@anim/fadeout"
             android:id="@+id/action_applyMainFragment_to_applyExtensionFloorListFragment"
+            app:popEnterAnim="@anim/fadein"
+            app:popExitAnim="@anim/fadeout"
+            app:enterAnim="@anim/fadein"
+            app:exitAnim="@anim/fadeout"
             app:destination="@id/applyExtensionFloorListFragment" />
+        <action
+            android:id="@+id/action_applyMainFragment_to_applyWeekendRestFragment"
+            app:popEnterAnim="@anim/fadein"
+            app:popExitAnim="@anim/fadeout"
+            app:enterAnim="@anim/fadein"
+            app:exitAnim="@anim/fadeout"
+            app:destination="@id/applyWeekendRestFragment" />
+        <action
+            android:id="@+id/action_applyMainFragment_to_applyMusicDayListFragment"
+            app:popEnterAnim="@anim/fadein"
+            app:popExitAnim="@anim/fadeout"
+            app:enterAnim="@anim/fadein"
+            app:exitAnim="@anim/fadeout"
+            app:destination="@id/applyMusicDayListFragment" />
     </fragment>
     <fragment
         android:id="@+id/applyStayingFragment"
@@ -35,4 +49,27 @@
         android:name="com.dsm.dms.presentation.ui.fragment.apply.extension.ApplyExtensionFloorListFragment"
         android:label="ApplyExtensionFloorListFragment"
         tools:layout="@layout/fragment_apply_extension_floor_list"/>
+    <fragment
+        android:id="@+id/applyWeekendRestFragment"
+        android:name="com.dsm.dms.presentation.ui.fragment.apply.rest.ApplyWeekendRestFragment"
+        android:label="ApplyWeekendRestFragment"
+        tools:layout="@layout/fragment_apply_weekend_rest"/>
+    <fragment
+        android:id="@+id/applyMusicDayDetailListFragment"
+        android:name="com.dsm.dms.presentation.ui.fragment.apply.music.detail.ApplyMusicDayDetailListFragment"
+        android:label="ApplyMusicDayDetailListFragment"
+        tools:layout="@layout/fragment_apply_music_day_detail_list"/>
+    <fragment
+        android:id="@+id/applyMusicDayListFragment"
+        android:name="com.dsm.dms.presentation.ui.fragment.apply.music.ApplyMusicDayListFragment"
+        android:label="ApplyMusicDayListFragment"
+        tools:layout="@layout/fragment_apply_music_day_list">
+        <action
+            app:popEnterAnim="@anim/fadein"
+            app:popExitAnim="@anim/fadeout"
+            app:enterAnim="@anim/fadein"
+            app:exitAnim="@anim/fadeout"
+            android:id="@+id/action_applyMusicDayListFragment_to_applyMusicDayDetailListFragment"
+            app:destination="@id/applyMusicDayDetailListFragment" />
+    </fragment>
 </navigation>

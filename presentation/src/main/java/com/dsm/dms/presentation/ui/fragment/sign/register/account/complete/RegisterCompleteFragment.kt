@@ -1,15 +1,17 @@
 package com.dsm.dms.presentation.ui.fragment.sign.register.account.complete
 
+import android.content.Context
 import android.os.Bundle
 import android.view.View
-import androidx.navigation.fragment.findNavController
+import androidx.activity.addCallback
+import androidx.navigation.Navigation
 import com.dsm.dms.presentation.R
-import com.dsm.dms.presentation.base.DataBindingFragment
+import com.dsm.dms.presentation.base.DataBindingInjectFragment
 import com.dsm.dms.presentation.databinding.FragmentRegisterCompleteBinding
 import com.dsm.dms.presentation.viewmodel.sign.register.RegisterViewModel
 import javax.inject.Inject
 
-class RegisterCompleteFragment : DataBindingFragment<FragmentRegisterCompleteBinding>() {
+class RegisterCompleteFragment : DataBindingInjectFragment<FragmentRegisterCompleteBinding>() {
     override val layoutId: Int
         get() = R.layout.fragment_register_complete
 
@@ -20,6 +22,17 @@ class RegisterCompleteFragment : DataBindingFragment<FragmentRegisterCompleteBin
         super.onViewCreated(view, savedInstanceState)
 
         binding.vm = viewModel
+    }
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        requireActivity().onBackPressedDispatcher.addCallback(this) {
+            back()
+        }
+    }
+
+    override fun back() {
+        Navigation.findNavController(requireActivity(), R.id.fragment_container).navigateUp()
     }
 
     override fun observeEvent() {
