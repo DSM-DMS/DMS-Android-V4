@@ -35,7 +35,8 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             android:textSize="20sp"
-            android:textColor="@color/colorMain"/>
+            android:textColor="@color/colorMain"
+            android:fontFamily="@font/nanum_square_otf_extra_bold"/>
 
         <FrameLayout
             android:id="@+id/extension_floor_detail_rooms"
@@ -98,6 +99,7 @@
                 android:text="@string/extension_apply_eleven_text"
                 android:textColor="@color/colorNightBlack"
                 android:textSize="14sp"
+                android:fontFamily="@font/nanum_square_otf_extra_bold"
                 android:layout_margin="10dp"/>
 
         </androidx.cardview.widget.CardView>
@@ -125,6 +127,7 @@
                 android:text="@string/extension_apply_twelve_text"
                 android:textColor="@color/colorNightBlack"
                 android:textSize="14sp"
+                android:fontFamily="@font/nanum_square_otf_extra_bold"
                 android:layout_margin="10dp"/>
 
         </androidx.cardview.widget.CardView>
@@ -139,6 +142,7 @@
             android:text="@string/extension_apply_text"
             android:textSize="20sp"
             android:textColor="@color/colorWhite"
+            android:fontFamily="@font/nanum_square_otf_extra_bold"
             android:gravity="center"
             android:padding="13dp"
             app:layout_constraintBottom_toBottomOf="parent"/>

@@ -44,7 +44,7 @@
             android:textSize="18sp"
             android:textColor="@color/colorMain"
             android:text="@{vm.dateText}"
-            android:fontFamily="@font/nanum_square_otf_bold"
+            android:fontFamily="@font/nanum_square_otf_extra_bold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 

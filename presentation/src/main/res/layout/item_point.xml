@@ -30,6 +30,7 @@
                 android:textSize="16sp"
                 android:textColor="@color/colorNightBlack"
                 android:text="@{vm.point.title}"
+                android:fontFamily="@font/nanum_square_otf_regular"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintBottom_toTopOf="@id/item_point_card_date_tv"/>
@@ -41,7 +42,7 @@
                 android:textSize="12sp"
                 android:textColor="@color/colorNightBlack"
                 android:text="@{vm.point.date}"
-                android:fontFamily="sans-serif-thin"
+                android:fontFamily="@font/nanum_square_otf_light"
                 android:layout_marginTop="10dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/item_point_card_title_tv"
@@ -54,6 +55,7 @@
                 android:textSize="20sp"
                 android:text="@{vm.point.point}"
                 android:textColor="@{vm.point.good ? @color/colorMain : @color/colorRed}"
+                android:fontFamily="@font/nanum_square_otf_bold"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"/>

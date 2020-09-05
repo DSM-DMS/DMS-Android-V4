@@ -47,6 +47,7 @@
             android:text="@string/apply_staying_title_tv"
             android:textSize="18sp"
             android:textColor="@color/colorNightBlack"
+            android:fontFamily="@font/nanum_square_otf_bold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
@@ -61,6 +62,7 @@
             android:text="@string/apply_staying_content_tv"
             android:textSize="14sp"
             android:textColor="@color/colorNightBlack"
+            android:fontFamily="@font/nanum_square_otf_regular"
             android:layout_width="0dp"
             android:layout_height="wrap_content"/>
 
@@ -93,6 +95,7 @@
                     android:text="@string/apply_staying_friday_go_title_tv"
                     android:textSize="16sp"
                     android:textColor="@color/colorNightBlack"
+                    android:fontFamily="@font/nanum_square_otf_regular"
                     android:id="@+id/apply_staying_friday_go_title_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
@@ -105,6 +108,8 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     android:text="@string/apply_staying_friday_go_content_tv"
                     android:textSize="12sp"
+                    android:textColor="@color/colorNightBlack"
+                    android:fontFamily="@font/nanum_square_otf_light"
                     android:id="@+id/apply_staying_friday_go_content_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
@@ -141,6 +146,7 @@
                     android:text="@string/apply_staying_saturday_go_title_tv"
                     android:textSize="16sp"
                     android:textColor="@color/colorNightBlack"
+                    android:fontFamily="@font/nanum_square_otf_regular"
                     android:id="@+id/apply_staying_saturday_go_title_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
@@ -153,6 +159,8 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     android:text="@string/apply_staying_saturday_go_content_tv"
                     android:textSize="12sp"
+                    android:textColor="@color/colorNightBlack"
+                    android:fontFamily="@font/nanum_square_otf_light"
                     android:id="@+id/apply_staying_saturday_go_content_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
@@ -190,6 +198,7 @@
                     android:text="@string/apply_staying_saturday_back_title_tv"
                     android:textSize="16sp"
                     android:textColor="@color/colorNightBlack"
+                    android:fontFamily="@font/nanum_square_otf_regular"
                     android:id="@+id/apply_staying_saturday_back_title_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
@@ -202,6 +211,8 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     android:text="@string/apply_staying_saturday_back_content_tv"
                     android:textSize="12sp"
+                    android:textColor="@color/colorNightBlack"
+                    android:fontFamily="@font/nanum_square_otf_light"
                     android:id="@+id/apply_staying_saturday_back_content_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
@@ -240,6 +251,7 @@
                     android:text="@string/apply_staying_staying_title_tv"
                     android:textSize="16sp"
                     android:textColor="@color/colorNightBlack"
+                    android:fontFamily="@font/nanum_square_otf_regular"
                     android:id="@+id/apply_staying_staying_title_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
@@ -252,6 +264,8 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     android:text="@string/apply_staying_staying_content_tv"
                     android:textSize="12sp"
+                    android:textColor="@color/colorNightBlack"
+                    android:fontFamily="@font/nanum_square_otf_light"
                     android:id="@+id/apply_staying_staying_content_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>

@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <data>
         <variable
                 name="vm"
                 type="com.dsm.dms.presentation.viewmodel.main.chatting.ChattingViewModel" />
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
-            xmlns:app="http://schemas.android.com/apk/res-auto"
-            xmlns:android="http://schemas.android.com/apk/res/android"
-            android:layout_height="match_parent"
+        android:layout_height="match_parent"
             android:layout_width="match_parent">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/chatting_rcv"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:recyclerItems="@{vm.chatList}"
-            app:layout_constraintTop_toTopOf="parent"
+            android:overScrollMode="never"
             app:layout_constraintBottom_toTopOf="@id/chatting_send_box_tv"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
+            app:layout_constraintTop_toTopOf="parent"
+            app:recyclerItems="@{vm.chatList}" />
 
         <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/chatting_send_box_tv"
@@ -28,12 +28,17 @@
             android:hint="@string/chat_send_box_hint"
             android:text="@={vm.sendBoxMessage}"
             android:textSize="@dimen/font_250"
+            android:textColor="@color/colorNightBlack"
+            android:fontFamily="@font/nanum_square_otf_regular"
+            android:maxLines="1"
             android:padding="12dp"
             android:background="@drawable/radius_chat"
             android:backgroundTint="@color/colorGray"
             android:layout_marginBottom="16dp"
             android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
             app:layout_constraintEnd_toStartOf="@id/chatting_send_icon_imv"
+            app:layout_constraintTop_toBottomOf="@id/chatting_rcv"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"/>
 

@@ -47,6 +47,7 @@
             android:text="@string/music_day_list_title"
             android:textColor="@color/colorNightBlack"
             android:textSize="18sp"
+            android:fontFamily="@font/nanum_square_otf_bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/apply_music_day_list_icon_imv" />
@@ -61,6 +62,7 @@
             android:text="@string/music_day_list_content"
             android:textColor="@color/colorNightBlack"
             android:textSize="14sp"
+            android:fontFamily="@font/nanum_square_otf_regular"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/apply_music_day_list_title_tv" />
@@ -91,6 +93,7 @@
                     android:text="@string/music_day_list_monday"
                     android:textColor="@color/colorNightBlack"
                     android:textSize="16sp"
+                    android:fontFamily="@font/nanum_square_otf_regular"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -106,6 +109,7 @@
                     android:textColor="@color/colorNightBlack"
                     android:text="@{vm.mondaySize}"
                     android:textSize="12sp"
+                    android:fontFamily="@font/nanum_square_otf_regular"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/apply_music_day_list_monday_title_tv" />
@@ -149,6 +153,7 @@
                     android:text="@string/music_day_list_tuesday"
                     android:textColor="@color/colorNightBlack"
                     android:textSize="16sp"
+                    android:fontFamily="@font/nanum_square_otf_regular"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -164,6 +169,7 @@
                     android:textColor="@color/colorNightBlack"
                     android:text="@{vm.tuesdaySize}"
                     android:textSize="12sp"
+                    android:fontFamily="@font/nanum_square_otf_regular"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/apply_music_day_list_tuesday_title_tv" />
@@ -208,6 +214,7 @@
                     android:text="@string/music_day_list_wednesday"
                     android:textColor="@color/colorNightBlack"
                     android:textSize="16sp"
+                    android:fontFamily="@font/nanum_square_otf_regular"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -223,6 +230,7 @@
                     android:textColor="@color/colorNightBlack"
                     android:text="@{vm.wednesdaySize}"
                     android:textSize="12sp"
+                    android:fontFamily="@font/nanum_square_otf_regular"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/apply_music_day_list_wednesday_title_tv" />
@@ -267,6 +275,7 @@
                     android:text="@string/music_day_list_thursday"
                     android:textColor="@color/colorNightBlack"
                     android:textSize="16sp"
+                    android:fontFamily="@font/nanum_square_otf_regular"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -282,6 +291,7 @@
                     android:textColor="@color/colorNightBlack"
                     android:text="@{vm.thursdaySize}"
                     android:textSize="12sp"
+                    android:fontFamily="@font/nanum_square_otf_regular"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/apply_music_day_list_thursday_title_tv" />
@@ -327,6 +337,7 @@
                     android:text="@string/music_day_list_friday"
                     android:textColor="@color/colorNightBlack"
                     android:textSize="16sp"
+                    android:fontFamily="@font/nanum_square_otf_regular"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -342,6 +353,7 @@
                     android:textColor="@color/colorNightBlack"
                     android:text="@{vm.fridaySize}"
                     android:textSize="12sp"
+                    android:fontFamily="@font/nanum_square_otf_regular"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/apply_music_day_list_friday_title_tv" />

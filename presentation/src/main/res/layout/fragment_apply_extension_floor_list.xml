@@ -43,6 +43,7 @@
             android:text="@string/extension_title"
             android:textSize="18sp"
             android:textColor="@color/colorNightBlack"
+            android:fontFamily="@font/nanum_square_otf_bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/extension_floor_list_ic_imv"
@@ -53,6 +54,7 @@
             android:text="@string/extension_description"
             android:textSize="14sp"
             android:textColor="@color/colorNightBlack"
+            android:fontFamily="@font/nanum_square_otf_regular"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/extension_floor_list_title_tv"
@@ -85,7 +87,8 @@
                 android:padding="16dp"
                 android:text="@string/extension_first_floor_title"
                 android:textColor="@color/colorNightBlack"
-                android:textSize="16sp" />
+                android:textSize="16sp"
+                android:fontFamily="@font/nanum_square_otf_regular"/>
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
@@ -108,6 +111,7 @@
                 android:layout_gravity="center"
                 android:id="@+id/extension_second_floor_tv"
                 android:text="@string/extension_second_floor_title"
+                android:fontFamily="@font/nanum_square_otf_regular"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
         </androidx.cardview.widget.CardView>
@@ -132,6 +136,7 @@
                 android:layout_gravity="center"
                 android:id="@+id/extension_third_floor_tv"
                 android:text="@string/extension_third_floor_title"
+                android:fontFamily="@font/nanum_square_otf_regular"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
         </androidx.cardview.widget.CardView>
@@ -156,6 +161,7 @@
                 android:layout_gravity="center"
                 android:id="@+id/extension_fourth_floor_tv"
                 android:text="@string/extension_fourth_floor_title"
+                android:fontFamily="@font/nanum_square_otf_regular"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
         </androidx.cardview.widget.CardView>
@@ -181,6 +187,7 @@
                 android:layout_gravity="center"
                 android:id="@+id/extension_fifth_floor_tv"
                 android:text="@string/extension_fifth_floor_title"
+                android:fontFamily="@font/nanum_square_otf_regular"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
         </androidx.cardview.widget.CardView>

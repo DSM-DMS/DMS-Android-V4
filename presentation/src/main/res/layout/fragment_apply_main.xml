@@ -22,6 +22,7 @@
             android:textSize="30sp"
             android:textColor="@color/colorMain"
             android:text="@string/apply_main_title_tv"
+            android:fontFamily="@font/nanum_square_otf_extra_bold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
         
@@ -67,6 +68,7 @@
                     android:text="@string/apply_main_staying_title_tv"
                     android:textColor="@color/colorNightBlack"
                     android:textSize="14sp"
+                    android:fontFamily="@font/nanum_square_otf_regular"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
 
@@ -79,6 +81,8 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     android:text="@string/apply_main_staying_content_tv"
                     android:textSize="12sp"
+                    android:textColor="@color/colorNightBlack"
+                    android:fontFamily="@font/nanum_square_otf_light"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
 
@@ -127,6 +131,7 @@
                     android:text="@string/apply_main_studying_title_tv"
                     android:textColor="@color/colorNightBlack"
                     android:textSize="14sp"
+                    android:fontFamily="@font/nanum_square_otf_regular"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
 
@@ -139,6 +144,8 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     android:text="@string/apply_main_studying_content_tv"
                     android:textSize="12sp"
+                    android:textColor="@color/colorNightBlack"
+                    android:fontFamily="@font/nanum_square_otf_light"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
 
@@ -188,6 +195,7 @@
                     android:text="@string/apply_main_going_out_title_tv"
                     android:textColor="@color/colorNightBlack"
                     android:textSize="14sp"
+                    android:fontFamily="@font/nanum_square_otf_regular"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
 
@@ -200,6 +208,8 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     android:text="@string/apply_main_going_out_content_tv"
                     android:textSize="12sp"
+                    android:textColor="@color/colorNightBlack"
+                    android:fontFamily="@font/nanum_square_otf_light"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
 
@@ -249,6 +259,7 @@
                     android:text="@string/apply_main_music_title_tv"
                     android:textColor="@color/colorNightBlack"
                     android:textSize="14sp"
+                    android:fontFamily="@font/nanum_square_otf_regular"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
 
@@ -261,6 +272,8 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     android:text="@string/apply_main_music_content_tv"
                     android:textSize="12sp"
+                    android:textColor="@color/colorNightBlack"
+                    android:fontFamily="@font/nanum_square_otf_light"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
 
@@ -310,6 +323,7 @@
                     android:text="@string/apply_main_rest_title_tv"
                     android:textColor="@color/colorNightBlack"
                     android:textSize="14sp"
+                    android:fontFamily="@font/nanum_square_otf_regular"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
 
@@ -322,6 +336,8 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     android:text="@string/apply_main_rest_content_tv"
                     android:textSize="12sp"
+                    android:textColor="@color/colorNightBlack"
+                    android:fontFamily="@font/nanum_square_otf_light"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
 

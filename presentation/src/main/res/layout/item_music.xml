@@ -29,12 +29,12 @@
                 android:layout_marginVertical="11dp"
                 android:textColor="@color/colorNightBlack"
                 android:textSize="18sp"
-                android:textStyle="bold"
                 app:layout_constraintBottom_toTopOf="@id/apply_music_day_detail_list_item_artist_tv"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                android:text="@{vm.music.title}"/>
+                android:text="@{vm.music.title}"
+                android:fontFamily="@font/nanum_square_otf_regular"/>
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/apply_music_day_detail_list_item_artist_tv"
@@ -47,7 +47,8 @@
                 android:layout_marginBottom="11dp"
                 android:textSize="12sp"
                 android:textColor="@color/colorNightBlack"
-                android:text="@{vm.music.artist}"/>
+                android:text="@{vm.music.artist}"
+                android:fontFamily="@font/nanum_square_otf_light"/>
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/apply_music_day_detail_list_item_applicant_tv"
@@ -57,7 +58,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 android:layout_marginBottom="8dp"
                 android:layout_marginEnd="8dp"
-                android:fontFamily="sans-serif-thin"
+                android:fontFamily="@font/nanum_square_otf_light"
                 android:textSize="10sp"
                 android:textColor="@color/colorNightBlack"
                 android:text="@{vm.music.applicant}"/>

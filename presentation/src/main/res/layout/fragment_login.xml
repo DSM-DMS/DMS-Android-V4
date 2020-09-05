@@ -50,7 +50,9 @@
             android:text="@string/login_text"
             android:textColor="@color/colorSignMain"
             android:textSize="24sp"
+            android:fontFamily="@font/nanum_square_otf_extra_bold"
             app:layout_constraintEnd_toStartOf="@+id/login_gl_end"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/login_gl_start"
             app:layout_constraintTop_toTopOf="@+id/login_gl_top" />
 
@@ -70,6 +72,8 @@
             android:text="@={vm.idData}"
             android:textColor="@color/colorBlack"
             android:textSize="12sp"
+            android:fontFamily="@font/nanum_square_otf_regular"
+            android:maxLines="1"
             android:theme="@style/SignEditTextStyle"
             app:layout_constraintBottom_toTopOf="@+id/login_pw_edit"
             app:layout_constraintEnd_toStartOf="@+id/login_gl_end"
@@ -92,6 +96,7 @@
             android:textColor="@color/colorBlack"
             android:textSize="12sp"
             android:text="@={vm.passwordData}"
+            android:maxLines="1"
             android:theme="@style/SignEditTextStyle"
             app:layout_constraintEnd_toStartOf="@+id/login_gl_end"
             app:layout_constraintStart_toStartOf="@+id/login_gl_start"
@@ -108,7 +113,7 @@
             android:text="@string/login_auto_login"
             android:textColor="@color/colorBlack"
             android:textSize="12sp"
-            android:textStyle="normal"
+            android:fontFamily="@font/nanum_square_otf_regular"
             android:theme="@style/SignCheckBoxTheme"
             app:layout_constraintStart_toStartOf="@+id/login_gl_start"
             app:layout_constraintTop_toBottomOf="@+id/login_pw_edit" />
@@ -122,6 +127,7 @@
             android:onClick="@{()->vm.loginClick()}"
             android:text="@string/login_text"
             android:textSize="18sp"
+            android:fontFamily="@font/nanum_square_otf_extra_bold"
             app:cornerRadius="8dp"
             android:paddingVertical="10dp"
             app:layout_constraintBottom_toTopOf="@+id/login_register"

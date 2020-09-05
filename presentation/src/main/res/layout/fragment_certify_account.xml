@@ -65,6 +65,8 @@
             android:text="@={vm.certificationCodeData}"
             android:textColor="@color/colorBlack"
             android:textSize="12sp"
+            android:fontFamily="@font/nanum_square_otf_regular"
+            android:maxLines="1"
             android:theme="@style/SignEditTextStyle"
             app:layout_constraintEnd_toEndOf="@+id/certify_account_gl_end"
             app:layout_constraintStart_toStartOf="@+id/certify_account_gl_start"

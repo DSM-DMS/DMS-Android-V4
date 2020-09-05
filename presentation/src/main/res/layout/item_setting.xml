@@ -35,6 +35,7 @@
                 android:textSize="14sp"
                 android:textColor="@color/colorNightBlack"
                 android:text="@{vm.setting.title}"
+                android:fontFamily="@font/nanum_square_otf_regular"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toTopOf="@id/mypage_setting_dark_mode_content_tv"/>
@@ -46,6 +47,8 @@
                 android:layout_marginTop="8dp"
                 android:textSize="10sp"
                 android:text="@{vm.setting.content}"
+                android:textColor="@color/colorNightBlack"
+                android:fontFamily="@font/nanum_square_otf_light"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/mypage_setting_dark_mode_title_tv"/>
