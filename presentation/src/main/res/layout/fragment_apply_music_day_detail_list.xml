@@ -1,66 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+
     <data>
         <variable
             name="vm"
-            type="com.dsm.dms.presentation.viewmodel.main.apply.music.detail.ApplyMusicDayDetailListViewModel" />
+            type="com.dsm.dms.presentation.viewmodel.main.apply.music.detail.ApplyMusicDayDetailListViewModel"
+            />
     </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        >
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/apply_music_day_detail_list_back_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="24dp"
             android:background="?attr/selectableItemBackgroundBorderless"
             android:clickable="true"
             android:focusable="true"
-            android:onClick="@{() -> vm.backClick()}"
             android:src="@drawable/ic_back"
             android:tint="@color/colorNightBlack"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="24dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            android:onClick="@{() -> vm.backClick()}"
+            />
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/apply_music_day_detail_list_icon_imv"
             android:layout_width="54dp"
             android:layout_height="54dp"
-            android:layout_marginTop="24dp"
             android:background="@drawable/ic_music"
             android:backgroundTint="@color/colorMain"
+            android:layout_marginTop="24dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/apply_music_day_detail_list_title_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
             android:text="@string/music_day_list_title"
             android:textColor="@color/colorNightBlack"
             android:textSize="18sp"
             android:fontFamily="@font/nanum_square_otf_bold"
+            android:layout_marginTop="24dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/apply_music_day_detail_list_icon_imv" />
+            app:layout_constraintTop_toBottomOf="@id/apply_music_day_detail_list_icon_imv"
+            />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/apply_music_day_detail_list_rcv"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginTop="36dp"
-            android:layout_marginBottom="12dp"
             android:scrollbars="none"
             app:recyclerItems="@{vm.listItem}"
+            android:layout_marginTop="36dp"
+            android:layout_marginBottom="12dp"
             app:layout_constraintTop_toBottomOf="@id/apply_music_day_detail_list_title_tv"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
+            app:layout_constraintEnd_toEndOf="parent"
+            />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 </layout>

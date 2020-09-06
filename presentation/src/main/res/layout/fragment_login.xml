@@ -1,46 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
 
     <data>
-
         <variable
             name="vm"
-            type="com.dsm.dms.presentation.viewmodel.sign.login.LoginViewModel" />
+            type="com.dsm.dms.presentation.viewmodel.sign.login.LoginViewModel"
+            />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/colorBackground">
+        android:background="@color/colorBackground"
+        >
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/login_gl_top"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.08" />
+            app:layout_constraintGuide_percent="0.08"
+            />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/login_gl_start"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.06" />
+            app:layout_constraintGuide_percent="0.06"
+            />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/login_gl_end"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.94" />
+            app:layout_constraintGuide_percent="0.94"
+            />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/login_gl_bottom"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.94" />
+            app:layout_constraintGuide_percent="0.94"
+            />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/login_title_tv"
@@ -52,79 +59,81 @@
             android:textSize="24sp"
             android:fontFamily="@font/nanum_square_otf_extra_bold"
             app:layout_constraintEnd_toStartOf="@+id/login_gl_end"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/login_gl_start"
-            app:layout_constraintTop_toTopOf="@+id/login_gl_top" />
+            app:layout_constraintTop_toTopOf="@+id/login_gl_top"
+            />
 
         <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/login_id_edit"
             style="@style/SignEditTextStyle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="60dp"
             android:drawableStart="@drawable/ic_id"
             android:drawablePadding="16dp"
             android:hint="@string/sign_id_hint"
             android:inputType="textEmailAddress"
             android:lineSpacingExtra="1sp"
-            android:paddingStart="4dp"
-            android:paddingEnd="4dp"
             android:text="@={vm.idData}"
             android:textColor="@color/colorBlack"
             android:textSize="12sp"
             android:fontFamily="@font/nanum_square_otf_regular"
             android:maxLines="1"
             android:theme="@style/SignEditTextStyle"
+            android:paddingStart="4dp"
+            android:paddingEnd="4dp"
+            android:layout_marginTop="60dp"
             app:layout_constraintBottom_toTopOf="@+id/login_pw_edit"
             app:layout_constraintEnd_toStartOf="@+id/login_gl_end"
             app:layout_constraintStart_toStartOf="@+id/login_gl_start"
-            app:layout_constraintTop_toBottomOf="@+id/login_title_tv" />
+            app:layout_constraintTop_toBottomOf="@+id/login_title_tv"
+            />
 
         <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/login_pw_edit"
             style="@style/SignEditTextStyle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="36dp"
             android:drawableStart="@drawable/ic_pw"
             android:drawablePadding="16dp"
             android:hint="@string/sign_pw_hint"
             android:inputType="textPassword"
             android:lineSpacingExtra="1sp"
-            android:paddingStart="4dp"
-            android:paddingEnd="4dp"
             android:textColor="@color/colorBlack"
             android:textSize="12sp"
             android:text="@={vm.passwordData}"
             android:maxLines="1"
             android:theme="@style/SignEditTextStyle"
+            android:paddingStart="4dp"
+            android:paddingEnd="4dp"
+            android:layout_marginTop="36dp"
             app:layout_constraintEnd_toStartOf="@+id/login_gl_end"
             app:layout_constraintStart_toStartOf="@+id/login_gl_start"
-            app:layout_constraintTop_toBottomOf="@+id/login_id_edit" />
+            app:layout_constraintTop_toBottomOf="@+id/login_id_edit"
+            />
 
         <androidx.appcompat.widget.AppCompatCheckBox
             android:id="@+id/appCompatCheckBox"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
             android:lineSpacingExtra="1sp"
-            android:paddingStart="8dp"
-            android:paddingEnd="8dp"
             android:text="@string/login_auto_login"
             android:textColor="@color/colorBlack"
             android:textSize="12sp"
             android:fontFamily="@font/nanum_square_otf_regular"
             android:theme="@style/SignCheckBoxTheme"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:layout_marginTop="16dp"
             app:layout_constraintStart_toStartOf="@+id/login_gl_start"
-            app:layout_constraintTop_toBottomOf="@+id/login_pw_edit" />
+            app:layout_constraintTop_toBottomOf="@+id/login_pw_edit"
+            />
 
         <com.dsm.dms.dmsviewlibrary.button.material.DmsProgressMaterialButton
             android:id="@+id/login_btn"
+            style="@style/Widget.MaterialComponents.Button"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            style="@style/Widget.MaterialComponents.Button"
             android:lineSpacingExtra="3sp"
-            android:onClick="@{()->vm.loginClick()}"
             android:text="@string/login_text"
             android:textSize="18sp"
             android:fontFamily="@font/nanum_square_otf_extra_bold"
@@ -133,7 +142,9 @@
             app:layout_constraintBottom_toTopOf="@+id/login_register"
             app:layout_constraintEnd_toStartOf="@+id/login_gl_end"
             app:layout_constraintStart_toStartOf="@+id/login_gl_start"
-            app:layout_constraintTop_toBottomOf="@+id/appCompatCheckBox" />
+            app:layout_constraintTop_toBottomOf="@+id/appCompatCheckBox"
+            android:onClick="@{()->vm.loginClick()}"
+            />
 
         <LinearLayout
             android:id="@+id/login_register"
@@ -141,7 +152,8 @@
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toTopOf="@+id/login_gl_bottom"
             app:layout_constraintEnd_toStartOf="@+id/login_gl_end"
-            app:layout_constraintStart_toStartOf="@+id/login_gl_start">
+            app:layout_constraintStart_toStartOf="@+id/login_gl_start"
+            >
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/login_is_not_dms_user_tv"
@@ -149,20 +161,24 @@
                 android:layout_height="wrap_content"
                 android:text="@string/login_is_not_dms_user"
                 android:textColor="@color/colorLowBlack"
-                android:textSize="12sp" />
+                android:textSize="12sp"
+                />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/login_register_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
                 android:clickable="true"
                 android:focusable="true"
                 android:onClick="@{()->vm.registerClick()}"
                 android:text="@string/login_register"
                 android:textColor="@color/colorMain"
-                android:textSize="12sp" />
+                android:textSize="12sp"
+                android:layout_marginStart="8dp"
+                />
+
         </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 </layout>

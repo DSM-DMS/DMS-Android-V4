@@ -1,16 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
 
     <data>
         <variable
             name="vm"
-            type="com.dsm.dms.presentation.viewmodel.main.mypage.etc.MyPageEtcViewModel" />
+            type="com.dsm.dms.presentation.viewmodel.main.mypage.etc.MyPageEtcViewModel"
+            />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        >
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/mypage_etc_title_tv"
@@ -23,7 +27,8 @@
             android:layout_marginTop="32dp"
             android:layout_marginStart="24dp"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"/>
+            app:layout_constraintStart_toStartOf="parent"
+            />
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/mypage_etc_close_imv"
@@ -35,7 +40,8 @@
             app:layout_constraintTop_toTopOf="@id/mypage_etc_title_tv"
             app:layout_constraintBottom_toBottomOf="@id/mypage_etc_title_tv"
             app:layout_constraintEnd_toEndOf="parent"
-            android:onClick="@{() -> vm.clickSetting()}"/>
+            android:onClick="@{() -> vm.clickSetting()}"
+            />
 
         <androidx.cardview.widget.CardView
             android:id="@+id/mypage_etc_password_change_card"
@@ -51,49 +57,54 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toTopOf="@id/mypage_etc_bug_card"
-            android:onClick="@{() -> vm.clickChangePassword()}">
+            android:onClick="@{() -> vm.clickChangePassword()}"
+            >
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                >
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/mypage_etc_password_change_imv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
                     android:src="@drawable/ic_change"
+                    android:layout_marginStart="20dp"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent" />
+                    app:layout_constraintStart_toStartOf="parent"
+                    />
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/mypage_etc_password_change_title_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
                     android:text="@string/mypage_etc_password_change_title"
                     android:textColor="@color/colorNightBlack"
                     android:textSize="14sp"
                     android:fontFamily="@font/nanum_square_otf_regular"
+                    android:layout_marginStart="20dp"
                     app:layout_constraintVertical_chainStyle="packed"
                     app:layout_constraintStart_toEndOf="@id/mypage_etc_password_change_imv"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintBottom_toTopOf="@id/mypage_etc_password_change_content_tv" />
+                    app:layout_constraintBottom_toTopOf="@id/mypage_etc_password_change_content_tv"
+                    />
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/mypage_etc_password_change_content_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginStart="20dp"
                     android:text="@string/mypage_etc_password_change_content"
                     android:textSize="12sp"
                     android:textColor="@color/colorNightBlack"
                     android:fontFamily="@font/nanum_square_otf_light"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginStart="20dp"
                     app:layout_constraintStart_toEndOf="@id/mypage_etc_password_change_imv"
                     app:layout_constraintTop_toBottomOf="@id/mypage_etc_password_change_title_tv"
-                    app:layout_constraintBottom_toBottomOf="parent"/>
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -112,49 +123,54 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toTopOf="@id/mypage_etc_point_card"
-            android:onClick="@{() -> vm.clickBugReport()}">
+            android:onClick="@{() -> vm.clickBugReport()}"
+            >
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                >
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/mypage_etc_bug_imv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
                     android:src="@drawable/ic_bug"
+                    android:layout_marginStart="20dp"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"/>
+                    app:layout_constraintStart_toStartOf="parent"
+                    />
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/mypage_etc_bug_title_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
                     android:text="@string/mypage_etc_bug_report_title"
                     android:textColor="@color/colorNightBlack"
                     android:textSize="14sp"
                     android:fontFamily="@font/nanum_square_otf_regular"
+                    android:layout_marginStart="20dp"
                     app:layout_constraintVertical_chainStyle="packed"
                     app:layout_constraintStart_toEndOf="@id/mypage_etc_bug_imv"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintBottom_toTopOf="@id/mypage_etc_bug_content_tv" />
+                    app:layout_constraintBottom_toTopOf="@id/mypage_etc_bug_content_tv"
+                    />
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/mypage_etc_bug_content_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginStart="20dp"
                     android:text="@string/mypage_etc_bug_report_content"
                     android:textSize="12sp"
                     android:textColor="@color/colorNightBlack"
                     android:fontFamily="@font/nanum_square_otf_light"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginStart="20dp"
                     app:layout_constraintStart_toEndOf="@id/mypage_etc_bug_imv"
                     app:layout_constraintTop_toBottomOf="@id/mypage_etc_bug_title_tv"
-                    app:layout_constraintBottom_toBottomOf="parent"/>
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -173,49 +189,54 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toTopOf="@id/mypage_etc_logout_card"
-            android:onClick="@{() -> vm.clickPoint()}">
+            android:onClick="@{() -> vm.clickPoint()}"
+            >
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                >
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/mypage_etc_point_imv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
                     android:src="@drawable/ic_point"
+                    android:layout_marginStart="20dp"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"/>
+                    app:layout_constraintStart_toStartOf="parent"
+                    />
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/mypage_etc_point_title_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
                     android:text="@string/mypage_etc_point_log_title"
                     android:textColor="@color/colorNightBlack"
                     android:textSize="14sp"
                     android:fontFamily="@font/nanum_square_otf_regular"
+                    android:layout_marginStart="20dp"
                     app:layout_constraintVertical_chainStyle="packed"
                     app:layout_constraintStart_toEndOf="@id/mypage_etc_point_imv"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintBottom_toTopOf="@id/mypage_etc_point_content_tv" />
+                    app:layout_constraintBottom_toTopOf="@id/mypage_etc_point_content_tv"
+                    />
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/mypage_etc_point_content_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginStart="20dp"
                     android:text="@string/mypage_etc_point_log_content"
                     android:textSize="12sp"
                     android:textColor="@color/colorNightBlack"
                     android:fontFamily="@font/nanum_square_otf_light"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginStart="20dp"
                     app:layout_constraintStart_toEndOf="@id/mypage_etc_point_imv"
                     app:layout_constraintTop_toBottomOf="@id/mypage_etc_point_title_tv"
-                    app:layout_constraintBottom_toBottomOf="parent"/>
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -234,11 +255,13 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toTopOf="@id/mypage_etc_notice_card"
-            android:onClick="@{() -> vm.clickLogout()}">
+            android:onClick="@{() -> vm.clickLogout()}"
+            >
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                >
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/mypage_etc_logout_imv"
@@ -248,35 +271,38 @@
                     android:src="@drawable/ic_logout"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"/>
+                    app:layout_constraintStart_toStartOf="parent"
+                    />
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/mypage_etc_logout_title_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
                     android:text="@string/mypage_etc_logout_title"
                     android:textColor="@color/colorNightBlack"
                     android:textSize="14sp"
                     android:fontFamily="@font/nanum_square_otf_regular"
+                    android:layout_marginStart="20dp"
                     app:layout_constraintVertical_chainStyle="packed"
                     app:layout_constraintStart_toEndOf="@id/mypage_etc_logout_imv"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintBottom_toTopOf="@id/mypage_etc_logout_content_tv" />
+                    app:layout_constraintBottom_toTopOf="@id/mypage_etc_logout_content_tv"
+                    />
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/mypage_etc_logout_content_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginStart="20dp"
                     android:text="@string/mypage_etc_logout_content"
                     android:textSize="12sp"
                     android:textColor="@color/colorNightBlack"
                     android:fontFamily="@font/nanum_square_otf_light"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginStart="20dp"
                     app:layout_constraintStart_toEndOf="@id/mypage_etc_logout_imv"
                     app:layout_constraintTop_toBottomOf="@id/mypage_etc_logout_title_tv"
-                    app:layout_constraintBottom_toBottomOf="parent"/>
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -295,11 +321,13 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            android:onClick="@{() -> vm.clickNotice()}">
+            android:onClick="@{() -> vm.clickNotice()}"
+            >
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                >
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/mypage_etc_notice_imv"
@@ -309,35 +337,38 @@
                     android:src="@drawable/ic_notice"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"/>
+                    app:layout_constraintStart_toStartOf="parent"
+                    />
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/mypage_etc_notice_title_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
                     android:text="@string/mypage_etc_notice_title"
                     android:textColor="@color/colorNightBlack"
                     android:textSize="14sp"
                     android:fontFamily="@font/nanum_square_otf_regular"
+                    android:layout_marginStart="20dp"
                     app:layout_constraintVertical_chainStyle="packed"
                     app:layout_constraintStart_toEndOf="@id/mypage_etc_notice_imv"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintBottom_toTopOf="@id/mypage_etc_notice_content_tv" />
+                    app:layout_constraintBottom_toTopOf="@id/mypage_etc_notice_content_tv"
+                    />
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/mypage_etc_notice_content_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginStart="20dp"
                     android:text="@string/mypage_etc_notice_content"
                     android:textSize="12sp"
                     android:textColor="@color/colorNightBlack"
                     android:fontFamily="@font/nanum_square_otf_light"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginStart="20dp"
                     app:layout_constraintStart_toEndOf="@id/mypage_etc_notice_imv"
                     app:layout_constraintTop_toBottomOf="@id/mypage_etc_notice_title_tv"
-                    app:layout_constraintBottom_toBottomOf="parent"/>
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

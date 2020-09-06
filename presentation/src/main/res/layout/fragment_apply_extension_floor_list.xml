@@ -1,29 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:tools="http://schemas.android.com/tools"
+<layout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+
     <data>
         <variable
             name="vm"
-            type="com.dsm.dms.presentation.viewmodel.main.apply.extension.ApplyExtensionFloorListViewModel" />
+            type="com.dsm.dms.presentation.viewmodel.main.apply.extension.ApplyExtensionFloorListViewModel"
+            />
     </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        >
 
         <androidx.appcompat.widget.AppCompatImageView
-            android:onClick="@{() -> vm.backClick()}"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_margin="24dp"
             android:id="@+id/extension_floor_list_back_imv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:background="?attr/selectableItemBackgroundBorderless"
             android:clickable="true"
             android:focusable="true"
             android:src="@drawable/ic_back"
             android:tint="@color/colorNightBlack"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_margin="24dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:onClick="@{() -> vm.backClick()}"
+            />
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/extension_floor_list_ic_imv"
@@ -34,7 +40,8 @@
             android:transitionName="studyImageView"
             app:layout_constraintTop_toBottomOf="@id/extension_floor_list_back_imv"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent"
+            />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/extension_floor_list_title_tv"
@@ -44,153 +51,174 @@
             android:textSize="18sp"
             android:textColor="@color/colorNightBlack"
             android:fontFamily="@font/nanum_square_otf_bold"
+            android:layout_marginTop="24dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/extension_floor_list_ic_imv"
-            android:layout_marginTop="24dp" />
+            />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/extension_floor_list_description_tv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
             android:text="@string/extension_description"
             android:textSize="14sp"
             android:textColor="@color/colorNightBlack"
             android:fontFamily="@font/nanum_square_otf_regular"
+            android:gravity="center"
+            android:paddingHorizontal="40dp"
+            android:layout_marginTop="16dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/extension_floor_list_title_tv"
-            android:paddingHorizontal="40dp"
-            android:layout_marginTop="16dp"
-            android:gravity="center"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"/>
+            />
 
         <androidx.cardview.widget.CardView
             android:id="@+id/extension_first_floor_card"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_marginHorizontal="24dp"
-            android:layout_marginTop="20dp"
             android:foreground="?android:attr/selectableItemBackground"
-            android:onClick="@{() -> vm.floorClick(1)}"
             app:cardCornerRadius="14dp"
             app:cardElevation="4dp"
+            android:layout_marginHorizontal="24dp"
+            android:layout_marginTop="20dp"
             app:layout_constraintBottom_toTopOf="@id/extension_second_floor_card"
             app:layout_constraintTop_toBottomOf="@id/extension_floor_list_description_tv"
-            tools:layout_editor_absoluteX="24dp">
+            android:onClick="@{() -> vm.floorClick(1)}"
+            >
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/extension_first_floor_tv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:padding="16dp"
                 android:text="@string/extension_first_floor_title"
                 android:textColor="@color/colorNightBlack"
                 android:textSize="16sp"
-                android:fontFamily="@font/nanum_square_otf_regular"/>
+                android:fontFamily="@font/nanum_square_otf_regular"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:padding="16dp"
+                />
+
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
-            android:onClick="@{() -> vm.floorClick(2)}"
-            android:foreground="?android:attr/selectableItemBackground"
             android:id="@+id/extension_second_floor_card"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:foreground="?android:attr/selectableItemBackground"
+            app:cardCornerRadius="14dp"
+            app:cardElevation="4dp"
+            android:layout_marginTop="18dp"
+            android:layout_marginHorizontal="24dp"
             app:layout_constraintTop_toBottomOf="@id/extension_first_floor_card"
             app:layout_constraintBottom_toTopOf="@id/extension_third_floor_card"
-            app:cardCornerRadius="14dp"
-            app:cardElevation="4dp"
-            android:layout_marginTop="18dp"
-            android:layout_marginHorizontal="24dp"
-            android:layout_width="match_parent"
-            android:layout_height="0dp">
+            android:onClick="@{() -> vm.floorClick(2)}"
+            >
+
             <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/extension_second_floor_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:textSize="16sp"
                 android:textColor="@color/colorNightBlack"
-                android:padding="16dp"
-                android:gravity="center"
-                android:layout_gravity="center"
-                android:id="@+id/extension_second_floor_tv"
                 android:text="@string/extension_second_floor_title"
                 android:fontFamily="@font/nanum_square_otf_regular"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:padding="16dp"
+                />
+
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
-            android:onClick="@{() -> vm.floorClick(3)}"
-            android:foreground="?android:attr/selectableItemBackground"
             android:id="@+id/extension_third_floor_card"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:foreground="?android:attr/selectableItemBackground"
+            app:cardCornerRadius="14dp"
+            app:cardElevation="4dp"
+            android:layout_marginTop="18dp"
+            android:layout_marginHorizontal="24dp"
             app:layout_constraintTop_toBottomOf="@id/extension_second_floor_card"
             app:layout_constraintBottom_toTopOf="@id/extension_fourth_floor_card"
-            app:cardCornerRadius="14dp"
-            app:cardElevation="4dp"
-            android:layout_marginTop="18dp"
-            android:layout_marginHorizontal="24dp"
-            android:layout_width="match_parent"
-            android:layout_height="0dp">
+            android:onClick="@{() -> vm.floorClick(3)}"
+            >
+
             <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/extension_third_floor_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:textSize="16sp"
                 android:textColor="@color/colorNightBlack"
-                android:padding="16dp"
-                android:gravity="center"
-                android:layout_gravity="center"
-                android:id="@+id/extension_third_floor_tv"
                 android:text="@string/extension_third_floor_title"
                 android:fontFamily="@font/nanum_square_otf_regular"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:padding="16dp"
+                />
+
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
-            android:onClick="@{() -> vm.floorClick(4)}"
-            android:foreground="?android:attr/selectableItemBackground"
             android:id="@+id/extension_fourth_floor_card"
-            app:layout_constraintTop_toBottomOf="@id/extension_third_floor_card"
-            app:layout_constraintBottom_toTopOf="@id/extension_fifth_floor_card"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:foreground="?android:attr/selectableItemBackground"
             app:cardCornerRadius="14dp"
             app:cardElevation="4dp"
             android:layout_marginTop="18dp"
             android:layout_marginHorizontal="24dp"
-            android:layout_width="match_parent"
-            android:layout_height="0dp">
+            app:layout_constraintTop_toBottomOf="@id/extension_third_floor_card"
+            app:layout_constraintBottom_toTopOf="@id/extension_fifth_floor_card"
+            android:onClick="@{() -> vm.floorClick(4)}"
+            >
+
             <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/extension_fourth_floor_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:textSize="16sp"
                 android:textColor="@color/colorNightBlack"
-                android:padding="16dp"
-                android:gravity="center"
-                android:layout_gravity="center"
-                android:id="@+id/extension_fourth_floor_tv"
                 android:text="@string/extension_fourth_floor_title"
                 android:fontFamily="@font/nanum_square_otf_regular"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:padding="16dp"
+                />
+
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
-            android:onClick="@{() -> vm.floorClick(5)}"
-            android:foreground="?android:attr/selectableItemBackground"
             android:id="@+id/extension_fifth_floor_card"
-            app:layout_constraintTop_toBottomOf="@id/extension_fourth_floor_card"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:foreground="?android:attr/selectableItemBackground"
             app:cardCornerRadius="14dp"
             app:cardElevation="4dp"
             android:layout_marginTop="18dp"
             android:layout_marginBottom="24dp"
             android:layout_marginHorizontal="24dp"
-            android:layout_width="match_parent"
-            android:layout_height="0dp">
+            app:layout_constraintTop_toBottomOf="@id/extension_fourth_floor_card"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:onClick="@{() -> vm.floorClick(5)}"
+            >
+
             <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/extension_fifth_floor_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:textSize="16sp"
                 android:textColor="@color/colorNightBlack"
-                android:padding="16dp"
-                android:gravity="center"
-                android:layout_gravity="center"
-                android:id="@+id/extension_fifth_floor_tv"
                 android:text="@string/extension_fifth_floor_title"
                 android:fontFamily="@font/nanum_square_otf_regular"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:padding="16dp"
+                />
+
         </androidx.cardview.widget.CardView>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 </layout>
