@@ -162,6 +162,7 @@
                 android:text="@string/login_is_not_dms_user"
                 android:textColor="@color/colorLowBlack"
                 android:textSize="12sp"
+                android:fontFamily="@font/nanum_square_otf_bold"
                 />
 
             <androidx.appcompat.widget.AppCompatTextView
@@ -170,11 +171,12 @@
                 android:layout_height="wrap_content"
                 android:clickable="true"
                 android:focusable="true"
-                android:onClick="@{()->vm.registerClick()}"
                 android:text="@string/login_register"
                 android:textColor="@color/colorMain"
                 android:textSize="12sp"
+                android:fontFamily="@font/nanum_square_otf_bold"
                 android:layout_marginStart="8dp"
+                android:onClick="@{()->vm.registerClick()}"
                 />
 
         </LinearLayout>
