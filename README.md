@@ -31,11 +31,11 @@
 
 ## Module Structure
 
-* Domain: entity, usecase, service, repository, mapper, base
+* Domain: entity, usecase, service, repository, etc
 
-* Data: entity, dto, remote, local, datasource, mapper, repository, database, base 
+* Data: entity, dto, remote, local, datasource, errorhandler, repository, database, etc
 
-* Presentation: di, viewmodel, model, mapper, ui, base 
+* Presentation: di, viewmodel, model, ui, etc
 
 * 세부구조는 좀 더 복잡할 수 있다.
 
@@ -55,13 +55,11 @@
 
 5. RxJava, RxKotlin, RxAndroid
 
-6. RxBinding
+6. Dagger2
 
-7. Dagger2
+7. Glide, Retrofit2, Okhttp3, Views dsl, etc..
 
-8. Glide, Retrofit2, Okhttp3, Views dsl, etc..
-
-9. Clean Code
+8. Clean Code
 
 ## Test
 
