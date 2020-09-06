@@ -103,7 +103,7 @@
             android:layout_marginEnd="16dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toStartOf="@id/extension_floor_detail_twelve_card"
-            app:layout_constraintBottom_toTopOf="@id/extension_floor_detail_apply"
+            app:layout_constraintBottom_toTopOf="@id/extension_floor_detail_apply_btn"
             android:onClick="@{() -> vm.elevenClockClick()}"
             >
 
@@ -133,7 +133,7 @@
             android:layout_marginEnd="24dp"
             app:layout_constraintStart_toEndOf="@id/extension_floor_detail_eleven_card"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toTopOf="@id/extension_floor_detail_apply"
+            app:layout_constraintBottom_toTopOf="@id/extension_floor_detail_apply_btn"
             android:onClick="@{() -> vm.twelveClockClick()}"
             >
 
@@ -152,7 +152,7 @@
         </androidx.cardview.widget.CardView>
 
         <com.dsm.dms.dmsviewlibrary.button.textview.DmsProgressButton
-            android:id="@+id/extension_floor_detail_apply"
+            android:id="@+id/extension_floor_detail_apply_btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:clickable="true"

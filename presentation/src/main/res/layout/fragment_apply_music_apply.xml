@@ -69,7 +69,7 @@
             android:hint="@string/music_apply_music_title_hint"
             android:lineSpacingExtra="1sp"
             android:text="@={vm.musicTitle}"
-            android:textColor="@color/colorBlack"
+            android:textColor="@color/colorNightBlack"
             android:textSize="12sp"
             android:fontFamily="@font/nanum_square_otf_regular"
             android:maxLines="1"
@@ -95,7 +95,7 @@
             android:lineSpacingExtra="1sp"
             android:hint="@string/music_apply_music_artist_hint"
             android:text="@={vm.musicArtist}"
-            android:textColor="@color/colorBlack"
+            android:textColor="@color/colorNightBlack"
             android:textSize="12sp"
             android:fontFamily="@font/nanum_square_otf_regular"
             android:maxLines="1"
@@ -107,11 +107,11 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/apply_music_apply_music_title_edit"
-            app:layout_constraintBottom_toTopOf="@id/apply_music_apply_button_tv"
+            app:layout_constraintBottom_toTopOf="@id/apply_music_apply_btn"
             />
 
         <com.dsm.dms.dmsviewlibrary.button.textview.DmsProgressButton
-            android:id="@+id/apply_music_apply_button_tv"
+            android:id="@+id/apply_music_apply_btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:clickable="true"

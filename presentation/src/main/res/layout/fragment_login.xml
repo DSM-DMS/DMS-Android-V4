@@ -14,7 +14,6 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/colorBackground"
         >
 
         <androidx.constraintlayout.widget.Guideline
@@ -74,7 +73,7 @@
             android:inputType="textEmailAddress"
             android:lineSpacingExtra="1sp"
             android:text="@={vm.idData}"
-            android:textColor="@color/colorBlack"
+            android:textColor="@color/colorNightBlack"
             android:textSize="12sp"
             android:fontFamily="@font/nanum_square_otf_regular"
             android:maxLines="1"
@@ -98,7 +97,7 @@
             android:hint="@string/sign_pw_hint"
             android:inputType="textPassword"
             android:lineSpacingExtra="1sp"
-            android:textColor="@color/colorBlack"
+            android:textColor="@color/colorNightBlack"
             android:textSize="12sp"
             android:text="@={vm.passwordData}"
             android:maxLines="1"
@@ -117,7 +116,7 @@
             android:layout_height="wrap_content"
             android:lineSpacingExtra="1sp"
             android:text="@string/login_auto_login"
-            android:textColor="@color/colorBlack"
+            android:textColor="@color/colorNightBlack"
             android:textSize="12sp"
             android:fontFamily="@font/nanum_square_otf_regular"
             android:theme="@style/SignCheckBoxTheme"
@@ -160,7 +159,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/login_is_not_dms_user"
-                android:textColor="@color/colorLowBlack"
+                android:textColor="@color/colorNightLowBlack"
                 android:textSize="12sp"
                 android:fontFamily="@font/nanum_square_otf_bold"
                 />

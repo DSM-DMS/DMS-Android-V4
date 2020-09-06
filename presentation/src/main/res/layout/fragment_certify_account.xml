@@ -68,7 +68,7 @@
             android:lineSpacingExtra="1sp"
             android:maxLength="12"
             android:text="@={vm.certificationCodeData}"
-            android:textColor="@color/colorBlack"
+            android:textColor="@color/colorNightBlack"
             android:textSize="12sp"
             android:fontFamily="@font/nanum_square_otf_regular"
             android:maxLines="1"
