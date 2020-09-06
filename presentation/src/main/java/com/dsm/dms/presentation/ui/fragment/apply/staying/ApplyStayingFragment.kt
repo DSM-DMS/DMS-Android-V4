@@ -2,6 +2,8 @@ package com.dsm.dms.presentation.ui.fragment.apply.staying
 
 import android.os.Bundle
 import android.view.View
+import androidx.appcompat.widget.AppCompatTextView
+import androidx.cardview.widget.CardView
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.transition.TransitionInflater
@@ -13,6 +15,7 @@ import com.dsm.dms.presentation.databinding.FragmentApplyStayingBinding
 import com.dsm.dms.presentation.originContentCardColor
 import com.dsm.dms.presentation.viewmodel.main.apply.staying.ApplyStayingViewModel
 import com.dsm.dms.presentation.viewmodel.main.apply.staying.ApplyStayingViewModelFactory
+import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.fragment_apply_staying.*
 import javax.inject.Inject
 
@@ -38,59 +41,51 @@ class ApplyStayingFragment: DataBindingInjectFragment<FragmentApplyStayingBindin
 
     override fun observeEvent() {
         viewModel.cardChangeColorEvent.observe(this, Observer {
-            when (viewModel.nowStayingState.value) {
-                "금요귀가" -> resources.originContentCardColor(
-                    apply_staying_friday_go_card,
-                    apply_staying_friday_go_title_tv,
-                    apply_staying_friday_go_content_tv
-                )
-                "토요귀가" -> resources.originContentCardColor(
-                    apply_staying_saturday_go_card,
-                    apply_staying_saturday_go_title_tv,
-                    apply_staying_saturday_go_content_tv
-                )
-                "토요귀사" -> resources.originContentCardColor(
-                    apply_staying_saturday_back_card,
-                    apply_staying_saturday_back_title_tv,
-                    apply_staying_saturday_back_content_tv
-                )
-                "잔류" -> resources.originContentCardColor(
-                    apply_staying_staying_card,
-                    apply_staying_staying_title_tv,
-                    apply_staying_staying_content_tv
-                )
+            searchCard(viewModel.nowStayingState.value!!)
+            { card: CardView, title: AppCompatTextView, content: AppCompatTextView ->
+                resources.originContentCardColor(card, title, content)
             }
             searchCard(it)
+            { card: CardView, title: AppCompatTextView, content: AppCompatTextView ->
+                resources.changeContentCardColor(card, title, content)
+            }
+            viewModel.nowStayingState.value = it
         })
 
         viewModel.backToMainEvent.observe(this, Observer {
             back()
         })
+
+        viewModel.showMessageEvent.observe(this, Observer {
+            Snackbar.make(this.rootView, it, Snackbar.LENGTH_SHORT).show()
+        })
     }
 
-    private fun searchCard(cardText: String) {
+    private fun searchCard(
+        cardText: String,
+        changeCardColorFun: (CardView, AppCompatTextView, AppCompatTextView) -> Unit
+    ) {
         when(cardText) {
-            "금요귀가" -> resources.changeContentCardColor(
+            "금요귀가" -> changeCardColorFun(
                 apply_staying_friday_go_card,
                 apply_staying_friday_go_title_tv,
                 apply_staying_friday_go_content_tv
             )
-            "토요귀가" -> resources.changeContentCardColor(
+            "토요귀가" -> changeCardColorFun(
                 apply_staying_saturday_go_card,
                 apply_staying_saturday_go_title_tv,
                 apply_staying_saturday_go_content_tv
             )
-            "토요귀사" -> resources.changeContentCardColor(
+            "토요귀사" -> changeCardColorFun(
                 apply_staying_saturday_back_card,
                 apply_staying_saturday_back_title_tv,
                 apply_staying_saturday_back_content_tv
             )
-            "잔류" -> resources.changeContentCardColor(
+            "잔류" -> changeCardColorFun(
                 apply_staying_staying_card,
                 apply_staying_staying_title_tv,
                 apply_staying_staying_content_tv
             )
         }
-        viewModel.nowStayingState.value = cardText
     }
 }

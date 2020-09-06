@@ -31,39 +31,8 @@ class LoginViewModel(
 
     fun loginClick() {
         onLoadEvent.value = "로그인 중"
-        if (idData.value.isNotNullOrBlank() && passwordData.value.isNotNullOrBlank()) {
-            val auth = AuthModel(
-                idData.value!!,
-                passwordData.value!!,
-                ""
-            ).toEntity()
-            signInUseCase.execute(auth, object: DisposableSingleObserver<Result<Unit>>() {
-                override fun onSuccess(result: Result<Unit>) {
-                    when(result) {
-                        is Result.Success -> {
-                            onSuccessEvent.value = "로그인 성공"
-                            loginEvent.call()
-                        }
-                        is Result.Error -> {
-                            when(result.message) {
-                                Message.SERVER_ERROR ->
-                                    onErrorEvent.value = "서버 오류가 발생했습니다"
-                                Message.NETWORK_ERROR ->
-                                    onErrorEvent.value = "네트워크 오류가 발생했습니다"
-                                Message.UNKNOW_ERROR ->
-                                    onErrorEvent.value = "알 수 없는 오류가 발생했습니다"
-                                else ->
-                                    onErrorEvent.value = "알 수 없는 오류가 발생했습니다"
-
-                            }
-                        }
-                    }
-                }
-
-                override fun onError(e: Throwable) {
-                    onErrorEvent.value = "알 수 없는 오류가 발생했습니다"
-                }
-            })
+        if (checkSignInInput()) {
+            signIn()
         } else {
             onErrorEvent.value = "아이디와 비밀번호를 입력해주세요"
         }
@@ -72,4 +41,50 @@ class LoginViewModel(
     fun registerClick() {
         registerEvent.call()
     }
+
+    private fun signIn() {
+        signInUseCase.execute(
+            createAuthModel().toEntity(), object: DisposableSingleObserver<Result<Unit>>() {
+                override fun onSuccess(result: Result<Unit>) {
+                    when(result) {
+                        is Result.Success -> onSuccessSignIn(result)
+                        is Result.Error -> onErrorSignIn(result)
+                    }
+                }
+                override fun onError(e: Throwable) {
+                    onErrorEvent.value = "알 수 없는 오류가 발생했습니다"
+                }
+            }
+        )
+    }
+
+    private fun onSuccessSignIn(result: Result.Success<Unit>) {
+        onSuccessEvent.value = "로그인 성공"
+        loginEvent.call()
+    }
+
+    private fun onErrorSignIn(result: Result.Error<Unit>) {
+        when(result.message) {
+            Message.SERVER_ERROR ->
+                onErrorEvent.value = "서버 오류가 발생했습니다"
+            Message.NETWORK_ERROR ->
+                onErrorEvent.value = "네트워크 오류가 발생했습니다"
+            Message.UNKNOW_ERROR ->
+                onErrorEvent.value = "알 수 없는 오류가 발생했습니다"
+            else ->
+                onErrorEvent.value = "알 수 없는 오류가 발생했습니다"
+        }
+    }
+
+    private fun createAuthModel(): AuthModel =
+        AuthModel(
+            idData.value!!,
+            passwordData.value!!,
+            ""
+        )
+
+    private fun checkSignInInput(): Boolean =
+        idData.value.isNotNullOrBlank()
+            .and(passwordData.value.isNotNullOrBlank())
+
 }
