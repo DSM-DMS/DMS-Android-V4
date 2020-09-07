@@ -40,16 +40,18 @@ class ApplyStayingFragment: DataBindingInjectFragment<FragmentApplyStayingBindin
     }
 
     override fun observeEvent() {
-        viewModel.cardChangeColorEvent.observe(this, Observer {
-            searchCard(viewModel.nowStayingState.value!!)
-            { card: CardView, title: AppCompatTextView, content: AppCompatTextView ->
-                resources.originContentCardColor(card, title, content)
+        viewModel.cardChangeColorEvent.observe(this, Observer { changeCardText ->
+            viewModel.nowStayingState.value?.let { nowCardText ->
+                searchCard(nowCardText)
+                { card: CardView, title: AppCompatTextView, content: AppCompatTextView ->
+                    resources.originContentCardColor(card, title, content)
+                }
             }
-            searchCard(it)
+            searchCard(changeCardText)
             { card: CardView, title: AppCompatTextView, content: AppCompatTextView ->
                 resources.changeContentCardColor(card, title, content)
             }
-            viewModel.nowStayingState.value = it
+            viewModel.nowStayingState.value = changeCardText
         })
 
         viewModel.backToMainEvent.observe(this, Observer {

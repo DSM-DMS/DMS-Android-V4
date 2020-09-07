@@ -55,7 +55,7 @@
             android:drawableStart="@drawable/ic_id"
             android:drawablePadding="16dp"
             android:hint="@string/sign_id_hint"
-            android:inputType="textEmailAddress"
+            android:inputType="text|number"
             android:lineSpacingExtra="1sp"
             android:paddingStart="4dp"
             android:paddingEnd="4dp"

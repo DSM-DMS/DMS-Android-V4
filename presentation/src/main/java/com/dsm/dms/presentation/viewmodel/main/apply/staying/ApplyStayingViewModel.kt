@@ -28,18 +28,22 @@ class ApplyStayingViewModel(
     }
 
     fun fridayGoClick() {
+        cardChangeColorEvent.value = "금요귀가"
         applyStay("금요귀가")
     }
 
     fun saturdayGoClick() {
+        cardChangeColorEvent.value = "토요귀가"
         applyStay("토요귀가")
     }
 
     fun saturdayBackClick() {
+        cardChangeColorEvent.value = "토요귀사"
         applyStay("토요귀사")
     }
 
     fun stayingClick() {
+        cardChangeColorEvent.value = "잔류"
         applyStay("잔류")
     }
 
