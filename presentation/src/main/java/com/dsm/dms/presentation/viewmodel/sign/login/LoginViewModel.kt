@@ -84,7 +84,7 @@ class LoginViewModel(
         )
 
     private fun checkSignInInput(): Boolean =
-        idData.value.isNotNullOrBlank()
-            .and(passwordData.value.isNotNullOrBlank())
+        idData.value.isNotNullOrBlank() and
+                passwordData.value.isNotNullOrBlank()
 
 }

@@ -153,10 +153,10 @@ class RegisterViewModel(
         certificationCodeData.value.isNotNullOrBlank()
 
     private fun checkSignUpInput(): Boolean =
-        idData.value.isNotNullOrBlank()
-            .and(passwordData.value.isNotNullOrBlank())
-            .and(retryPasswordData.value.isNotNullOrBlank())
-            .and(retryPasswordData.value == passwordData.value)
+        idData.value.isNotNullOrBlank() and
+                passwordData.value.isNotNullOrBlank() and
+                retryPasswordData.value.isNotNullOrBlank() and
+                (retryPasswordData.value == passwordData.value)
 
     private fun checkRetryPassword(): Boolean =
         passwordData.value == retryPasswordData.value

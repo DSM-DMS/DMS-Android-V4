@@ -3,6 +3,7 @@ package com.dsm.dms.domain
 import com.dsm.dms.domain.base.ErrorHandler
 import io.reactivex.Single
 import com.dsm.dms.domain.base.Result
+import com.dsm.dms.domain.entity.enums.ClassNum
 import io.reactivex.Completable
 
 
@@ -57,4 +58,11 @@ fun <T> Single<Result<T>>.processLocal(
                 Single.just(result)
             }
         }
+    }
+
+fun ClassNum?.isNotNull(): Boolean =
+    this?.let {
+        return true
+    }.let {
+        return false
     }

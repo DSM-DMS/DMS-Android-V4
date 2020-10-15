@@ -9,7 +9,8 @@ data class NoticeData(
     var date: String,
     var title: String,
     var content: String,
-    var views: Int
+    var views: Int,
+    var isViewed: Boolean
 )
 
 fun NoticeData.toEntity() =
@@ -18,7 +19,8 @@ fun NoticeData.toEntity() =
         date = date,
         title = title,
         content = content,
-        views = views
+        views = views,
+        isViewed = isViewed
     )
 
 fun Notice.toDataEntity() =
@@ -27,7 +29,8 @@ fun Notice.toDataEntity() =
         date = date,
         title = title,
         content = content,
-        views = views
+        views = views,
+        isViewed = isViewed
     )
 
 fun NoticeData.toDbEntity() =
@@ -36,7 +39,8 @@ fun NoticeData.toDbEntity() =
         date = date,
         title = title,
         content = content,
-        views = views
+        views = views,
+        isViewed = isViewed
     )
 
 fun NoticeEntity.toDataEntity() =
@@ -45,5 +49,6 @@ fun NoticeEntity.toDataEntity() =
         date = date,
         title = title,
         content = content,
-        views = views
+        views = views,
+        isViewed = isViewed
     )

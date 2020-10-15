@@ -3,6 +3,7 @@ package com.dsm.dms.presentation.di.module
 import com.dsm.dms.presentation.di.module.main.MainModule
 import com.dsm.dms.presentation.di.module.main.MainStaticModule
 import com.dsm.dms.presentation.di.module.main.apply.extension.ApplyExtensionFloorDetailModule
+import com.dsm.dms.presentation.di.module.main.apply.extension.ApplyExtensionFloorDetailRoomsModule
 import com.dsm.dms.presentation.di.module.main.apply.music.apply.ApplyMusicApplyModule
 import com.dsm.dms.presentation.di.module.main.login.LoginStaticModule
 import com.dsm.dms.presentation.di.module.main.mypage.etc.bug.BugReportModule
@@ -37,7 +38,7 @@ abstract class MainActivityModule {
     abstract fun registerFragment(): RegisterFragment
 
     @FragmentScope
-    @ContributesAndroidInjector(modules = [ApplyExtensionFloorDetailModule::class])
+    @ContributesAndroidInjector(modules = [ApplyExtensionFloorDetailRoomsModule::class, ApplyExtensionFloorDetailModule::class])
     abstract fun applyExtensionsFloorDetailFragment(): ApplyExtensionFloorDetailFragment
 
     @FragmentScope

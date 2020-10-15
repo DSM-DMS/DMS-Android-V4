@@ -5,6 +5,7 @@
     >
 
     <data>
+        <import type="com.dsm.dms.presentation.model.VisibilityModel"/>
         <variable
             name="vm"
             type="com.dsm.dms.presentation.viewmodel.main.meal.MealViewModel.MealItemViewModel"

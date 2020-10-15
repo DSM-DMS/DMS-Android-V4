@@ -4,6 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     >
     <data>
+        <import type="com.dsm.dms.presentation.model.VisibilityModel"/>
         <variable
             name="vm"
             type="com.dsm.dms.presentation.viewmodel.main.apply.extension.detail.ApplyExtensionFloorDetailViewModel"
@@ -65,10 +66,20 @@
             app:layout_constraintEnd_toEndOf="parent"
             >
 
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/extension_floor_detail_map_error_imv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@{vm.visibility.errorResource}"
+                android:visibility="@{vm.visibility.visibleError}"
+                android:layout_gravity="center"
+                />
+
             <ScrollView
                 android:layout_gravity="center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:visibility="@{vm.visibility.visibleContent}"
                 >
 
                 <HorizontalScrollView
@@ -104,7 +115,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toStartOf="@id/extension_floor_detail_twelve_card"
             app:layout_constraintBottom_toTopOf="@id/extension_floor_detail_apply_btn"
-            android:onClick="@{() -> vm.elevenClockClick()}"
+            android:onClick="@{() -> vm.clockClick(11)}"
             >
 
             <androidx.appcompat.widget.AppCompatTextView
@@ -134,7 +145,7 @@
             app:layout_constraintStart_toEndOf="@id/extension_floor_detail_eleven_card"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toTopOf="@id/extension_floor_detail_apply_btn"
-            android:onClick="@{() -> vm.twelveClockClick()}"
+            android:onClick="@{() -> vm.clockClick(12)}"
             >
 
             <androidx.appcompat.widget.AppCompatTextView
@@ -155,16 +166,24 @@
             android:id="@+id/extension_floor_detail_apply_btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:clickable="true"
-            android:focusable="true"
-            android:foreground="?android:attr/selectableItemBackground"
             android:text="@string/extension_apply_text"
             android:textSize="20sp"
             android:textColor="@color/colorWhite"
             android:fontFamily="@font/nanum_square_otf_extra_bold"
-            android:gravity="center"
             android:padding="13dp"
             app:layout_constraintBottom_toBottomOf="parent"
+            android:onClick="@{() -> vm.applyClick()}"
+            />
+
+        <ProgressBar
+            android:id="@+id/extension_floor_detail_progress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="@{vm.visibility.visibleLoad}"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

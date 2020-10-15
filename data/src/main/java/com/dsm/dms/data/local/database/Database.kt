@@ -3,10 +3,7 @@ package com.dsm.dms.data.local.database
 import androidx.room.Database
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
-import com.dsm.dms.data.local.database.converter.GoingOutTypeConverter
-import com.dsm.dms.data.local.database.converter.MapConverter
-import com.dsm.dms.data.local.database.converter.StayInfoConverter
-import com.dsm.dms.data.local.database.converter.StringListConverter
+import com.dsm.dms.data.local.database.converter.*
 import com.dsm.dms.data.local.database.dao.*
 import com.dsm.dms.data.local.database.entity.*
 
@@ -24,7 +21,8 @@ import com.dsm.dms.data.local.database.entity.*
     GoingOutTypeConverter::class,
     StayInfoConverter::class,
     MapConverter::class,
-    StringListConverter::class
+    StringListConverter::class,
+    ClassNumConverter::class
 )
 abstract class Database: RoomDatabase() {
 

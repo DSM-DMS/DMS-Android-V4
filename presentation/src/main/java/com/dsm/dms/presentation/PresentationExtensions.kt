@@ -2,6 +2,8 @@ package com.dsm.dms.presentation
 
 import android.content.Context
 import android.content.res.Resources
+import android.util.Log
+import android.view.View
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.widget.AppCompatTextView
@@ -9,6 +11,7 @@ import androidx.cardview.widget.CardView
 import androidx.lifecycle.MutableLiveData
 import com.dsm.dms.presentation.bindingAdapter.RecyclerItem
 import com.dsm.dms.presentation.model.MusicModel
+import com.dsm.dms.presentation.model.VisibilityModel
 
 
 fun MutableLiveData<String>.isValueBlank() = this.value.isNullOrBlank()
@@ -56,3 +59,26 @@ fun Resources.originContentCardColor(card: CardView, title: AppCompatTextView, c
 fun String.intOrString() = toIntOrNull() ?: this
 
 fun String?.isNotNullOrBlank() = !isNullOrBlank()
+
+fun <T> T?.isNotNull(): Boolean =
+    this?.let {
+        return true
+    }.let {
+        return false
+    }
+
+fun VisibilityModel.onErrorShow(resource: Int) {
+    errorResource = resource
+    visibleContent = View.GONE
+    visibleError = View.VISIBLE
+}
+
+fun MutableLiveData<VisibilityModel>.updateVisibility(
+    update: (VisibilityModel) -> Unit
+) {
+    value?.let {
+        update(it)
+    }.let {
+        postValue(value)
+    }
+}
