@@ -44,7 +44,8 @@ class NoticeServiceTest: BaseTest() {
                 date = "2020-08-31",
                 title = "안녕하세요",
                 content = "제곧내",
-                views = 100
+                views = 100,
+                isViewed = false
             )
         )
 
@@ -73,7 +74,8 @@ class NoticeServiceTest: BaseTest() {
                 date = "2020-08-31",
                 title = "안녕하세요",
                 content = "제곧내",
-                views = 100
+                views = 100,
+                isViewed = false
             )
         )
 
