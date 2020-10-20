@@ -73,18 +73,4 @@ class ApplyExtensionFloorDetailModule {
     ): ExtensionDataSource =
         ExtensionDataSourceImpl(api, extensionInfoDao, mapDao)
 
-    @FragmentScope
-    @Provides
-    fun provideExtensionInfoDao(
-        database: Database
-    ): ExtensionInfoDao =
-        database.extensionInfoDao
-
-    @FragmentScope
-    @Provides
-    fun provideMapDao(
-        database: Database
-    ): MapDao =
-        database.mapDao
-
 }

@@ -59,11 +59,4 @@ class MealStaticModule {
     ): MealDataSource =
         MealDataSourceImpl(api, mealDao)
 
-    @MainFragmentScope
-    @Provides
-    fun provideMealDao(
-        database: Database
-    ): MealDao =
-        database.mealDao
-
 }

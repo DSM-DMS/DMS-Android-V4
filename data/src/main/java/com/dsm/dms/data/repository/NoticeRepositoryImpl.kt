@@ -14,7 +14,7 @@ class NoticeRepositoryImpl(
 
     override fun getRemoteNotice(): Single<List<Notice>> =
         dataSource.getRemoteNotice().map { response ->
-            response.notice.map { data ->
+            response.noticeList.map { data ->
                 data.toEntity()
             }
         }

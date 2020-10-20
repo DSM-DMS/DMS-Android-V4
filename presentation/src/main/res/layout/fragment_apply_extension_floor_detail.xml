@@ -73,6 +73,7 @@
                 android:src="@{vm.visibility.errorResource}"
                 android:visibility="@{vm.visibility.visibleError}"
                 android:layout_gravity="center"
+                android:layout_margin="20dp"
                 />
 
             <ScrollView

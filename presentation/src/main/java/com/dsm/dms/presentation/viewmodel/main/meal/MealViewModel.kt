@@ -97,7 +97,7 @@ class MealViewModel(private val getMeal: GetMealUseCase): BaseViewModel() {
 
     inner class MealItemViewModel(
         var meal: MealModel,
-        val visibility: VisibilityModel
+        var visibility: VisibilityModel
     ) {
 
         init {
@@ -114,11 +114,10 @@ class MealViewModel(private val getMeal: GetMealUseCase): BaseViewModel() {
                         is Result.Error ->
                             onErrorGetMealData(result)
                     }
-                    visibility.visibleLoad = View.GONE
                 }
 
                 override fun onError(e: Throwable) {
-                    visibility.visibleLoad = View.GONE
+
                 }
             })
         }
@@ -132,13 +131,19 @@ class MealViewModel(private val getMeal: GetMealUseCase): BaseViewModel() {
 
         private fun onErrorGetMealDataIsNotNull(result: Result.Error<Meal>) {
             showMessageGetMealData(result.message)
-            visibility.visibleContent = View.VISIBLE
+            visibility = VisibilityModel().apply {
+                visibleLoad = View.GONE
+                visibleContent = View.VISIBLE
+            }
             meal = result.data!!.toModel()
         }
 
         private fun onErrorGetMealDataIsNull(result: Result.Error<Meal>) {
             showMessageGetMealData(result.message)
-            visibility.visibleError = View.VISIBLE
+            visibility = VisibilityModel().apply {
+                visibleLoad = View.GONE
+                visibleError = View.VISIBLE
+            }
             showImageGetMealData(result.message)
         }
 
@@ -165,7 +170,10 @@ class MealViewModel(private val getMeal: GetMealUseCase): BaseViewModel() {
         }
 
         private fun onSuccessGetMealData(result: Result.Success<Meal>) {
-            visibility.visibleContent = View.VISIBLE
+            visibility = VisibilityModel().apply {
+                visibleLoad = View.GONE
+                visibleContent = View.VISIBLE
+            }
             meal = result.data.toModel()
         }
     }

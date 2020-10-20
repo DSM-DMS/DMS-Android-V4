@@ -5,6 +5,7 @@
     >
 
     <data>
+        <import type="com.dsm.dms.presentation.model.VisibilityModel"/>
         <variable
             name="vm"
             type="com.dsm.dms.presentation.viewmodel.main.mypage.etc.notice.NoticeListViewModel"
@@ -60,6 +61,7 @@
             android:id="@+id/notice_list_rcv"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:visibility="@{vm.visibility.visibleContent}"
             app:recyclerItems="@{vm.noticeList}"
             android:overScrollMode="never"
             android:layout_marginTop="36dp"
@@ -67,6 +69,29 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/notice_list_title_tv"
             app:layout_constraintBottom_toBottomOf="parent"
+            />
+
+        <ProgressBar
+            android:id="@+id/notice_list_progress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="@{vm.visibility.visibleLoad}"
+            app:layout_constraintTop_toTopOf="@id/notice_list_rcv"
+            app:layout_constraintBottom_toBottomOf="@id/notice_list_rcv"
+            app:layout_constraintStart_toStartOf="@id/notice_list_rcv"
+            app:layout_constraintEnd_toEndOf="@id/notice_list_rcv"
+            />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/notice_list_error_imv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@{vm.visibility.errorResource}"
+            android:visibility="@{vm.visibility.visibleError}"
+            app:layout_constraintTop_toTopOf="@id/notice_list_rcv"
+            app:layout_constraintBottom_toBottomOf="@id/notice_list_rcv"
+            app:layout_constraintStart_toStartOf="@id/notice_list_rcv"
+            app:layout_constraintEnd_toEndOf="@id/notice_list_rcv"
             />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,5 +4,5 @@ import com.dsm.dms.data.entity.NoticeData
 
 
 data class GetListNoticeResponse(
-    val notice: List<NoticeData>
+    val noticeList: List<NoticeData>
 )

@@ -6,7 +6,7 @@ import com.dsm.dms.domain.base.Message
 import com.dsm.dms.domain.base.Result
 import com.dsm.dms.domain.entity.Notice
 import com.dsm.dms.domain.repository.NoticeRepository
-import com.dsm.dms.domain.usecase.GetNoticeUseCase
+import com.dsm.dms.domain.usecase.GetNoticeListUseCase
 import io.reactivex.Single
 import io.reactivex.disposables.CompositeDisposable
 import org.junit.Before
@@ -24,14 +24,14 @@ class NoticeServiceTest: BaseTest() {
 
     private lateinit var noticeService: NoticeService
 
-    private lateinit var getNoticeUseCase: GetNoticeUseCase
+    private lateinit var getNoticeListUseCase: GetNoticeListUseCase
 
     @Before
     fun init() {
 
         noticeService = NoticeServiceImpl(noticeRepository, errorHandler)
 
-        getNoticeUseCase = GetNoticeUseCase(noticeService, CompositeDisposable())
+        getNoticeListUseCase = GetNoticeListUseCase(noticeService, CompositeDisposable())
 
     }
 
@@ -57,7 +57,7 @@ class NoticeServiceTest: BaseTest() {
         `when`(noticeRepository.getLocalNotice())
             .thenReturn(noticeList)
 
-        getNoticeUseCase.create(Unit)
+        getNoticeListUseCase.create(Unit)
             .test().assertValue(
                 Result.Success(noticeList)
             )
@@ -90,7 +90,7 @@ class NoticeServiceTest: BaseTest() {
         `when`(noticeRepository.getLocalNotice())
             .thenReturn(noticeList)
 
-        getNoticeUseCase.create(Unit)
+        getNoticeListUseCase.create(Unit)
             .test().assertValue(
                 Result.Error(noticeList, Message.UNKNOW_ERROR)
             )

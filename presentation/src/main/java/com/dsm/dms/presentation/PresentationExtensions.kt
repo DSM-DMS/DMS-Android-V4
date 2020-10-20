@@ -82,3 +82,5 @@ fun MutableLiveData<VisibilityModel>.updateVisibility(
         postValue(value)
     }
 }
+
+fun <T> Collection<T>?.isNotNullOrEmpty() = isNullOrEmpty().not()

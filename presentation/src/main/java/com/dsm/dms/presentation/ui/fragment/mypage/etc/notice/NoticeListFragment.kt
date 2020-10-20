@@ -78,13 +78,11 @@ class NoticeListFragment: DataBindingInjectFragment<FragmentNoticeListBinding>()
         )
         findNavController().navigate(
             R.id.action_noticeListFragment_to_noticeDetailFragment,
-            with(pair.second) {
-                android.os.Bundle().apply {
-                    putString("title", title)
-                    putString("content", content)
-                    putString("date", date)
-                    putString("viewCount", viewCount)
-                }
+            Bundle().apply {
+                putParcelable(
+                    "notice",
+                    pair.second
+                )
             }, null, extras
         )
     }

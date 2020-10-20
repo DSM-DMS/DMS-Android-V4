@@ -148,7 +148,7 @@ class ApplyExtensionFloorDetailViewModel(
                 }
 
                 override fun onError(e: Throwable) {
-                    showMessageEvent.value = "알 수 없는 오류가 발생했습니다"
+
                 }
             }
         )
@@ -174,6 +174,7 @@ class ApplyExtensionFloorDetailViewModel(
     private fun onSuccessGetExtensionMap(result: Result.Success<Map>) {
         changeMapEvent.value = result.data.map
         visibility.updateVisibility {
+            it.visibleLoad = View.GONE
             it.visibleContent = View.VISIBLE
         }
     }
@@ -188,6 +189,7 @@ class ApplyExtensionFloorDetailViewModel(
     private fun onErrorGetExtensionMapIsNotNull(result: Result.Error<Map>) {
         showMessageGetExtensionMap(result.message)
         visibility.updateVisibility {
+            it.visibleLoad = View.GONE
             it.visibleContent = View.VISIBLE
         }
         changeMapEvent.value = result.data!!.map
@@ -230,6 +232,7 @@ class ApplyExtensionFloorDetailViewModel(
     private fun onErrorGetExtensionMapIsNull(result: Result.Error<Map>) {
         showMessageGetExtensionMap(result.message)
         visibility.updateVisibility {
+            it.visibleLoad = View.GONE
             it.visibleError = View.VISIBLE
         }
         showImageGetExtensionMap(result.message)

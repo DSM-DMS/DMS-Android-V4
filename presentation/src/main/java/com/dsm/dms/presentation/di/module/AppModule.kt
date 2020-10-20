@@ -7,7 +7,13 @@ import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
 
-@Module(includes = [(NetworkModule::class), (LocalModule::class), (ApiModule::class), (BaseModule::class)])
+@Module(includes = [
+    (NetworkModule::class),
+    (LocalModule::class),
+    (ApiModule::class),
+    (BaseModule::class),
+    (DatabaseModule::class)
+])
 class AppModule {
 
     @Provides

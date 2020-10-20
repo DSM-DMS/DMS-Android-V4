@@ -70,11 +70,4 @@ class ApplyStayingModule {
     ): StayDataSource =
         StayDataSourceImpl(applyApi, userDao)
 
-    @ApplyFragmentScope
-    @Provides
-    fun provideUserDao(
-        database: Database
-    ): UserDao =
-        database.userDao
-
 }
