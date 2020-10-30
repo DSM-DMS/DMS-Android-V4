@@ -15,8 +15,8 @@ class MainActivity : DaggerAppCompatActivity() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
             window.addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
 
-            val attrib = window.attributes
-            attrib.layoutInDisplayCutoutMode = WindowManager.LayoutParams.LAYOUT_IN_DISPLAY_CUTOUT_MODE_SHORT_EDGES
+            val attr = window.attributes
+            attr.layoutInDisplayCutoutMode = WindowManager.LayoutParams.LAYOUT_IN_DISPLAY_CUTOUT_MODE_SHORT_EDGES
         }
     }
 }

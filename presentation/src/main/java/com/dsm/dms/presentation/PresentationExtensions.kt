@@ -6,6 +6,7 @@ import android.util.Log
 import android.view.View
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.widget.AppCompatTextView
 import androidx.cardview.widget.CardView
 import androidx.lifecycle.MutableLiveData
@@ -84,3 +85,10 @@ fun MutableLiveData<VisibilityModel>.updateVisibility(
 }
 
 fun <T> Collection<T>?.isNotNullOrEmpty() = isNullOrEmpty().not()
+
+fun applyDarkMode(darkMode: Boolean) {
+    if (darkMode)
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+    else
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+}

@@ -4,17 +4,21 @@ import android.os.Bundle
 import android.view.View
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.observe
 import androidx.navigation.Navigation
 import com.dsm.dms.presentation.R
-import com.dsm.dms.presentation.base.DataBindingFragment
+import com.dsm.dms.presentation.base.DataBindingInjectFragment
 import com.dsm.dms.presentation.databinding.FragmentMypageEtcBinding
 import com.dsm.dms.presentation.viewmodel.main.mypage.etc.MyPageEtcViewModel
 import com.dsm.dms.presentation.viewmodel.main.mypage.etc.MyPageEtcViewModelFactory
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import javax.inject.Inject
 
 
-class MyPageEtcFragment(val factory: MyPageEtcViewModelFactory): DataBindingFragment<FragmentMypageEtcBinding>() {
+class MyPageEtcFragment: DataBindingInjectFragment<FragmentMypageEtcBinding>() {
+
+    @Inject
+    lateinit var factory: MyPageEtcViewModelFactory
+
     override val layoutId: Int
         get() = R.layout.fragment_mypage_etc
 

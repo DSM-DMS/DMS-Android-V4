@@ -1,6 +1,7 @@
 package com.dsm.dms.presentation.di.module.main.mypage.etc.setting
 
 import android.content.Context
+import com.dsm.dms.data.local.pref.LocalStorage
 import com.dsm.dms.presentation.base.ResourcesProvider
 import com.dsm.dms.presentation.base.ResourcesProviderImpl
 import com.dsm.dms.presentation.di.scope.MyPageFragmentScope
@@ -13,11 +14,18 @@ import dagger.Provides
 class SettingModule {
     @MyPageFragmentScope
     @Provides
-    fun provideViewModelFactory(resourcesProvider: ResourcesProvider): SettingViewModelFactory
-            = SettingViewModelFactory(resourcesProvider)
+    fun provideViewModelFactory(
+        resourcesProvider: ResourcesProvider,
+        localStorage: LocalStorage
+    ): SettingViewModelFactory =
+        SettingViewModelFactory(
+            resourcesProvider,
+            localStorage
+        )
 
     @MyPageFragmentScope
     @Provides
-    fun provideResourcesProvider(context: Context): ResourcesProvider
-            = ResourcesProviderImpl(context)
+    fun provideResourcesProvider(context: Context): ResourcesProvider =
+        ResourcesProviderImpl(context)
+
 }

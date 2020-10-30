@@ -7,8 +7,10 @@ import dagger.Provides
 
 @Module
 class MyPageStaticModule {
+
     @MainFragmentScope
     @Provides
     fun provideViewModelFactory(): MyPageViewModelFactory
             = MyPageViewModelFactory()
+
 }

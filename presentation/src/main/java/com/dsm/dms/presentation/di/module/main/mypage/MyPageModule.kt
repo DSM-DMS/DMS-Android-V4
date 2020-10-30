@@ -1,11 +1,9 @@
 package com.dsm.dms.presentation.di.module.main.mypage
 
-import com.dsm.dms.presentation.di.module.main.mypage.etc.MyPageEtcModule
 import com.dsm.dms.presentation.di.module.main.mypage.etc.notice.NoticeDetailModule
 import com.dsm.dms.presentation.di.module.main.mypage.etc.notice.NoticeListModule
 import com.dsm.dms.presentation.di.module.main.mypage.etc.setting.SettingModule
 import com.dsm.dms.presentation.di.module.main.mypage.main.MyPageMainModule
-import com.dsm.dms.presentation.di.module.main.mypage.mydata.MyPageMyDataModule
 import com.dsm.dms.presentation.di.scope.MyPageFragmentScope
 import com.dsm.dms.presentation.ui.fragment.mypage.etc.notice.NoticeDetailFragment
 import com.dsm.dms.presentation.ui.fragment.mypage.etc.notice.NoticeListFragment
@@ -16,8 +14,9 @@ import dagger.android.ContributesAndroidInjector
 
 @Module
 abstract class MyPageModule {
+
     @MyPageFragmentScope
-    @ContributesAndroidInjector(modules = [MyPageMainModule::class, MyPageEtcModule::class, MyPageMyDataModule::class])
+    @ContributesAndroidInjector(modules = [MyPageMainModule::class])
     abstract fun myPageMainFragment(): MyPageMainFragment
 
     @MyPageFragmentScope
@@ -31,4 +30,5 @@ abstract class MyPageModule {
     @MyPageFragmentScope
     @ContributesAndroidInjector(modules = [SettingModule::class])
     abstract fun settingFragment(): SettingFragment
+
 }
