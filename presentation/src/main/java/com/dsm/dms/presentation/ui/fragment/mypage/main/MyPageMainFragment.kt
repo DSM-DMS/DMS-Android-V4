@@ -7,8 +7,6 @@ import com.dsm.dms.presentation.R
 import com.dsm.dms.presentation.adapter.ViewPagerFragmentAdapter
 import com.dsm.dms.presentation.base.DataBindingInjectFragment
 import com.dsm.dms.presentation.databinding.FragmentMypageMainBinding
-import com.dsm.dms.presentation.ui.fragment.mypage.etc.MyPageEtcFragment
-import com.dsm.dms.presentation.ui.fragment.mypage.mydata.MyPageMyDataFragment
 import com.dsm.dms.presentation.viewmodel.main.mypage.main.MyPageMainViewModel
 import com.dsm.dms.presentation.viewmodel.main.mypage.main.MyPageMainViewModelFactory
 import com.google.android.material.tabs.TabLayoutMediator
@@ -21,6 +19,9 @@ class MyPageMainFragment: DataBindingInjectFragment<FragmentMypageMainBinding>()
     @Inject
     lateinit var factory: MyPageMainViewModelFactory
 
+    @Inject
+    lateinit var viewPagerFragmentAdapter: ViewPagerFragmentAdapter
+
     override val layoutId: Int
         get() = R.layout.fragment_mypage_main
 
@@ -31,10 +32,7 @@ class MyPageMainFragment: DataBindingInjectFragment<FragmentMypageMainBinding>()
         super.onViewCreated(view, savedInstanceState)
         binding.vm = viewModel
 
-        mypage_main_pager.adapter = ViewPagerFragmentAdapter(requireActivity()).apply {
-            fragments.add(MyPageMyDataFragment())
-            fragments.add(MyPageEtcFragment())
-        }
+        mypage_main_pager.adapter = viewPagerFragmentAdapter
 
         TabLayoutMediator(mypage_main_tap, mypage_main_pager) { tab, position ->
             mypage_main_pager.setCurrentItem(tab.position, true)
