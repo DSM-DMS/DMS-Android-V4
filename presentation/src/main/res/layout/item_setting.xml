@@ -59,12 +59,10 @@
                 app:layout_constraintTop_toBottomOf="@id/mypage_setting_dark_mode_title_tv"
                 />
 
-            <androidx.appcompat.widget.SwitchCompat
-                android:id="@+id/mypage_setting_dark_mode_switch"
+            <com.dsm.dms.dmsviewlibrary.widget.DmsSettingSwitch
+                android:id="@+id/mypage_setting_switch"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:track="@drawable/track_selector"
-                android:thumb="@drawable/thumb_selector"
                 android:checked="@{vm.setting.checked}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"

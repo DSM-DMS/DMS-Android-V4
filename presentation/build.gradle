@@ -91,7 +91,7 @@ dependencies {
     implementation("com.louiscad.splitties:splitties-views-dsl-material:3.0.0-alpha06")
 
     // dms view library
-    implementation 'com.dsm.dms.library:dmsviewlibrary:0.0.4-rc3'
+    implementation 'com.dsm.dms.library:dmsviewlibrary:0.0.7'
     implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.0.0"
 
     // room
