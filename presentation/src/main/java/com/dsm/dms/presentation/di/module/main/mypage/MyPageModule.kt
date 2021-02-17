@@ -20,7 +20,7 @@ import dagger.android.ContributesAndroidInjector
 abstract class MyPageModule {
 
     @MyPageFragmentScope
-    @ContributesAndroidInjector(modules = [MyPageMainModule::class])
+    @ContributesAndroidInjector(modules = [MyPageMainModule::class, MyPageMyDataModule::class, MyPageEtcModule::class])
     abstract fun myPageMainFragment(): MyPageMainFragment
 
     @MyPageFragmentScope
