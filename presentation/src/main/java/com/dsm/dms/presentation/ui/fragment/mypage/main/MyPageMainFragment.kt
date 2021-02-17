@@ -15,14 +15,15 @@ import javax.inject.Inject
 
 
 class MyPageMainFragment: DataBindingInjectFragment<FragmentMypageMainBinding>() {
-    override val layoutId: Int
-        get() = R.layout.fragment_mypage_main
 
     @Inject
     lateinit var factory: MyPageMainViewModelFactory
 
     @Inject
-    lateinit var adapter: ViewPagerFragmentAdapter
+    lateinit var viewPagerFragmentAdapter: ViewPagerFragmentAdapter
+
+    override val layoutId: Int
+        get() = R.layout.fragment_mypage_main
 
     override val viewModel
             by lazy { ViewModelProvider(this, factory).get(MyPageMainViewModel::class.java) }
@@ -31,7 +32,7 @@ class MyPageMainFragment: DataBindingInjectFragment<FragmentMypageMainBinding>()
         super.onViewCreated(view, savedInstanceState)
         binding.vm = viewModel
 
-        mypage_main_pager.adapter = adapter
+        mypage_main_pager.adapter = viewPagerFragmentAdapter
 
         TabLayoutMediator(mypage_main_tap, mypage_main_pager) { tab, position ->
             mypage_main_pager.setCurrentItem(tab.position, true)

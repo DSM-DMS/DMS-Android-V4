@@ -1,9 +1,11 @@
 package com.dsm.dms.domain.service
 
+import com.dsm.dms.domain.`object`.Room
 import com.dsm.dms.domain.base.ErrorHandler
 import com.dsm.dms.domain.base.Result
 import com.dsm.dms.domain.entity.ExtensionInfo
 import com.dsm.dms.domain.entity.Map
+import com.dsm.dms.domain.entity.enums.ClassNum
 import com.dsm.dms.domain.repository.ExtensionRepository
 import com.dsm.dms.domain.toResult
 import com.dsm.dms.domain.toSingleResult
@@ -14,11 +16,11 @@ class ExtensionServiceImpl(
     private val handler: ErrorHandler
 ): ExtensionService {
 
-    override fun getExtensionMap(time: Int, classNum: Int): Single<Result<Map>> =
-        repository.getRemoteExtensionMap(time, classNum)
+    override fun getExtensionMap(room: Room): Single<Result<Map>> =
+        repository.getRemoteExtensionMap(room)
             .toResult(
                 handler = handler,
-                getLocalDataFun = { repository.getLocalExtensionMap(time, classNum) },
+                getLocalDataFun = { repository.getLocalExtensionMap(room) },
                 saveLocalFun = { T -> repository.saveLocalExtensionMap(T) }
             )
 

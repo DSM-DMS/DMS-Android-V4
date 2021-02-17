@@ -13,9 +13,11 @@ import com.dsm.dms.presentation.R
 import com.dsm.dms.presentation.base.BaseViewModel
 import com.dsm.dms.presentation.base.SingleLiveEvent
 import com.dsm.dms.presentation.bindingAdapter.ViewPagerItem
+import com.dsm.dms.presentation.isNotNull
 import com.dsm.dms.presentation.model.MealModel
 import com.dsm.dms.presentation.model.VisibilityModel
 import com.dsm.dms.presentation.model.toModel
+import com.dsm.dms.presentation.onErrorShow
 import io.reactivex.observers.DisposableSingleObserver
 import java.text.SimpleDateFormat
 import java.util.*
@@ -95,7 +97,7 @@ class MealViewModel(private val getMeal: GetMealUseCase): BaseViewModel() {
 
     inner class MealItemViewModel(
         var meal: MealModel,
-        val visibility: VisibilityModel
+        var visibility: VisibilityModel
     ) {
 
         init {
@@ -112,51 +114,66 @@ class MealViewModel(private val getMeal: GetMealUseCase): BaseViewModel() {
                         is Result.Error ->
                             onErrorGetMealData(result)
                     }
-                    visibility.visibleLoad = View.GONE
                 }
 
                 override fun onError(e: Throwable) {
-                    visibility.visibleLoad = View.GONE
+
                 }
             })
         }
 
-        private fun onErrorShow(resource: Int) {
-            visibility.errorResource = resource
-            visibility.visibleContent = View.GONE
-            visibility.visibleError = View.VISIBLE
-        }
-
-        private fun onSuccessShow() {
-            visibility.visibleContent = View.VISIBLE
-        }
-
         private fun onErrorGetMealData(result: Result.Error<Meal>) {
-            if (result.data != null) {
-                when (result.message) {
-                    Message.UNKNOW_ERROR ->
-                        showMessageEvent.value = "알 수 없는 오류가 발생했습니다"
-                    Message.NETWORK_ERROR ->
-                        showMessageEvent.value = "네트워크 오류가 발생했습니다"
-                    else ->
-                        showMessageEvent.value = "알 수 없는 오류가 발생했습니다"
-                }
-                meal = result.data!!.toModel()
-                visibility.visibleContent = View.VISIBLE
-            } else {
-                when (result.message) {
-                    Message.UNKNOW_ERROR ->
-                        onErrorShow(R.drawable.ic_server_error)
-                    Message.NETWORK_ERROR ->
-                        onErrorShow(R.drawable.ic_network_error)
-                    else ->
-                        onErrorShow(R.drawable.ic_server_error)
-                }
+            if (result.data.isNotNull())
+                onErrorGetMealDataIsNotNull(result)
+            else
+                onErrorGetMealDataIsNull(result)
+        }
+
+        private fun onErrorGetMealDataIsNotNull(result: Result.Error<Meal>) {
+            showMessageGetMealData(result.message)
+            visibility = VisibilityModel().apply {
+                visibleLoad = View.GONE
+                visibleContent = View.VISIBLE
+            }
+            meal = result.data!!.toModel()
+        }
+
+        private fun onErrorGetMealDataIsNull(result: Result.Error<Meal>) {
+            showMessageGetMealData(result.message)
+            visibility = VisibilityModel().apply {
+                visibleLoad = View.GONE
+                visibleError = View.VISIBLE
+            }
+            showImageGetMealData(result.message)
+        }
+
+        private fun showImageGetMealData(message: Message) {
+            when (message) {
+                Message.UNKNOW_ERROR ->
+                    visibility.onErrorShow(R.drawable.ic_server_error)
+                Message.NETWORK_ERROR ->
+                    visibility.onErrorShow(R.drawable.ic_network_error)
+                else ->
+                    visibility.onErrorShow(R.drawable.ic_server_error)
+            }
+        }
+
+        private fun showMessageGetMealData(message: Message) {
+            when (message) {
+                Message.UNKNOW_ERROR ->
+                    showMessageEvent.value = "알 수 없는 오류가 발생했습니다"
+                Message.NETWORK_ERROR ->
+                    showMessageEvent.value = "네트워크 오류가 발생했습니다"
+                else ->
+                    showMessageEvent.value = "알 수 없는 오류가 발생했습니다"
             }
         }
 
         private fun onSuccessGetMealData(result: Result.Success<Meal>) {
-            onSuccessShow()
+            visibility = VisibilityModel().apply {
+                visibleLoad = View.GONE
+                visibleContent = View.VISIBLE
+            }
             meal = result.data.toModel()
         }
     }

@@ -46,7 +46,7 @@ abstract class MainActivityModule {
 
     @FragmentScope
     @ContributesAndroidInjector(modules = [ChangePasswordModule::class])
-    abstract fun changePassworFragment(): ChangePasswordFragment
+    abstract fun changePasswordFragment(): ChangePasswordFragment
 
     @FragmentScope
     @ContributesAndroidInjector(modules = [PointModule::class])

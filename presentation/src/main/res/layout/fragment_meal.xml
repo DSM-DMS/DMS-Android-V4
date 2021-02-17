@@ -1,64 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+
     <data>
         <variable
-                name="vm"
-                type="com.dsm.dms.presentation.viewmodel.main.meal.MealViewModel" />
+            name="vm"
+            type="com.dsm.dms.presentation.viewmodel.main.meal.MealViewModel"
+            />
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/meal_layout"
         android:layout_height="match_parent"
-            android:layout_width="match_parent">
+        android:layout_width="match_parent"
+        >
 
         <androidx.appcompat.widget.AppCompatImageView
-            android:onClick="@{() -> vm.dateBeforeClick()}"
             android:id="@+id/meal_before_btn"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
             android:background="?attr/selectableItemBackgroundBorderless"
             android:tint="@color/colorNightBlack"
             android:src="@drawable/ic_before"
+            android:layout_margin="54dp"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            android:layout_margin="54dp"
-            android:layout_width="24dp"
-            android:layout_height="24dp"/>
+            android:onClick="@{() -> vm.dateBeforeClick()}"
+            />
 
         <androidx.appcompat.widget.AppCompatImageView
-            android:onClick="@{() -> vm.dateAfterClick()}"
             android:id="@+id/meal_after_btn"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
             android:src="@drawable/ic_after"
             android:background="?attr/selectableItemBackgroundBorderless"
             android:tint="@color/colorNightBlack"
+            android:layout_margin="54dp"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:layout_margin="54dp"
-            android:layout_width="24dp"
-            android:layout_height="24dp"/>
+            android:onClick="@{() -> vm.dateAfterClick()}"
+            />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/meal_date_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textColor="@color/colorMain"
+            android:text="@{vm.dateText}"
+            android:fontFamily="@font/nanum_square_otf_extra_bold"
             app:layout_constraintTop_toTopOf="@id/meal_before_btn"
             app:layout_constraintBottom_toBottomOf="@id/meal_before_btn"
             app:layout_constraintStart_toEndOf="@id/meal_before_btn"
             app:layout_constraintEnd_toStartOf="@id/meal_after_btn"
-            android:textSize="18sp"
-            android:textColor="@color/colorMain"
-            android:text="@{vm.dateText}"
-            android:fontFamily="@font/nanum_square_otf_bold"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            />
 
         <androidx.viewpager2.widget.ViewPager2
-            android:layout_marginTop="16dp"
             android:id="@+id/meal_pager"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            app:viewpagerItems="@{vm.listItem}"
+            app:pageChange="@={vm.pageStatusLiveData}"
+            android:layout_marginTop="16dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/meal_date_tv"
-            app:viewpagerItems="@{vm.listItem}"
-            app:pageChange="@={vm.pageStatusLiveData}" />
+            />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

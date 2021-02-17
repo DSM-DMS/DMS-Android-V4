@@ -46,7 +46,11 @@ class RegisterViewModel(
         when(nowStateLabelData.value) {
             "CreateAccount" -> {
                 if (checkSignUpInput()) {
-                    createAccount()
+                    if (checkRetryPassword()) {
+                        createAccount()
+                    } else {
+                        showMessageEvent.value = "비밀번호가 서로 다릅니다"
+                    }
                 } else {
                     showMessageEvent.value = "계정정보를 모두 입력해주세요"
                 }
@@ -79,23 +83,8 @@ class RegisterViewModel(
             certificationCodeData.value!!, object: DisposableSingleObserver<Result<VerificationKey>>() {
                 override fun onSuccess(result: Result<VerificationKey>) {
                     when(result) {
-                        is Result.Success -> {
-                            verificationKeyData.value = result.data.verificationKey
-                            onVerifySuccessEvent.value = "인증 성공"
-                        }
-                        is Result.Error -> {
-                            onVerifyErrorEvent.value = "인증 오류"
-                            when(result.message) {
-                                Message.UNKNOW_ERROR ->
-                                    showMessageEvent.value = "알 수 없는 오류가 발생했습니다"
-                                Message.SERVER_ERROR ->
-                                    showMessageEvent.value = "서버 오류가 발생했습니다"
-                                Message.NETWORK_ERROR ->
-                                    showMessageEvent.value = "네트워크 오류가 발생했습니다"
-                                else ->
-                                    showMessageEvent.value = "알 수 없는 오류가 발생했습니다"
-                            }
-                        }
+                        is Result.Success -> onSuccessVerifyCertificationCode(result)
+                        is Result.Error -> onErrorVerifyCertificationCode(result)
                     }
                 }
 
@@ -103,26 +92,35 @@ class RegisterViewModel(
 
                 }
 
-            })
+            }
+        )
+    }
+
+    private fun onSuccessVerifyCertificationCode(result: Result.Success<VerificationKey>) {
+        verificationKeyData.value = result.data.verificationKey
+        onVerifySuccessEvent.value = "인증 성공"
+    }
+
+    private fun onErrorVerifyCertificationCode(result: Result.Error<VerificationKey>) {
+        onVerifyErrorEvent.value = "인증 오류"
+        when(result.message) {
+            Message.UNKNOW_ERROR ->
+                showMessageEvent.value = "알 수 없는 오류가 발생했습니다"
+            Message.SERVER_ERROR ->
+                showMessageEvent.value = "서버 오류가 발생했습니다"
+            Message.NETWORK_ERROR ->
+                showMessageEvent.value = "네트워크 오류가 발생했습니다"
+            else ->
+                showMessageEvent.value = "알 수 없는 오류가 발생했습니다"
+        }
     }
 
     private fun createAccount() {
         signUpUseCase.execute(createSignUpModel().toObject(), object: DisposableSingleObserver<Result<Unit>>() {
             override fun onSuccess(result: Result<Unit>) {
                 when(result) {
-                    is Result.Success -> nextEvent.call()
-                    is Result.Error -> {
-                        when(result.message) {
-                            Message.UNKNOW_ERROR ->
-                                showMessageEvent.value = "알 수 없는 오류가 발생했습니다"
-                            Message.SERVER_ERROR ->
-                                showMessageEvent.value = "서버 오류가 발생했습니다"
-                            Message.NETWORK_ERROR ->
-                                showMessageEvent.value = "네트워크 오류가 발생했습니다"
-                            else ->
-                                showMessageEvent.value = "알 수 없는 오류가 발생했습니다"
-                        }
-                    }
+                    is Result.Success -> onSuccessCreateAccount(result)
+                    is Result.Error -> onErrorCreateAccount(result)
                 }
 
             }
@@ -134,14 +132,34 @@ class RegisterViewModel(
         })
     }
 
+    private fun onSuccessCreateAccount(result: Result.Success<Unit>) {
+        nextEvent.call()
+    }
+
+    private fun onErrorCreateAccount(result: Result.Error<Unit>) {
+        when(result.message) {
+            Message.UNKNOW_ERROR ->
+                showMessageEvent.value = "알 수 없는 오류가 발생했습니다"
+            Message.SERVER_ERROR ->
+                showMessageEvent.value = "서버 오류가 발생했습니다"
+            Message.NETWORK_ERROR ->
+                showMessageEvent.value = "네트워크 오류가 발생했습니다"
+            else ->
+                showMessageEvent.value = "알 수 없는 오류가 발생했습니다"
+        }
+    }
+
     private fun checkCertificationCodeInput(): Boolean =
         certificationCodeData.value.isNotNullOrBlank()
 
     private fun checkSignUpInput(): Boolean =
-        idData.value.isNotNullOrBlank()
-            .and(passwordData.value.isNotNullOrBlank())
-            .and(retryPasswordData.value.isNotNullOrBlank())
-            .and(retryPasswordData.value == passwordData.value)
+        idData.value.isNotNullOrBlank() and
+                passwordData.value.isNotNullOrBlank() and
+                retryPasswordData.value.isNotNullOrBlank() and
+                (retryPasswordData.value == passwordData.value)
+
+    private fun checkRetryPassword(): Boolean =
+        passwordData.value == retryPasswordData.value
 
     private fun createSignUpModel(): SignUpModel =
         SignUpModel(

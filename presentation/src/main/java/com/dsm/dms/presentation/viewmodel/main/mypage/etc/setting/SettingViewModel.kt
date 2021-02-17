@@ -2,17 +2,21 @@ package com.dsm.dms.presentation.viewmodel.main.mypage.etc.setting
 
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.MutableLiveData
+import com.dsm.dms.data.local.pref.LocalStorage
 import com.dsm.dms.presentation.BR
 import com.dsm.dms.presentation.R
+import com.dsm.dms.presentation.applyDarkMode
 import com.dsm.dms.presentation.base.BaseViewModel
 import com.dsm.dms.presentation.base.ResourcesProvider
 import com.dsm.dms.presentation.base.SingleLiveEvent
 import com.dsm.dms.presentation.bindingAdapter.RecyclerItem
-import com.dsm.dms.presentation.bindingAdapter.ViewPagerItem
 import com.dsm.dms.presentation.model.SettingModel
 
 
-class SettingViewModel(private val resourcesProvider: ResourcesProvider): BaseViewModel() {
+class SettingViewModel(
+    private val resourcesProvider: ResourcesProvider,
+    private val localStorage: LocalStorage
+): BaseViewModel() {
 
     val settingList = MutableLiveData<List<RecyclerItem>>()
 
@@ -33,19 +37,31 @@ class SettingViewModel(private val resourcesProvider: ResourcesProvider): BaseVi
             arrayListOf(
                 SettingModel(
                     resourcesProvider.getString(R.string.mypage_setting_dark_mode_title),
-                    resourcesProvider.getString(R.string.mypage_setting_dark_mode_content)
+                    resourcesProvider.getString(R.string.mypage_setting_dark_mode_content),
+                    localStorage.getSetting(
+                        resourcesProvider.getString(R.string.mypage_setting_dark_mode_title)
+                    )
                 ),
                 SettingModel(
                     resourcesProvider.getString(R.string.mypage_setting_extension_alert_title),
-                    resourcesProvider.getString(R.string.mypage_setting_extension_alert_content)
+                    resourcesProvider.getString(R.string.mypage_setting_extension_alert_content),
+                    localStorage.getSetting(
+                        resourcesProvider.getString(R.string.mypage_setting_extension_alert_title)
+                    )
                 ),
                 SettingModel(
                     resourcesProvider.getString(R.string.mypage_setting_staying_alert_title),
-                    resourcesProvider.getString(R.string.mypage_setting_staying_alert_content)
+                    resourcesProvider.getString(R.string.mypage_setting_staying_alert_content),
+                    localStorage.getSetting(
+                        resourcesProvider.getString(R.string.mypage_setting_staying_alert_title)
+                    )
                 ),
                 SettingModel(
                     resourcesProvider.getString(R.string.mypage_setting_notice_alert_title),
-                    resourcesProvider.getString(R.string.mypage_setting_notice_alert_content)
+                    resourcesProvider.getString(R.string.mypage_setting_notice_alert_content),
+                    localStorage.getSetting(
+                        resourcesProvider.getString(R.string.mypage_setting_notice_alert_title)
+                    )
                 )
             )
         )
@@ -65,7 +81,14 @@ class SettingViewModel(private val resourcesProvider: ResourcesProvider): BaseVi
 
     inner class SettingItemViewModel(val setting: SettingModel) {
         fun clickSwitch() {
-            setting.checked = !setting.checked
+            localStorage.saveSetting(setting.title, setting.checked.not())
+            localStorage.getSetting(setting.title).also {
+                setting.checked = it
+                when(setting.title) {
+                    resourcesProvider.getString(R.string.mypage_setting_dark_mode_title) ->
+                        applyDarkMode(it)
+                }
+            }
         }
     }
 }

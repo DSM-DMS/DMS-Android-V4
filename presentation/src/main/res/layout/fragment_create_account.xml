@@ -1,73 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
 
     <data>
-
         <variable
             name="vm"
-            type="com.dsm.dms.presentation.viewmodel.sign.register.RegisterViewModel" />
+            type="com.dsm.dms.presentation.viewmodel.sign.register.RegisterViewModel"
+            />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        >
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/create_account_gl_start"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.06" />
+            app:layout_constraintGuide_percent="0.06"
+            />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/create_account_gl_end"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.94" />
+            app:layout_constraintGuide_percent="0.94"
+            />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/create_account_title_tv"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
             android:lineSpacingExtra="-4sp"
             android:text="@string/account_info_input"
             android:textColor="@color/colorSignMain"
             android:textSize="24sp"
+            android:fontFamily="@font/nanum_square_otf_extra_bold"
+            android:layout_marginTop="24dp"
             app:layout_constraintEnd_toStartOf="@+id/create_account_gl_end"
             app:layout_constraintStart_toStartOf="@+id/create_account_gl_start"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            />
 
         <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/create_account_id_edit"
             style="@style/SignEditTextStyle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="48dp"
             android:drawableStart="@drawable/ic_id"
             android:drawablePadding="16dp"
             android:hint="@string/sign_id_hint"
-            android:inputType="textEmailAddress"
+            android:inputType="text|number"
             android:lineSpacingExtra="1sp"
             android:paddingStart="4dp"
             android:paddingEnd="4dp"
             android:text="@={vm.idData}"
-            android:textColor="@color/colorBlack"
+            android:textColor="@color/colorNightBlack"
             android:textSize="12sp"
+            android:fontFamily="@font/nanum_square_otf_regular"
+            android:maxLines="1"
             android:theme="@style/SignEditTextStyle"
+            android:layout_marginTop="48dp"
             app:layout_constraintBottom_toTopOf="@+id/create_account_pw_edit"
             app:layout_constraintEnd_toStartOf="@+id/create_account_gl_end"
             app:layout_constraintStart_toStartOf="@+id/create_account_gl_start"
-            app:layout_constraintTop_toBottomOf="@+id/create_account_title_tv" />
+            app:layout_constraintTop_toBottomOf="@+id/create_account_title_tv"
+            />
 
         <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/create_account_pw_edit"
             style="@style/SignEditTextStyle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="36dp"
             android:drawableStart="@drawable/ic_pw"
             android:drawablePadding="16dp"
             android:hint="@string/sign_pw_hint"
@@ -76,19 +85,22 @@
             android:paddingStart="4dp"
             android:paddingEnd="4dp"
             android:text="@={vm.passwordData}"
-            android:textColor="@color/colorBlack"
+            android:textColor="@color/colorNightBlack"
             android:textSize="12sp"
+            android:fontFamily="@font/nanum_square_otf_regular"
+            android:maxLines="1"
             android:theme="@style/SignEditTextStyle"
+            android:layout_marginTop="36dp"
             app:layout_constraintEnd_toStartOf="@+id/create_account_gl_end"
             app:layout_constraintStart_toStartOf="@+id/create_account_gl_start"
-            app:layout_constraintTop_toBottomOf="@+id/create_account_id_edit" />
+            app:layout_constraintTop_toBottomOf="@+id/create_account_id_edit"
+            />
 
         <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/create_account_pw_retry_edit"
             style="@style/SignEditTextStyle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="36dp"
             android:drawableStart="@drawable/ic_check"
             android:drawablePadding="16dp"
             android:hint="@string/sign_pw_retry_hint"
@@ -97,13 +109,17 @@
             android:paddingStart="4dp"
             android:paddingEnd="4dp"
             android:text="@={vm.retryPasswordData}"
-            android:textColor="@color/colorBlack"
+            android:textColor="@color/colorNightBlack"
             android:textSize="12sp"
+            android:fontFamily="@font/nanum_square_otf_regular"
+            android:maxLines="1"
             android:theme="@style/SignEditTextStyle"
+            android:layout_marginTop="36dp"
             app:layout_constraintEnd_toStartOf="@+id/create_account_gl_end"
             app:layout_constraintStart_toStartOf="@+id/create_account_gl_start"
-            app:layout_constraintTop_toBottomOf="@+id/create_account_pw_edit" />
+            app:layout_constraintTop_toBottomOf="@+id/create_account_pw_edit"
+            />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-</layout>
 
+</layout>

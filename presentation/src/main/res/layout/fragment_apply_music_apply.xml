@@ -1,40 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+
     <data>
         <variable
             name="vm"
-            type="com.dsm.dms.presentation.viewmodel.main.apply.music.apply.ApplyMusicApplyViewModel"/>
+            type="com.dsm.dms.presentation.viewmodel.main.apply.music.apply.ApplyMusicApplyViewModel"
+            />
     </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        >
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/apply_music_apply_back_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="24dp"
             android:background="?attr/selectableItemBackgroundBorderless"
             android:clickable="true"
             android:focusable="true"
             android:onClick="@{() -> vm.backClick()}"
             android:src="@drawable/ic_back"
             android:tint="@color/colorNightBlack"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="24dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            />
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/apply_music_apply_icon_imv"
             android:layout_width="54dp"
             android:layout_height="54dp"
-            android:layout_marginTop="36dp"
             android:background="@drawable/ic_music"
             android:backgroundTint="@color/colorMain"
+            android:layout_marginTop="36dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/apply_music_apply_title_tv"
@@ -44,10 +52,11 @@
             android:text="@string/music_day_list_title"
             android:textColor="@color/colorNightBlack"
             android:textSize="18sp"
-            android:textStyle="bold"
+            android:fontFamily="@font/nanum_square_otf_bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/apply_music_apply_icon_imv" />
+            app:layout_constraintTop_toBottomOf="@id/apply_music_apply_icon_imv"
+            />
 
         <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/apply_music_apply_music_title_edit"
@@ -59,18 +68,21 @@
             android:inputType="text"
             android:hint="@string/music_apply_music_title_hint"
             android:lineSpacingExtra="1sp"
+            android:text="@={vm.musicTitle}"
+            android:textColor="@color/colorNightBlack"
+            android:textSize="12sp"
+            android:fontFamily="@font/nanum_square_otf_regular"
+            android:maxLines="1"
+            android:theme="@style/SignEditTextStyle"
             android:paddingStart="4dp"
             android:paddingEnd="4dp"
             android:layout_marginHorizontal="24dp"
-            android:text="@={vm.musicTitle}"
-            android:textColor="@color/colorBlack"
-            android:textSize="12sp"
-            android:theme="@style/SignEditTextStyle"
             app:layout_constraintVertical_chainStyle="packed"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toTopOf="@id/apply_music_apply_music_artist_edit"/>
+            app:layout_constraintBottom_toTopOf="@id/apply_music_apply_music_artist_edit"
+            />
 
         <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/apply_music_apply_music_artist_edit"
@@ -82,33 +94,39 @@
             android:inputType="text"
             android:lineSpacingExtra="1sp"
             android:hint="@string/music_apply_music_artist_hint"
+            android:text="@={vm.musicArtist}"
+            android:textColor="@color/colorNightBlack"
+            android:textSize="12sp"
+            android:fontFamily="@font/nanum_square_otf_regular"
+            android:maxLines="1"
+            android:theme="@style/SignEditTextStyle"
             android:paddingStart="4dp"
             android:paddingEnd="4dp"
             android:layout_marginTop="36dp"
             android:layout_marginHorizontal="24dp"
-            android:text="@={vm.musicArtist}"
-            android:textColor="@color/colorBlack"
-            android:textSize="12sp"
-            android:theme="@style/SignEditTextStyle"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/apply_music_apply_music_title_edit"
-            app:layout_constraintBottom_toTopOf="@id/apply_music_apply_button_tv"/>
+            app:layout_constraintBottom_toTopOf="@id/apply_music_apply_btn"
+            />
 
         <com.dsm.dms.dmsviewlibrary.button.textview.DmsProgressButton
-            android:id="@+id/apply_music_apply_button_tv"
+            android:id="@+id/apply_music_apply_btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:clickable="true"
             android:focusable="true"
             android:foreground="?android:attr/selectableItemBackground"
-            android:onClick="@{() -> vm.apply()}"
             android:text="@string/extension_apply_text"
             android:textSize="20sp"
             android:textColor="@color/colorWhite"
+            android:fontFamily="@font/nanum_square_otf_extra_bold"
             android:gravity="center"
             android:padding="13dp"
-            app:layout_constraintBottom_toBottomOf="parent"/>
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:onClick="@{() -> vm.apply()}"
+            />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 </layout>

@@ -5,14 +5,12 @@ import androidx.lifecycle.MutableLiveData
 import com.dsm.dms.presentation.base.BaseViewModel
 import com.dsm.dms.presentation.base.SingleLiveEvent
 import com.dsm.dms.presentation.bindingAdapter.ViewPagerItem
+import com.dsm.dms.presentation.model.NoticeModel
 
 
 class NoticeDetailViewModel: BaseViewModel() {
 
-    val date = MutableLiveData<String>()
-    val viewCount = MutableLiveData<String>()
-    val noticeTitle = MutableLiveData<String>()
-    val noticeContent = MutableLiveData<String>()
+    val notice = MutableLiveData<NoticeModel>()
 
     val backToList = SingleLiveEvent<Unit>()
 

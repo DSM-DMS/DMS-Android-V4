@@ -4,6 +4,7 @@
     <color name="colorNightWhiteToGray">#404040</color>
     <color name="colorNightGray">#121212</color>
     <color name="colorNightBlack">#F0F0F0</color>
+    <color name="colorNightLowBlack">#F0F0F0</color>
     <color name="colorNightViewBackgroundDefault">#404040</color>
     <color name="colorNightViewColorDefault">#FAFAFA</color>
 </resources>

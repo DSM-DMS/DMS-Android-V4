@@ -9,8 +9,10 @@ import com.dsm.dms.presentation.viewmodel.main.mypage.main.MyPageMainViewModelFa
 import dagger.Module
 import dagger.Provides
 
+
 @Module
 class MyPageMainModule {
+
     @MyPageFragmentScope
     @Provides
     fun provideViewModelFactory(): MyPageMainViewModelFactory
@@ -18,9 +20,14 @@ class MyPageMainModule {
 
     @MyPageFragmentScope
     @Provides
-    fun provideMyPageAdapter(mainActivity: MainActivity, etcFragment: MyPageEtcFragment, myDataFragment: MyPageMyDataFragment): ViewPagerFragmentAdapter
+    fun provideViewPagerFragmentAdapter(
+            mainActivity: MainActivity,
+            myPageMyDataFragment: MyPageMyDataFragment,
+            myPageEtcFragment: MyPageEtcFragment
+    ): ViewPagerFragmentAdapter
             = ViewPagerFragmentAdapter(mainActivity).apply {
-        fragments.add(myDataFragment)
-        fragments.add(etcFragment)
+        fragments.add(myPageMyDataFragment)
+        fragments.add(myPageEtcFragment)
     }
+
 }

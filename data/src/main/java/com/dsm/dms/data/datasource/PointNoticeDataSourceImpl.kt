@@ -3,12 +3,12 @@ package com.dsm.dms.data.datasource
 import com.dsm.dms.data.dto.response.GetListPointNoticeResponse
 import com.dsm.dms.data.local.database.dao.PointNoticeDao
 import com.dsm.dms.data.local.database.entity.PointEntity
-import com.dsm.dms.data.remote.NoticeApi
+import com.dsm.dms.data.remote.BaseApi
 import io.reactivex.Single
 
 
 class PointNoticeDataSourceImpl(
-    private val api: NoticeApi,
+    private val api: BaseApi,
     private val pointNoticeDao: PointNoticeDao
 ): PointNoticeDataSource {
 

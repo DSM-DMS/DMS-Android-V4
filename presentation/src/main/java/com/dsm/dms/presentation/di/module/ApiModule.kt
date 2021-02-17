@@ -16,7 +16,6 @@ class ApiModule {
         private val accountUrl = "${baseUrl}account/"
         private val applyUrl = "${baseUrl}apply/"
         private val infoUrl = "${baseUrl}info/"
-        private val noticeUrl = "${baseUrl}notice/"
     }
 
     @Provides
@@ -49,9 +48,9 @@ class ApiModule {
 
     @Provides
     @Singleton
-    fun provideNoticeApi(retrofit: Retrofit.Builder): NoticeApi =
-        retrofit.baseUrl(noticeUrl)
+    fun provideBaseApi(retrofit: Retrofit.Builder): BaseApi =
+        retrofit.baseUrl(baseUrl)
             .build()
-            .create(NoticeApi::class.java)
+            .create(BaseApi::class.java)
 
 }

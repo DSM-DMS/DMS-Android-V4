@@ -5,6 +5,7 @@ import com.dsm.dms.domain.base.ErrorHandler
 import com.dsm.dms.domain.base.Message
 import com.dsm.dms.domain.base.Result
 import com.dsm.dms.domain.entity.*
+import com.dsm.dms.domain.entity.enums.ClassNum
 import com.dsm.dms.domain.entity.enums.GoingOutType
 import com.dsm.dms.domain.entity.enums.StayInfo
 import com.dsm.dms.domain.repository.ExtensionRepository
@@ -59,8 +60,8 @@ class UserServiceTest: BaseTest() {
                 extension = listOf(
                     ExtensionInfo(
                         time = 12,
-                        classNumber = 3,
-                        seatNumber = 14
+                        classNum = ClassNum.GAONSIL,
+                        seatNum = 14
                     )
                 ),
                 stay = StayInfo.STAY,
@@ -86,8 +87,8 @@ class UserServiceTest: BaseTest() {
                 listOf(
                     ExtensionInfo(
                         time = 12,
-                        classNumber = 3,
-                        seatNumber = 14
+                        classNum = ClassNum.GAONSIL,
+                        seatNum = 14
                     )
                 )
             )
@@ -130,8 +131,8 @@ class UserServiceTest: BaseTest() {
                 extension = listOf(
                     ExtensionInfo(
                         time = 12,
-                        classNumber = 3,
-                        seatNumber = 14
+                        classNum = ClassNum.GAONSIL,
+                        seatNum = 14
                     )
                 ),
                 stay = StayInfo.STAY,
@@ -160,8 +161,8 @@ class UserServiceTest: BaseTest() {
                 listOf(
                     ExtensionInfo(
                         time = 12,
-                        classNumber = 3,
-                        seatNumber = 14
+                        classNum = ClassNum.GAONSIL,
+                        seatNum = 14
                     )
                 )
             )

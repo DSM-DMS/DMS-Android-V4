@@ -1,0 +1,15 @@
+package com.dsm.dms.domain.entity.enums
+
+enum class ClassNum(value: Int) {
+    GAONSIL(1),
+    NAONSIL(2),
+    DAONSIL(3),
+    LAONSIL(4),
+    SECOND_FLOOR_ROOM(5),
+    THIRD_FLOOR_SCHOOL_SIDE_ROOM(6),
+    THIRD_FLOOR_DORMITORY_SIDE_ROOM(7),
+    FOURTH_FLOOR_SCHOOL_SIDE_ROOM(8),
+    FOURTH_FLOOR_DORMITORY_SIDE_ROOM(9),
+    FIFTH_FLOOR_ROOM(10),
+    THIRD_FLOOR_SOFA(11)
+}

@@ -6,12 +6,12 @@ import io.reactivex.Single
 import retrofit2.http.GET
 
 
-interface NoticeApi {
+interface BaseApi {
 
-    @GET
-    fun getNotice(): Single<GetListNoticeResponse>
+    @GET("notice")
+    fun getNoticeList(): Single<GetListNoticeResponse>
 
-    @GET("point")
+    @GET("notice/point")
     fun getPointNotice(): Single<GetListPointNoticeResponse>
 
 }

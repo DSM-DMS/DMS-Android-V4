@@ -1,11 +1,13 @@
 package com.dsm.dms.domain.service
 
 import com.dsm.dms.domain.BaseTest
+import com.dsm.dms.domain.`object`.Room
 import com.dsm.dms.domain.base.ErrorHandler
 import com.dsm.dms.domain.base.Message
 import com.dsm.dms.domain.base.Result
 import com.dsm.dms.domain.entity.ExtensionInfo
 import com.dsm.dms.domain.entity.Map
+import com.dsm.dms.domain.entity.enums.ClassNum
 import com.dsm.dms.domain.repository.ExtensionRepository
 import com.dsm.dms.domain.usecase.CancelExtensionUseCase
 import com.dsm.dms.domain.usecase.GetExtensionInfoUseCase
@@ -49,10 +51,9 @@ class ExtensionServiceTest: BaseTest() {
     @Test
     fun `연장신청 맵 가져오기 성공`() {
 
-        val map = Map(
+        val room = Room(
             time = 12,
-            classNum = 3,
-            map = emptyList()
+            classNum = ClassNum.DAONSIL
         )
 
         val resultMap = Map(
@@ -65,15 +66,15 @@ class ExtensionServiceTest: BaseTest() {
             )
         )
 
-        `when`(extensionRepository.getRemoteExtensionMap(map.time, map.classNum))
+        `when`(extensionRepository.getRemoteExtensionMap(room))
             .thenReturn(
                 Single.just(resultMap)
             )
 
-        `when`(extensionRepository.getLocalExtensionMap(map.time, map.classNum))
+        `when`(extensionRepository.getLocalExtensionMap(room))
             .thenReturn(resultMap)
 
-        getExtensionMapUseCase.create(map)
+        getExtensionMapUseCase.create(room)
             .test().assertValue(
                 Result.Success(resultMap)
             )
@@ -84,10 +85,9 @@ class ExtensionServiceTest: BaseTest() {
     fun `연장신청 맵 가져오기 실패`() {
 
         val exception = Exception()
-        val map = Map(
+        val room = Room(
             time = 12,
-            classNum = 3,
-            map = emptyList()
+            classNum = ClassNum.DAONSIL
         )
         val resultMap = Map(
             time = 12,
@@ -102,15 +102,15 @@ class ExtensionServiceTest: BaseTest() {
         `when`(errorHandler.errorHandle(exception))
             .thenReturn(Message.UNKNOW_ERROR)
 
-        `when`(extensionRepository.getRemoteExtensionMap(map.time, map.classNum))
+        `when`(extensionRepository.getRemoteExtensionMap(room))
             .thenReturn(
                 Single.error(exception)
             )
 
-        `when`(extensionRepository.getLocalExtensionMap(map.time, map.classNum))
+        `when`(extensionRepository.getLocalExtensionMap(room))
             .thenReturn(resultMap)
 
-        getExtensionMapUseCase.create(map)
+        getExtensionMapUseCase.create(room)
             .test().assertValue(
                 Result.Error(resultMap, Message.UNKNOW_ERROR)
             )
@@ -123,8 +123,8 @@ class ExtensionServiceTest: BaseTest() {
         val time = 12
         val extensionInfo = ExtensionInfo(
             time = 12,
-            classNumber = 3,
-            seatNumber = 14
+            classNum = ClassNum.DAONSIL,
+            seatNum = 14
         )
 
         `when`(extensionRepository.getRemoteExtensionInfo(time))
@@ -149,8 +149,8 @@ class ExtensionServiceTest: BaseTest() {
         val time = 12
         val extensionInfo = ExtensionInfo(
             time = 12,
-            classNumber = 3,
-            seatNumber = 14
+            classNum = ClassNum.DAONSIL,
+            seatNum = 14
         )
 
         `when`(errorHandler.errorHandle(exception))
@@ -176,8 +176,8 @@ class ExtensionServiceTest: BaseTest() {
 
         val extensionInfo = ExtensionInfo(
             time = 12,
-            classNumber = 3,
-            seatNumber = 14
+            classNum = ClassNum.DAONSIL,
+            seatNum = 14
         )
 
         `when`(extensionRepository.postRemoteExtensionInfo(extensionInfo))
@@ -198,8 +198,8 @@ class ExtensionServiceTest: BaseTest() {
         val exception = Exception()
         val extensionInfo = ExtensionInfo(
             time = 12,
-            classNumber = 3,
-            seatNumber = 14
+            classNum = ClassNum.DAONSIL,
+            seatNum = 14
         )
 
         `when`(errorHandler.errorHandle(exception))

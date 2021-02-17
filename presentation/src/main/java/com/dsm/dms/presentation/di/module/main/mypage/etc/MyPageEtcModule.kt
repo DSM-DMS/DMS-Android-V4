@@ -9,13 +9,17 @@ import dagger.Provides
 
 @Module
 class MyPageEtcModule {
+
     @MyPageFragmentScope
     @Provides
-    fun provideFragment(factory: MyPageEtcViewModelFactory): MyPageEtcFragment
-            = MyPageEtcFragment(factory)
+    fun provideMyPageEtcFragment(factory: MyPageEtcViewModelFactory): MyPageEtcFragment
+            = MyPageEtcFragment().apply {
+        this.factory = factory
+    }
 
     @MyPageFragmentScope
     @Provides
     fun provideViewModelFactory(): MyPageEtcViewModelFactory
             = MyPageEtcViewModelFactory()
+
 }

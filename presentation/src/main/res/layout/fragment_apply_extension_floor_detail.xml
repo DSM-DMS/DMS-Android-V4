@@ -1,75 +1,103 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
     <data>
+        <import type="com.dsm.dms.presentation.model.VisibilityModel"/>
         <variable
             name="vm"
-            type="com.dsm.dms.presentation.viewmodel.main.apply.extension.detail.ApplyExtensionFloorDetailViewModel" />
+            type="com.dsm.dms.presentation.viewmodel.main.apply.extension.detail.ApplyExtensionFloorDetailViewModel"
+            />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        >
 
         <androidx.appcompat.widget.AppCompatImageView
-            android:onClick="@{() -> vm.backClick()}"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_margin="24dp"
             android:id="@+id/extension_floor_detail_back_imv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:background="?attr/selectableItemBackgroundBorderless"
             android:clickable="true"
             android:focusable="true"
             android:src="@drawable/ic_back"
             android:tint="@color/colorNightBlack"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_margin="24dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:onClick="@{() -> vm.backClick()}"
+            />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/extension_floor_detail_title_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textColor="@color/colorMain"
+            android:fontFamily="@font/nanum_square_otf_extra_bold"
             app:layout_constraintTop_toTopOf="@id/extension_floor_detail_back_imv"
             app:layout_constraintBottom_toBottomOf="@id/extension_floor_detail_back_imv"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:textSize="20sp"
-            android:textColor="@color/colorMain"/>
+            />
 
         <FrameLayout
             android:id="@+id/extension_floor_detail_rooms"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginVertical="8dp"
             app:layout_constraintTop_toBottomOf="@id/extension_floor_detail_title_tv"
-            android:layout_marginVertical="8dp"/>
+            />
 
         <androidx.cardview.widget.CardView
             android:id="@+id/extension_floor_detail_map_lay"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginVertical="16dp"
-            android:layout_marginHorizontal="24dp"
             app:cardElevation="4dp"
             app:cardCornerRadius="12dp"
+            android:layout_marginVertical="16dp"
+            android:layout_marginHorizontal="24dp"
             app:layout_constraintTop_toBottomOf="@id/extension_floor_detail_rooms"
             app:layout_constraintBottom_toTopOf="@id/extension_floor_detail_eleven_card"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent">
+            app:layout_constraintEnd_toEndOf="parent"
+            >
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/extension_floor_detail_map_error_imv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@{vm.visibility.errorResource}"
+                android:visibility="@{vm.visibility.visibleError}"
+                android:layout_gravity="center"
+                android:layout_margin="20dp"
+                />
+
             <ScrollView
                 android:layout_gravity="center"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:visibility="@{vm.visibility.visibleContent}"
+                >
+
                 <HorizontalScrollView
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    >
+
                     <LinearLayout
-                        android:padding="10dp"
                         android:id="@+id/extension_floor_detail_map"
-                        android:orientation="vertical"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"/>
+                        android:layout_height="match_parent"
+                        android:padding="10dp"
+                        android:orientation="vertical"
+                        />
+
                 </HorizontalScrollView>
+
             </ScrollView>
 
         </androidx.cardview.widget.CardView>
@@ -82,23 +110,26 @@
             app:cardBackgroundColor="@color/colorNightWhiteToGray"
             app:cardCornerRadius="14dp"
             app:cardElevation="4dp"
-            android:onClick="@{() -> vm.elevenClockClick()}"
             android:layout_marginVertical="16dp"
             android:layout_marginStart="24dp"
             android:layout_marginEnd="16dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toStartOf="@id/extension_floor_detail_twelve_card"
-            app:layout_constraintBottom_toTopOf="@id/extension_floor_detail_apply">
+            app:layout_constraintBottom_toTopOf="@id/extension_floor_detail_apply_btn"
+            android:onClick="@{() -> vm.clockClick(11)}"
+            >
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/extension_floor_detail_eleven_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
                 android:text="@string/extension_apply_eleven_text"
                 android:textColor="@color/colorNightBlack"
                 android:textSize="14sp"
-                android:layout_margin="10dp"/>
+                android:fontFamily="@font/nanum_square_otf_extra_bold"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                />
 
         </androidx.cardview.widget.CardView>
 
@@ -110,40 +141,52 @@
             app:cardBackgroundColor="@color/colorNightWhiteToGray"
             app:cardCornerRadius="14dp"
             app:cardElevation="4dp"
-            android:onClick="@{() -> vm.twelveClockClick()}"
             android:layout_marginVertical="16dp"
             android:layout_marginEnd="24dp"
             app:layout_constraintStart_toEndOf="@id/extension_floor_detail_eleven_card"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toTopOf="@id/extension_floor_detail_apply">
+            app:layout_constraintBottom_toTopOf="@id/extension_floor_detail_apply_btn"
+            android:onClick="@{() -> vm.clockClick(12)}"
+            >
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/extension_floor_detail_twelve_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
                 android:text="@string/extension_apply_twelve_text"
                 android:textColor="@color/colorNightBlack"
                 android:textSize="14sp"
-                android:layout_margin="10dp"/>
+                android:fontFamily="@font/nanum_square_otf_extra_bold"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                />
 
         </androidx.cardview.widget.CardView>
 
         <com.dsm.dms.dmsviewlibrary.button.textview.DmsProgressButton
-            android:id="@+id/extension_floor_detail_apply"
+            android:id="@+id/extension_floor_detail_apply_btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:clickable="true"
-            android:focusable="true"
-            android:foreground="?android:attr/selectableItemBackground"
             android:text="@string/extension_apply_text"
             android:textSize="20sp"
             android:textColor="@color/colorWhite"
-            android:gravity="center"
+            android:fontFamily="@font/nanum_square_otf_extra_bold"
             android:padding="13dp"
-            app:layout_constraintBottom_toBottomOf="parent"/>
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:onClick="@{() -> vm.applyClick()}"
+            />
+
+        <ProgressBar
+            android:id="@+id/extension_floor_detail_progress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="@{vm.visibility.visibleLoad}"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>
-

@@ -8,6 +8,7 @@ import androidx.transition.TransitionInflater
 import com.dsm.dms.presentation.R
 import com.dsm.dms.presentation.base.DataBindingInjectFragment
 import com.dsm.dms.presentation.databinding.FragmentNoticeDetailBinding
+import com.dsm.dms.presentation.model.NoticeModel
 import com.dsm.dms.presentation.viewmodel.main.mypage.etc.notice.NoticeDetailViewModel
 import com.dsm.dms.presentation.viewmodel.main.mypage.etc.notice.NoticeDetailViewModelFactory
 import javax.inject.Inject
@@ -32,10 +33,7 @@ class NoticeDetailFragment: DataBindingInjectFragment<FragmentNoticeDetailBindin
         super.onViewCreated(view, savedInstanceState)
         binding.vm = viewModel
 
-        viewModel.noticeTitle.value = requireArguments().getString("title")
-        viewModel.noticeContent.value = requireArguments().getString("content")
-        viewModel.date.value = requireArguments().getString("date")
-        viewModel.viewCount.value = requireArguments().getString("viewCount")
+        viewModel.notice.value = requireArguments().getParcelable<NoticeModel>("notice")
     }
 
     override fun observeEvent() {

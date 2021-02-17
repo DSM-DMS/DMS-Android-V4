@@ -19,6 +19,7 @@ import com.dsm.dms.presentation.dp
 import com.dsm.dms.presentation.ui.fragment.apply.extension.rooms.*
 import com.dsm.dms.presentation.viewmodel.main.apply.extension.detail.ApplyExtensionFloorDetailViewModel
 import com.dsm.dms.presentation.viewmodel.main.apply.extension.detail.ApplyExtensionFloorDetailViewModelFactory
+import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.fragment_apply_extension_floor_detail.*
 import splitties.views.centerText
 import splitties.views.dsl.appcompat.AppCompatStyles
@@ -29,6 +30,7 @@ import javax.inject.Inject
 
 
 class ApplyExtensionFloorDetailFragment: DataBindingInjectFragment<FragmentApplyExtensionFloorDetailBinding>() {
+
     override val layoutId: Int
         get() = R.layout.fragment_apply_extension_floor_detail
 
@@ -42,8 +44,8 @@ class ApplyExtensionFloorDetailFragment: DataBindingInjectFragment<FragmentApply
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel.nowFloor.value = arguments?.getInt("floor")
         binding.vm = viewModel
+        viewModel.nowFloor.value = arguments?.getInt("floor")
     }
 
     override fun onAttach(context: Context) {
@@ -57,55 +59,68 @@ class ApplyExtensionFloorDetailFragment: DataBindingInjectFragment<FragmentApply
         viewModel.backToListEvent.observe(this, Observer {
             back()
         })
+
         viewModel.setTitleEvent.observe(this, Observer {
             extension_floor_detail_title_tv.text = "${it}층"
         })
-        viewModel.setFirstFloorRoomsEvent.observe(this, Observer {
-            setFloorRoomsFragment(FirstRoomsFragment(viewModel))
+
+        viewModel.nowFloor.observe(this, Observer {
+            searchFloorRoomsFragment(it)
         })
-        viewModel.setSecondFloorRoomsEvent.observe(this, Observer {
-            setFloorRoomsFragment(SecondRoomsFragment(viewModel))
-        })
-        viewModel.setThirdFloorRoomsEvent.observe(this, Observer {
-            setFloorRoomsFragment(ThirdRoomsFragment(viewModel))
-        })
-        viewModel.setFourthFloorRoomsEvent.observe(this, Observer {
-            setFloorRoomsFragment(FourthRoomsFragment(viewModel))
-        })
-        viewModel.setFifthFloorRoomsEvent.observe(this, Observer {
-            setFloorRoomsFragment(FifthRoomsFragment(viewModel))
-        })
+
         viewModel.elevenClockEvent.observe(this, Observer {
-            resources.changeTitleCardColor(
-                extension_floor_detail_eleven_card,
-                extension_floor_detail_eleven_tv,
-                it.first
-            )
-            resources.changeTitleCardColor(
-                extension_floor_detail_twelve_card,
-                extension_floor_detail_twelve_tv,
-                it.second
-            )
-            extension_floor_detail_eleven_card.isClickable = false
-            extension_floor_detail_twelve_card.isClickable = true
+            changeClockColor(true)
         })
+
         viewModel.twelveClockEvent.observe(this, Observer {
-            resources.changeTitleCardColor(
-                extension_floor_detail_twelve_card,
-                extension_floor_detail_twelve_tv,
-                it.first
-            )
-            resources.changeTitleCardColor(
-                extension_floor_detail_eleven_card,
-                extension_floor_detail_eleven_tv,
-                it.second
-          )
-            extension_floor_detail_eleven_card.isClickable = true
-            extension_floor_detail_twelve_card.isClickable = false
+            changeClockColor(false)
         })
+
         viewModel.changeMapEvent.observe(this, Observer {
             drawMap(it)
         })
+
+        viewModel.showMessageEvent.observe(this, Observer {
+            Snackbar.make(this.rootView, it, Snackbar.LENGTH_SHORT).show()
+        })
+
+        viewModel.onLoadEvent.observe(this, Observer {
+            extension_floor_detail_apply_btn.onLoad(it)
+        })
+
+        viewModel.onErrorEvent.observe(this, Observer {
+            extension_floor_detail_apply_btn.onError(it)
+        })
+
+        viewModel.onSuccessEvent.observe(this, Observer {
+            extension_floor_detail_apply_btn.onSuccess(it)
+        })
+    }
+
+    private fun changeClockColor(isEleven: Boolean) {
+        resources.changeTitleCardColor(
+            extension_floor_detail_eleven_card,
+            extension_floor_detail_eleven_tv,
+            isEleven
+        )
+        resources.changeTitleCardColor(
+            extension_floor_detail_twelve_card,
+            extension_floor_detail_twelve_tv,
+            isEleven.not()
+        )
+
+        extension_floor_detail_eleven_card.isClickable = isEleven.not()
+        extension_floor_detail_twelve_card.isClickable = isEleven
+    }
+
+    private fun searchFloorRoomsFragment(floor: Int) {
+        when(floor) {
+            1 -> setFloorRoomsFragment(FirstRoomsFragment(viewModel))
+            2 -> setFloorRoomsFragment(SecondRoomsFragment(viewModel))
+            3 -> setFloorRoomsFragment(ThirdRoomsFragment(viewModel))
+            4 -> setFloorRoomsFragment(FourthRoomsFragment(viewModel))
+            5 -> setFloorRoomsFragment(FifthRoomsFragment(viewModel))
+        }
     }
 
     private fun setFloorRoomsFragment(roomsFragment: Fragment)
@@ -168,7 +183,34 @@ class ApplyExtensionFloorDetailFragment: DataBindingInjectFragment<FragmentApply
         return space
     }
 
-    private fun drawMap(map: ArrayList<ArrayList<out Any>>) {
+    private fun addSeatView(
+        seat: Any,
+        rowContainer: LinearLayout,
+        appCompatStyles: AppCompatStyles
+    ) {
+        when (seat) {
+            is Int -> {
+                if (seat > 0)
+                    rowContainer.addView(
+                        createNobodySeat(appCompatStyles, seat)
+                    )
+                else
+                    rowContainer.addView(
+                        createSpace()
+                    )
+            }
+            is String ->
+                rowContainer.addView(
+                    createSomeoneSeat(appCompatStyles, seat)
+                )
+            else ->
+                rowContainer.addView(
+                    createSpaceView()
+                )
+        }
+    }
+
+    private fun drawMap(map: List<List<Any>>) {
         val appCompatStyles = AppCompatStyles(requireContext())
 
         extension_floor_detail_map.removeAllViews()
@@ -177,26 +219,7 @@ class ApplyExtensionFloorDetailFragment: DataBindingInjectFragment<FragmentApply
             val rowContainer = LinearLayout(requireContext())
 
             horizonMap.forEach { seat ->
-                when (seat) {
-                    is Int -> {
-                        if (seat > 0)
-                            rowContainer.addView(
-                                createNobodySeat(appCompatStyles, seat)
-                            )
-                        else
-                            rowContainer.addView(
-                                createSpace()
-                            )
-                    }
-                    is String ->
-                        rowContainer.addView(
-                            createSomeoneSeat(appCompatStyles, seat)
-                        )
-                    else ->
-                        rowContainer.addView(
-                            createSpaceView()
-                        )
-                }
+                addSeatView(seat, rowContainer, appCompatStyles)
             }
             rowContainer.layoutParams = LinearLayout.LayoutParams(
                 ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT

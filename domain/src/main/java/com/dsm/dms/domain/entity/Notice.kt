@@ -5,5 +5,6 @@ data class Notice(
     var date: String,
     var title: String,
     var content: String,
-    var views: Int
+    var views: Int,
+    var isViewed: Boolean
 )

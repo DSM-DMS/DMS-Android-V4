@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/room_nav_graph"
+    app:startDestination="@id/firstRoomsFragment">
+
+    <fragment
+        android:id="@+id/firstRoomsFragment"
+        android:name="com.dsm.dms.presentation.ui.fragment.apply.extension.rooms.FirstRoomsFragment"
+        android:label="FirstRoomsFragment" />
+    <fragment
+        android:id="@+id/secondRoomsFragment"
+        android:name="com.dsm.dms.presentation.ui.fragment.apply.extension.rooms.SecondRoomsFragment"
+        android:label="SecondRoomsFragment" />
+    <fragment
+        android:id="@+id/thirdRoomsFragment"
+        android:name="com.dsm.dms.presentation.ui.fragment.apply.extension.rooms.ThirdRoomsFragment"
+        android:label="ThirdRoomsFragment" />
+    <fragment
+        android:id="@+id/fourthRoomsFragment"
+        android:name="com.dsm.dms.presentation.ui.fragment.apply.extension.rooms.FourthRoomsFragment"
+        android:label="FourthRoomsFragment" />
+    <fragment
+        android:id="@+id/fifthRoomsFragment"
+        android:name="com.dsm.dms.presentation.ui.fragment.apply.extension.rooms.FifthRoomsFragment"
+        android:label="FifthRoomsFragment" />
+</navigation>

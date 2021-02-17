@@ -1,5 +1,6 @@
 package com.dsm.dms.data.datasource
 
+import com.dsm.dms.data.`object`.RoomData
 import com.dsm.dms.data.entity.ExtensionInfoData
 import com.dsm.dms.data.entity.MapData
 import com.dsm.dms.data.local.database.dao.ExtensionInfoDao
@@ -7,6 +8,7 @@ import com.dsm.dms.data.local.database.dao.MapDao
 import com.dsm.dms.data.local.database.entity.ExtensionInfoEntity
 import com.dsm.dms.data.local.database.entity.MapEntity
 import com.dsm.dms.data.remote.ApplyApi
+import com.dsm.dms.domain.`object`.Room
 import io.reactivex.Completable
 import io.reactivex.Maybe
 import io.reactivex.Single
@@ -18,11 +20,11 @@ class ExtensionDataSourceImpl(
     private val mapDao: MapDao
 ): ExtensionDataSource {
 
-    override fun getRemoteExtensionMap(time: Int, classNum: Int): Single<MapData> =
-        api.getExtensionStudyMap(time, classNum)
+    override fun getRemoteExtensionMap(room: RoomData): Single<MapData> =
+        api.getExtensionStudyMap(room.time, room.classNum.ordinal + 1)
 
-    override fun getLocalExtensionMap(time: Int, classNum: Int): MapEntity? =
-        mapDao.getMapData(time, classNum)
+    override fun getLocalExtensionMap(room: RoomData): MapEntity? =
+        mapDao.getMapData(room.time, room.classNum.ordinal + 1)
 
     override fun saveLocalExtensionMap(vararg mapEntity: MapEntity) =
         mapDao.saveMapData(*mapEntity)

@@ -1,32 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
 
     <data>
         <variable
             name="vm"
-            type="com.dsm.dms.presentation.viewmodel.main.mypage.etc.setting.SettingViewModel.SettingItemViewModel" />
+            type="com.dsm.dms.presentation.viewmodel.main.mypage.etc.setting.SettingViewModel.SettingItemViewModel"
+            />
     </data>
 
     <androidx.cardview.widget.CardView
         android:id="@+id/mypage_setting_dark_mode_card"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginHorizontal="24dp"
         app:cardCornerRadius="10dp"
         app:cardElevation="4dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginHorizontal="24dp"
         app:layout_constraintTop_toBottomOf="@id/mypage_setting_title_tv"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintEnd_toEndOf="parent"
+        >
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/mypage_setting_dark_mode_lay"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingVertical="12dp"
-            android:paddingHorizontal="16dp">
+            android:paddingHorizontal="16dp"
+            >
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/mypage_setting_dark_mode_title_tv"
@@ -35,32 +39,36 @@
                 android:textSize="14sp"
                 android:textColor="@color/colorNightBlack"
                 android:text="@{vm.setting.title}"
+                android:fontFamily="@font/nanum_square_otf_regular"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toTopOf="@id/mypage_setting_dark_mode_content_tv"/>
+                app:layout_constraintBottom_toTopOf="@id/mypage_setting_dark_mode_content_tv"
+                />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/mypage_setting_dark_mode_content_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:textSize="10sp"
+                android:textSize="12sp"
                 android:text="@{vm.setting.content}"
+                android:textColor="@color/colorNightBlack"
+                android:fontFamily="@font/nanum_square_otf_light"
+                android:layout_marginTop="8dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/mypage_setting_dark_mode_title_tv"/>
+                app:layout_constraintTop_toBottomOf="@id/mypage_setting_dark_mode_title_tv"
+                />
 
-            <androidx.appcompat.widget.SwitchCompat
-                android:id="@+id/mypage_setting_dark_mode_switch"
+            <com.dsm.dms.dmsviewlibrary.widget.DmsSettingSwitch
+                android:id="@+id/mypage_setting_switch"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:track="@drawable/track_selector"
-                android:thumb="@drawable/thumb_selector"
                 android:checked="@{vm.setting.checked}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
-                android:onClick="@{() -> vm.clickSwitch()}"/>
+                android:onClick="@{() -> vm.clickSwitch()}"
+                />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

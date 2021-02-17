@@ -8,7 +8,7 @@ import io.reactivex.Single
 import io.reactivex.disposables.CompositeDisposable
 
 
-class GetNoticeUseCase(
+class GetNoticeListUseCase(
     private val service: NoticeService,
     composite: CompositeDisposable
 ): UseCase<Unit, Result<List<Notice>>>(composite) {

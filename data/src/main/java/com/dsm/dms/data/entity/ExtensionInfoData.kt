@@ -2,38 +2,39 @@ package com.dsm.dms.data.entity
 
 import com.dsm.dms.data.local.database.entity.ExtensionInfoEntity
 import com.dsm.dms.domain.entity.ExtensionInfo
+import com.dsm.dms.domain.entity.enums.ClassNum
 
 
 data class ExtensionInfoData(
     var time: Int,
-    var classNumber: Int,
-    var seatNumber: Int
+    var classNum: ClassNum,
+    var seatNum: Int
 )
 
 fun ExtensionInfoData.toEntity() =
     ExtensionInfo(
-        classNumber = classNumber,
-        seatNumber = seatNumber,
+        classNum = classNum,
+        seatNum = seatNum,
         time = time
     )
 
 fun ExtensionInfo.toDataEntity() =
     ExtensionInfoData(
-        classNumber = classNumber,
-        seatNumber = seatNumber,
+        classNum = classNum,
+        seatNum = seatNum,
         time = time
     )
 
 fun ExtensionInfoData.toDbEntity() =
     ExtensionInfoEntity(
-        classNumber = classNumber,
-        seatNumber = seatNumber,
+        classNum = classNum,
+        seatNum = seatNum,
         time = time
     )
 
 fun ExtensionInfoEntity.toDataEntity() =
     ExtensionInfoData(
-        classNumber = classNumber,
-        seatNumber = seatNumber,
+        classNum = classNum,
+        seatNum = seatNum,
         time = time
     )
